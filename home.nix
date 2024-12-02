@@ -17,6 +17,8 @@
     ./shell/starship.nix
     ./shell/fish.nix
     ./shell/tmux.nix
+    ./editors/neovim.nix
+    ./editors/vscode.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -76,8 +78,6 @@
     hyprlock
     zapret
     obsidian
-    vscode
-    vscode-extensions.ms-vscode.cpptools-extension-pack
     gcc
     gdb
     python313Full
