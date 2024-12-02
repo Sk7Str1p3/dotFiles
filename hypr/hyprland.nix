@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -96,6 +96,7 @@
           "$MOD, F, togglefloating"
           "$MOD, P, pseudo"
           "$MOD, J, togglesplit"
+	  ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -o ${config.home.homeDirectory}/Pictures/Screenshots -m output"
 
           "$MOD, left, movefocus, l"
           "$MOD, right, movefocus, r"
