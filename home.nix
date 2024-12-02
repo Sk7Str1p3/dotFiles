@@ -45,7 +45,6 @@
     hyprshot
     hyprsunset
     hyprlock
-    hyprpanel
     hyprpaper
     yazi
     gimp

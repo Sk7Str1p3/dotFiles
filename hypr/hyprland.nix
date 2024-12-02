@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -12,7 +12,7 @@
 
       exec-once = [
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        "${pkgs.hyprpanel}/bin/hyprpanel"
+	"${inputs.ags.packages.${pkgs.system}.ags}/bin/ags run"
         "${pkgs.hyprpaper}/bin/hyprpaper"
       ];
 

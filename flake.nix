@@ -14,7 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     stylix.url = "github:danth/stylix";
     ags = {
@@ -38,7 +37,6 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          inputs.hyprpanel.overlay
           inputs.nur.overlay
         ];
       };
