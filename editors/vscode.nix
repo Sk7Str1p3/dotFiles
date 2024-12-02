@@ -13,6 +13,7 @@
       jnoortheen.nix-ide
       jeff-hykin.better-nix-syntax
       arrterian.nix-env-selector
+      mkhl.direnv
 
       ms-python.python
       ms-python.debugpy
@@ -20,9 +21,13 @@
       ms-python.vscode-pylance
       ms-pyright.pyright
       ms-python.black-formatter
+      matangover.mypy
+
+      dbaeumer.vscode-eslint
     ];
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "git.autofetch" = "true";
     };
   };
 }

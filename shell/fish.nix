@@ -19,6 +19,7 @@
       rebuild = "echo 'Password:' && sudo nixos-rebuild switch &| nom";
       update = "echo 'Password:' && sudo nixos-rebuild switch --upgrade-all &| nom";
       hm-update = "home-manager switch --impure -b bak &| nom";
+      hm-edit = "codium ~/.config/home-manager";
     };
   };
 }
