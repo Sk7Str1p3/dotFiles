@@ -7,6 +7,7 @@
     extensions = with pkgs.vscode-extensions; [
       catppuccin.catppuccin-vsc
       github.vscode-pull-request-github
+      chrischinchilla.vscode-pandoc
 
       bbenoist.nix
       kamadorueda.alejandra
