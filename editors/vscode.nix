@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     enableExtensionUpdateCheck = true;
@@ -16,10 +15,7 @@
       mkhl.direnv
 
       ms-python.python
-      ms-python.debugpy
       ms-python.flake8
-      ms-python.vscode-pylance
-      ms-pyright.pyright
       ms-python.black-formatter
       matangover.mypy
 
@@ -27,7 +23,12 @@
     ];
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "git.autofetch" = "true";
+
+      "git.autofetch" = true;
+      "git.enableSmartCommit" = true;
+
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd";
     };
   };
 }

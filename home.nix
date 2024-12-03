@@ -3,9 +3,7 @@
   config,
   pkgs,
   ...
-}:
-
-{
+}: {
   # # You may split your configuration into many files. If so, list them in imports.
   # # Also imports can be used for enabling programs added with flakes.
   imports = [
@@ -85,6 +83,10 @@
     pywal16
     nix-output-monitor
     inputs.ags.packages.${pkgs.system}.io
+    inputs.ags.packages.${pkgs.system}.battery
+    mypy
+    direnv
+    times-newer-roman
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
@@ -229,16 +231,14 @@
       display-Network = " 󰤨  Network";
       sidebar-mode = true;
     };
-    theme =
-      let
-        inherit (config.lib.formats.rasi) mkLiteral;
-      in
-      {
-        "*" = {
-          blue = mkLiteral "#cba6f7";
-          border-col = mkLiteral "#cba6f7";
-        };
+    theme = let
+      inherit (config.lib.formats.rasi) mkLiteral;
+    in {
+      "*" = {
+        blue = mkLiteral "#cba6f7";
+        border-col = mkLiteral "#cba6f7";
       };
+    };
   };
 
   programs.fzf = {

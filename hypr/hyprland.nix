@@ -1,10 +1,13 @@
-{ pkgs, inputs, config, ... }:
 {
+  pkgs,
+  inputs,
+  config,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     settings = {
-
       "$term" = "${pkgs.kitty}/bin/kitty";
       "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
       "$menu" = "${pkgs.rofi-wayland-unwrapped}/bin/rofi -show drun";
@@ -12,7 +15,7 @@
 
       exec-once = [
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-	"${inputs.ags.packages.${pkgs.system}.ags}/bin/ags run"
+        "${inputs.ags.packages.${pkgs.system}.ags}/bin/ags run"
         "${pkgs.hyprpaper}/bin/hyprpaper"
       ];
 
@@ -22,8 +25,8 @@
         border_size = 3;
         layout = "dwindle";
         /*
-          "col.active_border" = "rgb(c6a0f6)";
-          "col.inactive_border" = "rgba(d8abc270)";
+        "col.active_border" = "rgb(c6a0f6)";
+        "col.inactive_border" = "rgba(d8abc270)";
         */
         resize_on_border = false;
         allow_tearing = false;
@@ -38,13 +41,13 @@
         dim_special = 0.0;
         dim_around = 5.0e-2;
         /*
-          shadow = {
-                 enabled = true;
-                 range = 10;
-                 render_power = 4;
-                 scale = 5;
-                 color = "rgba(1a1a1aee)";
-               };
+        shadow = {
+               enabled = true;
+               range = 10;
+               render_power = 4;
+               scale = 5;
+               color = "rgba(1a1a1aee)";
+             };
         */
         rounding = 10;
         blur = {
@@ -96,7 +99,7 @@
           "$MOD, F, togglefloating"
           "$MOD, P, pseudo"
           "$MOD, J, togglesplit"
-	  ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -o ${config.home.homeDirectory}/Pictures/Screenshots -m output"
+          ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -o ${config.home.homeDirectory}/Pictures/Screenshots -m output"
 
           "$MOD, left, movefocus, l"
           "$MOD, right, movefocus, r"
@@ -112,15 +115,14 @@
         ]
         ++ (builtins.concatLists (
           builtins.genList (
-            i:
-            let
+            i: let
               ws = i + 1;
-            in
-            [
+            in [
               "$MOD, code:1${toString i}, workspace, ${toString ws}"
               "$MOD SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
             ]
-          ) 9
+          )
+          9
         ));
       bindm = [
         "$MOD, mouse:272, movewindow"
