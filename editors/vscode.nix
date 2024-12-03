@@ -24,6 +24,8 @@
     ];
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
+      "editor.fontSize" = 13;
 
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;
