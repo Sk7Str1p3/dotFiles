@@ -44,6 +44,7 @@
     blender
     yazi
     hyprshot
+    hyprpicker
     hyprsunset
     hyprlock
     hyprpaper

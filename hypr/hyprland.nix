@@ -100,6 +100,7 @@
           "$MOD, P, pseudo"
           "$MOD, J, togglesplit"
           ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -o ${config.home.homeDirectory}/Pictures/Screenshots -m output"
+          "SHIFT, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -o ${config.home.homeDirectory}/Pictures/Screenshots -m region -z"
 
           "$MOD, left, movefocus, l"
           "$MOD, right, movefocus, r"

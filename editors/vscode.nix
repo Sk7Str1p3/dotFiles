@@ -6,6 +6,7 @@
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       catppuccin.catppuccin-vsc
+      github.vscode-pull-request-github
 
       bbenoist.nix
       kamadorueda.alejandra
