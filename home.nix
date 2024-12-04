@@ -84,7 +84,6 @@
     pywal16
     nix-output-monitor
     inputs.ags.packages.${pkgs.system}.io
-    inputs.ags.packages.${pkgs.system}.battery
     mypy
     direnv
     times-newer-roman
@@ -187,6 +186,13 @@
   programs.ags = {
     enable = true;
     configDir = ./non-nix/ags;
+    extraPackages = with inputs.ags.packages.${pkgs.system}; [
+      hyprland
+      network
+      notifd
+      apps
+      mpris
+    ];
   };
   programs.git = {
     package = pkgs.gitFull;
