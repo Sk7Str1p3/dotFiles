@@ -20,47 +20,49 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nixvim,
-      catppuccin,
-      stylix,
-      ags,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          inputs.nur.overlay
-        ];
-      };
-    in
-    {
-      # home-manager output
-      homeConfigurations."Sk7Str1p3" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nixvim,
+    catppuccin,
+    stylix,
+    ags,
+    astal,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        inputs.nur.overlay
+      ];
+    };
+  in {
+    # home-manager output
+    homeConfigurations."Sk7Str1p3" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home.nix
-          catppuccin.homeManagerModules.catppuccin
-          nixvim.homeManagerModules.nixvim
-          stylix.homeManagerModules.stylix
-          ags.homeManagerModules.default
-        ];
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [
+        ./home.nix
+        catppuccin.homeManagerModules.catppuccin
+        nixvim.homeManagerModules.nixvim
+        stylix.homeManagerModules.stylix
+        ags.homeManagerModules.default
+      ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+      # Optionally use extraSpecialArgs
+      # to pass through arguments to home.nix
+      extraSpecialArgs = {
+        inherit inputs;
       };
     };
+  };
 }
