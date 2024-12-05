@@ -1,6 +1,5 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
-import { Viewport } from "./Viewport.tsx";
 
 const time = Variable("").poll(1000, "date")
 
@@ -13,18 +12,18 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             | Astal.WindowAnchor.LEFT
             | Astal.WindowAnchor.RIGHT}
         application={App}>
-        <box>
-            <button 
-                onClicked="rofi -show drun">
-                <label label="" />
+        <centerbox>
+            <button
+                onClicked="echo hello"
+                halign={Gtk.Align.CENTER} >
+                Welcome to AGS!
             </button>
-            <Viewport />
             <box />
             <button
-                onClick={() => print("hi")}
+                onClick={() => print("hello")}
                 halign={Gtk.Align.CENTER} >
                 <label label={time()} />
             </button>
-        </box>
+        </centerbox>
     </window>
 }

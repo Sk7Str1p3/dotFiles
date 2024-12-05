@@ -18,6 +18,7 @@
     shellAliases = {
       os-rebuild = "sudo nixos-rebuild switch &| nom";
       os-update = "sudo nixos-rebuild switch --upgrade-all &| nom";
+      os-cleanup = "sudo nix-collect-garbage -d";
       hm-update = "home-manager switch --impure -b bak &| nom";
       hm-edit = "codium ~/.config/home-manager";
     };

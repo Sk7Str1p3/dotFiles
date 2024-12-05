@@ -10,8 +10,6 @@
         // "allowJs": true,
         "jsx": "react-jsx",
         "jsxImportSource": "/home/Sk7Str1p3/.local/share/ags/gtk3",
-        "noEmit": true,
-        "allowImportingTsExtensions": true,
         "paths": {
             "astal": [
                 "/home/Sk7Str1p3/.local/share/ags"
