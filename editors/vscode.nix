@@ -33,6 +33,7 @@
 
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
+      "git.confirmSync" = false;
     };
   };
 }
