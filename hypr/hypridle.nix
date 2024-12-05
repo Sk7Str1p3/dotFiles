@@ -8,7 +8,8 @@
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
-        {
+        /*
+          {
           timeout = 150;
           on-timeout = "brightnessctl -s set 10";
           on-resume = "brightnessctl -r";
@@ -17,9 +18,10 @@
           timeout = 150;
           on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
           on-resume = "brightnessctl -sd rgb:kbd_backlight";
-        }
+        } shit's not gonna work on my hw
+        */
         {
-          timeout = 300;
+          timeout = 180;
           on-timeout = "loginctl lock-session";
         }
         {
