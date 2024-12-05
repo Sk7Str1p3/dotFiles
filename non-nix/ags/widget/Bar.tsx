@@ -1,7 +1,6 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
-
-import { Runner } from "./Runner.tsx"
+import { Viewport } from "./Viewport.tsx";
 
 const time = Variable("").poll(1000, "date")
 
@@ -15,7 +14,11 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             | Astal.WindowAnchor.RIGHT}
         application={App}>
         <box>
-            <Runner />
+            <button 
+                onClicked="rofi -show drun">
+                <label label="" />
+            </button>
+            <Viewport />
             <box />
             <button
                 onClick={() => print("hi")}

@@ -10,6 +10,7 @@
     ./hypr/hyprland.nix
     ./hypr/hyprlock.nix
     ./hypr/hyprpaper.nix
+    ./hypr/hypridle.nix
     ./themes/gtk.nix
     #./themes/stylix.nix
     ./shell/starship.nix
