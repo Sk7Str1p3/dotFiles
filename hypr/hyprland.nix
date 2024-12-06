@@ -24,10 +24,8 @@
         gaps_out = 30;
         border_size = 3;
         layout = "dwindle";
-        /*
         "col.active_border" = "rgb(c6a0f6)";
         "col.inactive_border" = "rgba(d8abc270)";
-        */
         resize_on_border = false;
         allow_tearing = false;
       };
