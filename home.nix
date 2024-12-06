@@ -79,6 +79,7 @@
     inputs.ags.packages.${pkgs.system}.io
     mypy
     direnv
+    hyprpaper
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 

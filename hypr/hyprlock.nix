@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -90,14 +89,14 @@
 
       # GENERAL
       general = {
-        disable_loading_bar = true;
-        hide_cursor = false;
+        disable_loading_bar = false;
+        hide_cursor = true;
       };
 
       # BACKGROUND
       background = {
         #monitor =;
-        path = "/home/lilac/Media/Pics/Walls/Cat/Min/min-12.png";
+        path = "/home/Sk7Str1p3/.config/pictures/wallpaper_blur.png";
         #blur_passes = 0;
         #color = "$base";
       };
@@ -126,9 +125,10 @@
         # }
         {
           text = "cmd[update:43200000] echo \"$(date +\"%M\")\"";
-          color = "$text";
+          color = "$mauve";
           font_size = 150;
-          font_family = "Lato Heavy";
+          # font_family = "Lato Heavy";
+          font_family = "JetBrainsMono";
           position = "0, 0";
           halign = "center";
           valign = "center";
@@ -136,17 +136,17 @@
         {
           text = "cmd[update:1000] echo \"$(date +\"%H\")\"";
           #text = "cmd[update:43200000] echo \"$(date +\"%H:%M\")\"";
-          color = "$text";
+          color = "$mauve";
           font_size = 150;
-          font_family = "Lato Heavy";
           #font_family = "Lato Heavy";
+          font_family = "JetBrainsMono";
           position = "0, 170";
           halign = "center";
           valign = "center";
         }
         {
           text = "cmd[update:43200000] echo \"$(date +\"%A\")\"";
-          color = "$subtext1";
+          color = "$lavender";
           font_family = "Lato Semibold";
           font_size = 20;
           #font_family = "RobotoMonoNerdFontMono-SemiBold";
@@ -156,7 +156,7 @@
         }
         {
           text = "cmd[update:43200000] echo \"$(date +\"%e %b\")\"";
-          color = "$subtext1";
+          color = "$lavender";
           font_family = "Lato Semibold";
           font_size = 20;
           #font_family = "RobotoMonoNerdFontMono-SemiBold";
@@ -188,13 +188,13 @@
           dots_spacing = 0.2;
           dots_center = true;
           rounding = 20;
-          outer_color = "$surface0";
+          outer_color = "$mauve";
           inner_color = "$surface3";
-          font_color = "$overlay1";
+          font_color = "$mauve";
           fade_on_empty = false;
-          font_family = "RobotoMonoNerdFont Medium";
+          font_family = "JetBrainsMono";
           #placeholder_text = ''Password...'';
-          placeholder_text = ''<span foreground="##$overlay1Alpha" font="RobotoMonoNerdFont Medium"><b>Password...</b></span>'';
+          placeholder_text = ''<span foreground="##$mauveAlpha" font="JetBrainsMono"><b>Passwd::</b></span>'';
           hide_input = false;
           check_color = "$surface0";
           fail_color = "$red";
