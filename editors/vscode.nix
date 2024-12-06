@@ -27,7 +27,10 @@
       "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
       "editor.fontLigatures" = true;
-      "editor.fontSize" = 12;
+      "editor.fontSize" = 16;
+      "editor.minimap.sectionHeaderFontSize" = 16;
+      "editor.suggestFontSize" = 16;
+      "scm.inputFontSize" = 16;
 
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;
