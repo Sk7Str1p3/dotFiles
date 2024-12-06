@@ -12,6 +12,7 @@
     ./hypr/hyprpaper.nix
     ./hypr/hypridle.nix
     ./themes/gtk.nix
+    ./themes/qt.nix
     #./themes/stylix.nix
     ./shell/starship.nix
     ./shell/fish.nix
@@ -41,15 +42,11 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     firefox
-    kitty
     blender
     yazi
     hyprshot
     hyprpicker
     hyprsunset
-    hyprlock
-    hyprpaper
-    yazi
     gimp
     nixfmt-rfc-style
     blender
@@ -57,15 +54,12 @@
     git-credential-manager
     firefox
     nixfmt-rfc-style
-    kitty
     figlet
     nautilus
     rofi-wayland
     rofi-power-menu
     hyprshot
     python313Full
-    gimp
-    swaybg
     wine-staging
     steam
     python312Packages.python-lsp-server
@@ -75,19 +69,16 @@
     obs-studio
     gnome-disk-utility
     udisks
-    hyprlock
     zapret
     obsidian
     gcc
     gdb
     python313Full
     any-nix-shell
-    pywal16
     nix-output-monitor
     inputs.ags.packages.${pkgs.system}.io
     mypy
     direnv
-    times-newer-roman
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
@@ -184,7 +175,8 @@
   # For configuration options, check
   # https://nix-community.github.io/home-manager/
 
-  programs.ags = {
+  /*
+     programs.ags = {
     enable = true;
     configDir = ./non-nix/ags;
     extraPackages = with inputs.ags.packages.${pkgs.system}; [
@@ -195,6 +187,7 @@
       mpris
     ];
   };
+  */
   programs.git = {
     package = pkgs.gitFull;
     enable = true;
