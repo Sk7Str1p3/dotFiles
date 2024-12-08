@@ -50,8 +50,6 @@
     hyprshot
     wine-staging
     steam
-    luajitPackages.lua-lsp
-    lldb_19
     obs-studio
     gnome-disk-utility
     udisks
@@ -63,6 +61,7 @@
     nix-output-monitor
     direnv
     onefetch
+    git
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
