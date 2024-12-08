@@ -7,19 +7,11 @@
   # # You may split your configuration into many files. If so, list them in imports.
   # # Also imports can be used for enabling programs added with flakes.
   imports = [
-    ./hypr/hyprland.nix
-    ./hypr/hyprlock.nix
-    ./hypr/hyprpaper.nix
-    ./hypr/hypridle.nix
-    ./themes/gtk.nix
-    ./themes/qt.nix
-    #./themes/stylix.nix
-    ./shell/starship.nix
-    ./shell/fish.nix
-    ./shell/tmux.nix
-    ./editors/neovim.nix
-    ./editors/vscode.nix
-    ./home/pkgs/dev_py.nix
+    ./hypr
+    ./themes
+    ./shell
+    ./editors
+    ./home
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -72,9 +64,9 @@
     gdb
     any-nix-shell
     nix-output-monitor
-    inputs.ags.packages.${pkgs.system}.io
     direnv
     hyprpaper
+    onefetch
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
@@ -97,7 +89,7 @@
     # '')
   ];
 
-  # You can enable systemd units per-user (actually nuhuh you cant. very sad((()
+  # You can enable systemd units per-user (actually nuh-uh you cant. very sad((()
   #  services.ollama = {
   #    enable = true;
   #    acceleration = "cuda";

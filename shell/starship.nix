@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
@@ -20,8 +19,8 @@
         "$c"
         "$custom"
         "$java"
-        "$php"
         "$python"
+        "$nix_shell"
         "[](bg:blue fg:teal)"
         "$status"
         "[](fg:blue bg:mauve)"
@@ -67,6 +66,14 @@
         symbol = " ";
         style = "bg:teal fg:surface0";
         format = "[$symbol$pyenv_prefix $version (\($virtualenv\) )]($style)";
+      };
+      nix_shell = {
+        symbol = " ";
+        pure_msg = "[Pure](bg:teal fg:surface0)";
+        impure_msg = "[Impure](bg:teal fg:red)";
+        unknown_msg = "[???](bg:teal fg:peach)";
+        style = "bg:teal fg:surface0";
+        format = "[$symbol $name ($state)]($style)";
       };
       status = {
         disabled = false;

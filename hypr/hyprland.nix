@@ -15,7 +15,7 @@
 
       exec-once = [
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        "${inputs.ags.packages.${pkgs.system}.ags}/bin/ags run"
+        # "${inputs.ags.packages.${pkgs.system}.ags}/bin/ags run"
         "${pkgs.hyprpaper}/bin/hyprpaper"
       ];
 
