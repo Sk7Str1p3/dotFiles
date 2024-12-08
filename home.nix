@@ -131,17 +131,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Some themes (e.g. Catppuccin) provides its own modules for NixOS
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    accent = "mauve";
-    pointerCursor = {
-      enable = true;
-      accent = "mauve";
-      flavor = "mocha";
-    };
-  };
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
