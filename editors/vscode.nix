@@ -3,7 +3,7 @@
     enable = true;
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       catppuccin.catppuccin-vsc
       github.vscode-pull-request-github
@@ -25,12 +25,16 @@
     ];
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
+
       "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
       "editor.minimap.sectionHeaderFontSize" = 16;
       "editor.suggestFontSize" = 16;
-      "scm.inputFontSize" = 16;
+
+      "terminal.integrated.fontSize" = 16;
+      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
+      "terminal.integrated.fontLigatures" = true;
 
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;

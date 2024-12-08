@@ -19,6 +19,7 @@
     ./shell/tmux.nix
     ./editors/neovim.nix
     ./editors/vscode.nix
+    ./home/pkgs/dev_py.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -53,19 +54,15 @@
     vesktop
     git-credential-manager
     firefox
-    nixfmt-rfc-style
     figlet
     nautilus
     rofi-wayland
     rofi-power-menu
     hyprshot
-    python313Full
     wine-staging
     steam
-    python312Packages.python-lsp-server
     luajitPackages.lua-lsp
     lldb_19
-    python312Packages.debugpy
     obs-studio
     gnome-disk-utility
     udisks
@@ -73,11 +70,9 @@
     obsidian
     gcc
     gdb
-    python313Full
     any-nix-shell
     nix-output-monitor
     inputs.ags.packages.${pkgs.system}.io
-    mypy
     direnv
     hyprpaper
 
@@ -218,7 +213,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     font = "JetBrainsMono Nerd Font Propo 13";
-    terminal = "\${pkgs.kitty}/bin/kitty";
+    terminal = "${pkgs.kitty}/bin/kitty";
     extraConfig = {
       modi = "run,drun,window";
       icon-theme = "Tela-circle-dracula";
