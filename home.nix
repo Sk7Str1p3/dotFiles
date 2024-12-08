@@ -37,9 +37,6 @@
     firefox
     blender
     yazi
-    hyprshot
-    hyprpicker
-    hyprsunset
     gimp
     nixfmt-rfc-style
     blender
@@ -65,7 +62,6 @@
     any-nix-shell
     nix-output-monitor
     direnv
-    hyprpaper
     onefetch
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
