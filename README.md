@@ -7,9 +7,10 @@
 
 <p1>On this branch, you can find my home-manager configs. My home env contains::<p1/>
 
-| Name | Descryption |
+| Name | Description |
 | ---- | ---- |
 |💧 \ Hypr** | Hyprland, Hyprpaper, Hyprlock and friends. Thx Vaxry for such a great things, appreciate it a LOT! |
 |🐟 \ Fish | Best Shell ever. Fast and comfort to use. So bad it's not POSIX-compatible :sob: |
+|🚀 \ Starship | Blazing fast and flexible cross-shell prompt. Beautiful and useful |
 </div>
 <hr/>
