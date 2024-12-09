@@ -47,7 +47,6 @@
     nautilus
     rofi-wayland
     rofi-power-menu
-    hyprshot
     wine-staging
     steam
     obs-studio
@@ -61,7 +60,6 @@
     nix-output-monitor
     direnv
     onefetch
-    git
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 

@@ -3,7 +3,6 @@
     home.packages = with pkgs; [
       hyprland
       hyprland-protocols
-      hyprgui
       hyprpaper
       hypridle
       hyprshot
