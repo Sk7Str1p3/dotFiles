@@ -4,6 +4,7 @@
       nix-output-monitor
       any-nix-shell
       alejandra
+      nixd
       direnv
     ];
   };
