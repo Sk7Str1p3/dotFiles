@@ -12,6 +12,7 @@
     ./shell
     ./editors
     ./home
+    ./non-nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -127,20 +128,6 @@
   # Many programs can be configured with home-manager modules.
   # For configuration options, check
   # https://nix-community.github.io/home-manager/
-
-  /*
-     programs.ags = {
-    enable = true;
-    configDir = ./non-nix/ags;
-    extraPackages = with inputs.ags.packages.${pkgs.system}; [
-      hyprland
-      network
-      notifd
-      apps
-      mpris
-    ];
-  };
-  */
   programs.git = {
     package = pkgs.gitFull;
     enable = true;

@@ -15,6 +15,7 @@
     };
     catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
+    ags.url = "github:aylur/ags";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     home-manager,
     nixvim,
     catppuccin,
+    ags,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -42,6 +44,7 @@
         ./home.nix
         catppuccin.homeManagerModules.catppuccin
         nixvim.homeManagerModules.nixvim
+        ags.homeManagerModules.default
       ];
 
       # Optionally use extraSpecialArgs
