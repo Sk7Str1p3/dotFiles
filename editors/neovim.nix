@@ -203,7 +203,7 @@
             title = "Quote";
             margin = 0;
             content = [
-              "You or Me?"
+              "TUI supremacy"
             ];
             highlight = "Statement";
             defaultColor = "";
@@ -236,7 +236,7 @@
           cmdline = {
             enabled = true;
             view = "cmdline_popup";
-            opts = { };
+            opts = {};
             format = {
               cmdline = {
                 icon = "";
@@ -252,7 +252,7 @@
                 icon = "?";
                 pattern = "^:%s*he?l?p?%s+";
               };
-              input = { };
+              input = {};
               lua = {
                 icon = "";
                 lang = "lua";
@@ -277,7 +277,7 @@
           popupmenu = {
             enabled = true;
             backend = "nui";
-            kindIcons = { };
+            kindIcons = {};
           };
         };
       };

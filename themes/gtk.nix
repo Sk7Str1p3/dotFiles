@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   gtk = {
     enable = true;
     theme = {
@@ -22,9 +21,8 @@
     iconTheme = {
       name = "Tela-circle-dracula";
       package = pkgs.tela-circle-icon-theme.override {
-        colorVariants = [ "dracula" ];
+        colorVariants = ["dracula"];
       };
     };
   };
-
 }

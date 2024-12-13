@@ -36,6 +36,8 @@
     # pkgs.hello
     firefox
     blender
+    gtk3
+    gtk4
     yazi
     gimp
     blender
