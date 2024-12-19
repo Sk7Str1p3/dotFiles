@@ -3,7 +3,7 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -42,6 +42,7 @@
       # the path to your home.nix.
       modules = [
         ./home.nix
+        ./home/modules/vesktop.nix
         catppuccin.homeManagerModules.catppuccin
         nixvim.homeManagerModules.nixvim
         ags.homeManagerModules.default

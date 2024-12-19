@@ -55,6 +55,7 @@
     gcc
     gdb
     onefetch
+    discord
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
@@ -186,5 +187,17 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
+  };
+  programs.ags = {
+    enable = true;
+    extraPackages = with inputs.ags.packages.${pkgs.system}; [
+      hyprland
+      network
+      notifd
+      tray
+      apps
+      mpris
+      wireplumber
+    ];
   };
 }

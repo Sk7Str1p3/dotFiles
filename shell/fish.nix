@@ -31,7 +31,7 @@
     };
     shellAliases = {
       os-rebuild = "sudo echo ; sudo nixos-rebuild switch &| nom";
-      os-update = "sudo echo ; sudo nixos-rebuild switch --upgrade-all &| nom";
+      os-update = "sudo echo ; sudo nixos-rebuild switch --upgrade-all --flake /etc/nixos#GodlikeNix &| nom";
       os-cleanup = "sudo nix-collect-garbage -d";
       os-edit = "code /etc/nixos";
 

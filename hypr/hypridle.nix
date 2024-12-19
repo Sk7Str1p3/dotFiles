@@ -21,11 +21,11 @@
         } shit's not gonna work on my hw
         */
         {
-          timeout = 180;
+          timeout = 330;
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 330;
+          timeout = 180;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }

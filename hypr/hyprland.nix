@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -14,8 +15,9 @@
 
       exec-once = [
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        # "${inputs.ags.packages.${pkgs.system}.ags}/bin/ags run"
+        "ags run"
         "${pkgs.hyprpaper}/bin/hyprpaper"
+        "${pkgs.hyprsunset}/bin/hyprsunset"
       ];
 
       general = {
@@ -133,6 +135,9 @@
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ];
+      layerrule = [
+        "blur, Bar"
       ];
     };
   };
