@@ -55,7 +55,6 @@
     gcc
     gdb
     onefetch
-    discord
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
@@ -146,7 +145,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "JetBrainsMono Nerd Font Propo";
       size = 12;
     };
     settings = {

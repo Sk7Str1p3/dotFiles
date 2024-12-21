@@ -3,7 +3,7 @@
     enable = true;
     flavor = "mocha";
     accent = "mauve";
-    pointerCursor = {
+    cursors = {
       enable = true;
       accent = "mauve";
       flavor = "mocha";

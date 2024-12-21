@@ -4,6 +4,7 @@
     theme = {
       package = pkgs.magnetic-catppuccin-gtk.override {
         shade = "dark";
+        accent = ["purple"];
         size = "standard";
         tweaks = [
           "black"
@@ -12,7 +13,7 @@
           "float"
         ];
       };
-      name = "Catppuccin-GTK-Dark";
+      name = "Catppuccin-GTK-Purple-Dark";
     };
     font = {
       name = "JetBrainsMono Nerd Font Propo";

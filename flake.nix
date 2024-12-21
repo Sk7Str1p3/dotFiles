@@ -7,7 +7,7 @@
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    #  inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -30,7 +30,7 @@
     pkgs = import nixpkgs {
       inherit system;
       overlays = [
-        inputs.nur.overlay
+        inputs.nur.overlays.default
       ];
     };
   in {
