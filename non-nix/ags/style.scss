@@ -25,7 +25,7 @@ window.Bar {
             padding-right: 4px;
         }
 
-        margin : 5px 5px 5px 5px;
+        margin : 5px 2px 5px 5px;
         border: 2px solid rgba($mauve, .8);
         background-color: rgba($mauve, .8);
         color: $base;
@@ -42,6 +42,7 @@ window.Bar {
 
     .Workspaces {
         background-color: rgba($surface0, .8);
+        border: 2px solid rgba($surface0, .8);
         padding: 0px 10px;
         margin: 5px 0px;
         border-radius: 10px;
@@ -79,6 +80,19 @@ window.Bar {
 
     .FocusedClient {
         color: $mauve;
+    }
+
+    .Time1 {
+        background: rgba($surface0, .8);
+        padding: 0px 5px 0px 15px;
+        margin: 5px 0px;
+        border-radius: 15px 5px 5px 15px;
+    }
+    .Time2 {
+        background: rgba($surface0, .8);
+        padding: 0px 15px 0px 5px;
+        margin: 5px 2px;
+        border-radius: 5px 15px 15px 5px;
     }
 
     .Media .Cover {

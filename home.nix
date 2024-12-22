@@ -1,3 +1,4 @@
+# link: https://nix-community.github.io/home-manager/options.xhtml
 {
   inputs,
   config,
@@ -36,7 +37,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    firefox
+    #firefox
     blender
     gtk3
     gtk4

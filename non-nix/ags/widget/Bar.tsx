@@ -1,14 +1,13 @@
-import { App } from "astal/gtk3"
 import { Variable, GLib, bind } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk3"
-import Hyprland from "gi://AstalHyprland"
 import Mpris from "gi://AstalMpris"
-//import Battery from "gi://AstalBattery"
 import Wp from "gi://AstalWp"
 import Network from "gi://AstalNetwork"
 import Tray from "gi://AstalTray"
 
 import { AppRunner } from "./AppRunner"
+import { Workspaces } from "./Workspaces"
+import { CavaRender } from "./Cava"
 
 function SysTray() {
     const tray = Tray.get_default()
@@ -81,37 +80,15 @@ function Media() {
                 />
             </box>
         ) : (
-            "Nothing Playing"
+            ""
         ))}
     </box>
 }
 
-function Workspaces() {
-    const hypr = Hyprland.get_default()
-    const ws: number = 7
-    const focusWorkspace = (workspaceId: number) =>
-        hypr.dispatch("workspace", workspaceId.toString());
-
-    return <box className="Workspaces">
-        {Array.from({length: ws},(_,i) => i + 1).map((i) => {
-            return (
-                <button
-                    valign={Gtk.Align.CENTER}
-                    className={bind(hypr, "focusedWorkspace").as(
-                        (fw) => {
-                            return i === fw.id
-                                ? "ws-button focused"
-                                : "ws-button";
-                        },
-                    )}
-                    onClicked={() => focusWorkspace(i)}/>
-            );
-        })}
-    </box>
-}
 
 
-function FocusedClient() {
+
+/*function FocusedClient() {
     const hypr = Hyprland.get_default()
     const focused = bind(hypr, "focusedClient")
 
@@ -122,14 +99,24 @@ function FocusedClient() {
             client && <label label={bind(client, "title").as(String)} />
         ))}
     </box>
-}
+}*/
 
-function Time({ format = "%H:%M - %A %e." }) {
+function Time1({ format = "%R" }) {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format(format)!)
 
     return <label
-        className="Time"
+        className="Time1"
+        onDestroy={() => time.drop()}
+        label={time()}
+    />
+}
+function Time2({ format = "%A, %d %b %Y" }) {
+    const time = Variable<string>("").poll(1000, () =>
+        GLib.DateTime.new_now_local().format(format)!)
+
+    return <label
+        className="Time2"
         onDestroy={() => time.drop()}
         label={time()}
     />
@@ -150,16 +137,17 @@ export default function Bar(monitor: Gdk.Monitor) {
             <box hexpand halign={Gtk.Align.START}>
                 <AppRunner />
                 <Workspaces />
-                <FocusedClient />
+                <CavaRender />
             </box>
             <box>
-                <Media />
+            <Time1 />
+            <Time2 />
             </box>
             <box hexpand halign={Gtk.Align.END} >
                 <SysTray />
                 <Wifi />
                 <AudioSlider />
-                <Time />
+                <Media />
             </box>
         </centerbox>
     </window>

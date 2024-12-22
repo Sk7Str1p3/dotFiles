@@ -14,6 +14,7 @@
       apps
       mpris
       wireplumber
+      cava
     ];
   };
 }
