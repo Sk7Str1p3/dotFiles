@@ -1,0 +1,110 @@
+@use "sass:color";
+
+$base: #1e1e2e;
+$text: #cdd6f4;
+$mauve: #cba6f7;
+
+window.Bar {
+    border: 3px solid rgba($mauve, .8);
+    border-radius: 14px;
+    box-shadow: none;
+    background-color: $base;
+    color: $text;
+    font-size: 1.1em;
+    font-weight: bold;
+
+    label {
+        margin: 8px 8px;
+    }
+
+    .AppRunner {
+        background-color: $mauve;
+        color: $base;
+
+        label {
+            margin: 4px 4px;
+        }
+    }
+    
+    .Workspaces {
+        button {
+            all: unset;
+            transition: 150ms;
+        }
+
+        .ws-button {
+            background-color: rgba($text, .4);
+            min-height: 6px;
+            min-width: 6px;
+            border-radius: 3px;
+            margin-left: 3px;
+            margin-right: 3px;
+
+            &.focused {
+                min-width: 25px;
+                min-height: 15px;
+                background-color: $mauve;
+                color: $mauve;
+                border-color: $mauve;
+            }
+        }
+    }
+
+    .SysTray {
+        margin-right: 8px;
+
+        button {
+            padding: 0 4px;
+        }
+    }
+
+    .FocusedClient {
+        color: $mauve;
+    }
+
+    .Media .Cover {
+        min-height: 1.2em;
+        min-width: 1.2em;
+        border-radius: 7px;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .Battery label {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .AudioSlider {
+        * {
+            all: unset;
+        }
+
+        icon {
+            margin-right: .6em;
+        }
+
+        & {
+            margin: 0 1em;
+        }
+
+        trough {
+            background-color: color.adjust($text, $alpha: -0.8);
+            border-radius: 7px;
+        }
+
+        highlight {
+            background-color: $mauve;
+            min-height: .8em;
+            border-radius: 7px;
+        }
+
+        slider {
+            background-color: $text;
+            border-radius: 7px;
+            min-height: 1em;
+            min-width: 1em;
+            margin: -.2em;
+        }
+    }
+}

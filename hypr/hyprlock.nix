@@ -96,7 +96,7 @@
       # BACKGROUND
       background = {
         #monitor =;
-        path = "/home/Sk7Str1p3/.config/pictures/wallpaper_blur.png";
+        path = "/home/Sk7Str1p3/.config/home-manager/non-nix/images/wallpaper_blur.png";
         #blur_passes = 0;
         #color = "$base";
       };

@@ -107,6 +107,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 
   # Let Home Manager install and manage itself.
@@ -186,17 +187,5 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
-  };
-  programs.ags = {
-    enable = true;
-    extraPackages = with inputs.ags.packages.${pkgs.system}; [
-      hyprland
-      network
-      notifd
-      tray
-      apps
-      mpris
-      wireplumber
-    ];
   };
 }
