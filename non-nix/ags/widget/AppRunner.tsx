@@ -4,4 +4,5 @@ export function AppRunner() {
         onClicked="rofi -show drun" >
             
     </button>
+    // TODO: Replace rofi with custom widget
 }

@@ -2,13 +2,14 @@
 
 $base: #1e1e2e;
 $text: #cdd6f4;
+$surface0:#343451;
 $mauve: #cba6f7;
 
 window.Bar {
     border: 3px solid rgba($mauve, .8);
     border-radius: 14px;
     box-shadow: none;
-    background-color: $base;
+    background-color: rgba($base, .3);
     color: $text;
     font-size: 1.1em;
     font-weight: bold;
@@ -18,18 +19,36 @@ window.Bar {
     }
 
     .AppRunner {
-        background-color: $mauve;
-        color: $base;
-
         label {
-            margin: 4px 4px;
+            margin: 0px 0px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        margin : 5px 5px 5px 5px;
+        border: 2px solid rgba($mauve, .8);
+        background-color: rgba($mauve, .8);
+        color: $base;
+        border-color: rgba($mauve, .8);
+        border-radius: 10px;
+
+        &:hover {
+            background-color: color.adjust($mauve, $alpha: -0.8);
+            border: 2px solid rgba($mauve, .8);
+            margin: 5px 5px 5px 5px;
+            color: $mauve
         }
     }
-    
+
     .Workspaces {
+        background-color: rgba($surface0, .8);
+        padding: 0px 10px;
+        margin: 5px 0px;
+        border-radius: 10px;
+
         button {
             all: unset;
-            transition: 150ms;
+            transition: 250ms;
         }
 
         .ws-button {
@@ -41,7 +60,7 @@ window.Bar {
             margin-right: 3px;
 
             &.focused {
-                min-width: 25px;
+                min-width: 30px;
                 min-height: 15px;
                 background-color: $mauve;
                 color: $mauve;
