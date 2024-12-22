@@ -12,6 +12,7 @@
     ./shell
     ./editors
     ./home
+    ./web
     ./non-nix
   ];
 
