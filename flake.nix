@@ -3,11 +3,11 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager";
-    #  inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -16,6 +16,7 @@
     catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -24,6 +25,7 @@
     nixvim,
     catppuccin,
     ags,
+    hyprpanel,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -31,6 +33,7 @@
       inherit system;
       overlays = [
         inputs.nur.overlays.default
+        inputs.hyprpanel.overlay
       ];
     };
   in {

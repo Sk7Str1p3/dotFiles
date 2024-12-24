@@ -187,7 +187,7 @@
               ]
               [
                 " Edit Home"
-                "e /etc/nixos/home-Sk7Str1p3.nix"
+                "Yazi ~/.config/home-manager"
                 "ec"
               ]
             ];

@@ -1,4 +1,4 @@
-import { Variable, GLib, bind } from "astal"
+import { bind } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk3"
 import Mpris from "gi://AstalMpris"
 import Wp from "gi://AstalWp"
@@ -8,6 +8,7 @@ import Tray from "gi://AstalTray"
 import { AppRunner } from "./AppRunner"
 import { Workspaces } from "./Workspaces"
 import { CavaRender } from "./Cava"
+import { Time } from "./Time"
 
 function SysTray() {
     const tray = Tray.get_default()
@@ -101,26 +102,6 @@ function Media() {
     </box>
 }*/
 
-function Time1({ format = "%R" }) {
-    const time = Variable<string>("").poll(1000, () =>
-        GLib.DateTime.new_now_local().format(format)!)
-
-    return <label
-        className="Time1"
-        onDestroy={() => time.drop()}
-        label={time()}
-    />
-}
-function Time2({ format = "%A, %d %b %Y" }) {
-    const time = Variable<string>("").poll(1000, () =>
-        GLib.DateTime.new_now_local().format(format)!)
-
-    return <label
-        className="Time2"
-        onDestroy={() => time.drop()}
-        label={time()}
-    />
-}
 
 export default function Bar(monitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
@@ -140,8 +121,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                 <CavaRender />
             </box>
             <box>
-            <Time1 />
-            <Time2 />
+            <Time />
             </box>
             <box hexpand halign={Gtk.Align.END} >
                 <SysTray />
