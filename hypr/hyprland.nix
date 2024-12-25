@@ -7,17 +7,21 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+
     settings = {
       "$term" = "${pkgs.kitty}/bin/kitty";
       "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
-      "$menu" = "${pkgs.rofi-wayland-unwrapped}/bin/rofi -show drun";
+      "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$cliFM" = "${pkgs.yazi}/bin/yazi";
 
+      env = [
+        "NIXOS_OZONE_WL, 1"
+      ];
       exec-once = [
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "ags run"
         "${pkgs.hyprpaper}/bin/hyprpaper"
-        "${pkgs.hyprsunset}/bin/hyprsunset"
+        "${pkgs.hyprsunset}/bin/hyprsunset -t 4000"
       ];
 
       general = {

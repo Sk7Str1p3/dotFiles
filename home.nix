@@ -57,6 +57,7 @@
     gcc
     gdb
     onefetch
+    wofi
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 

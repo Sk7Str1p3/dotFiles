@@ -38,6 +38,8 @@
       hm-update = "home-manager switch --impure -b bak &| nom";
       hm-edit = "code ~/.config/home-manager";
 
+      nixpkgs-find = "nix search nixpkgs";
+
       corr = "fuck";
     };
   };
