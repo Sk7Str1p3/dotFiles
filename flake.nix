@@ -17,8 +17,7 @@
     catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
-    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils"; # Temporary fix, remove then hyprland-qtutils get pushed into nixpkgs
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -27,6 +26,7 @@
     nixvim,
     catppuccin,
     ags,
+    hyprpanel,
     ...
   } @ inputs: let
     system = "x86_64-linux";
