@@ -5,10 +5,15 @@
     enableUpdateCheck = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
+      # VSC generic extensions
       catppuccin.catppuccin-vsc
-      github.vscode-pull-request-github
-      chrischinchilla.vscode-pandoc
 
+      # Better Git integration
+      mhutchie.git-graph
+      github.vscode-pull-request-github
+      eamodio.gitlens
+
+      # Nix-specific extensions for better workflow
       bbenoist.nix
       kamadorueda.alejandra
       jnoortheen.nix-ide
@@ -16,12 +21,18 @@
       arrterian.nix-env-selector
       mkhl.direnv
 
+      # Rust workflow
+      rust-lang.rust-analyzer
+      fill-labs.dependi
+
+      # Python-specific
       ms-python.python
       ms-python.flake8
       ms-python.black-formatter
       matangover.mypy
 
       dbaeumer.vscode-eslint
+      chrischinchilla.vscode-pandoc
     ];
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";

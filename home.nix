@@ -57,7 +57,8 @@
     gcc
     gdb
     onefetch
-    wofi
+    snowmachine
+    hyprpanel
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 
@@ -166,7 +167,6 @@
       modi = "run,drun,window";
       icon-theme = "Tela-circle-dracula";
       show-icons = true;
-      terminal = "alacritty";
       drun-display-format = "{icon} {name}";
       location = 0;
       disable-history = false;

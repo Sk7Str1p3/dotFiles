@@ -7,7 +7,7 @@ import Tray from "gi://AstalTray"
 
 import { AppRunner } from "./AppRunner"
 import { Workspaces } from "./Workspaces"
-import { CavaRender } from "./Cava"
+import { CavaDraw } from "./Cava"
 import { Time } from "./Time"
 
 function SysTray() {
@@ -118,7 +118,7 @@ export default function Bar(monitor: Gdk.Monitor) {
             <box hexpand halign={Gtk.Align.START}>
                 <AppRunner />
                 <Workspaces />
-                <CavaRender />
+                <CavaDraw />
             </box>
             <box>
             <Time />
@@ -127,7 +127,6 @@ export default function Bar(monitor: Gdk.Monitor) {
                 <SysTray />
                 <Wifi />
                 <AudioSlider />
-                <Media />
             </box>
         </centerbox>
     </window>

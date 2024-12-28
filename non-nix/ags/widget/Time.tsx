@@ -1,6 +1,6 @@
 import { Variable, GLib } from "astal"
 
-export function Time({ format = "%R │ %A, %d %b %Y" }) {
+export function Time({ format = "%R, %b %d" }) {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format(format)!)
 

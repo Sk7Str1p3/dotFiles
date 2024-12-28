@@ -25,7 +25,7 @@ window.Bar {
             padding-right: 4px;
         }
 
-        margin : 5px 2px 5px 5px;
+        margin : 5px 5px 5px 5px;
         border: 2px solid rgba($mauve, .8);
         background-color: rgba($mauve, .8);
         color: $base;
@@ -42,7 +42,7 @@ window.Bar {
 
     .Workspaces {
         background-color: rgba($surface0, .8);
-        border: 2px solid rgba($surface0, .8);
+        border: 2px solid rgba($mauve, .8);
         padding: 0px 10px;
         margin: 5px 0px;
         border-radius: 10px;
@@ -68,6 +68,15 @@ window.Bar {
                 border-color: $mauve;
             }
         }
+    }
+
+    .Cava {
+        background-color: rgba($surface0, .8);
+        border: 2px solid rgba($surface0, .8);
+        color: $mauve;
+        padding: 2px 5px;
+        margin: 5px 5px;
+        border-radius: 10px;
     }
 
     .SysTray {
