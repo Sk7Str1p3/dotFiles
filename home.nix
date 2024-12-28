@@ -58,7 +58,6 @@
     gdb
     onefetch
     snowmachine
-    hyprpanel
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 

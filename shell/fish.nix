@@ -30,15 +30,14 @@
       '';
     };
     shellAliases = {
-      os-rebuild = "sudo echo ; sudo nixos-rebuild switch &| nom";
-      os-update = "sudo echo ; sudo nixos-rebuild switch --upgrade-all --flake /etc/nixos#GodlikeNix &| nom";
+      os-rebuild = "sudo echo ; sudo nixos-rebuild switch --flake /etc/nixos#GodlikeNix &| nom";
+      os-update = "sudo echo ; nix flake update --flake /etc/nixos ; sudo nixos-rebuild switch --flake /etc/nixos#GodlikeNix &| nom";
       os-cleanup = "sudo nix-collect-garbage -d";
       os-edit = "code /etc/nixos";
 
-      hm-update = "home-manager switch --impure -b bak &| nom";
+      hm-rebuild = "home-manager switch --impure -b bak &| nom";
+      hm-update = "nix flake update --flake ~/.config/home-manager ; home-manager switch --impure -b bak &| nom";
       hm-edit = "code ~/.config/home-manager";
-
-      nixpkgs-find = "nix search nixpkgs";
 
       corr = "fuck";
     };

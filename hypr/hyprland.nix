@@ -12,7 +12,7 @@
       "$term" = "${pkgs.kitty}/bin/kitty";
       "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
-      "$cliFM" = "${pkgs.yazi}/bin/yazi";
+      "$cliFM" = "$term -e ${pkgs.yazi}/bin/yazi";
 
       env = [
         "NIXOS_OZONE_WL, 1"
@@ -43,15 +43,6 @@
         dim_strength = 0.15;
         dim_special = 0.0;
         dim_around = 5.0e-2;
-        /*
-        shadow = {
-               enabled = true;
-               range = 10;
-               render_power = 4;
-               scale = 5;
-               color = "rgba(1a1a1aee)";
-             };
-        */
         rounding = 10;
         blur = {
           enabled = true;

@@ -5,6 +5,7 @@
       gnome-disk-utility
       gnome-calculator
       gnome-calendar
+      loupe
     ];
   };
 }

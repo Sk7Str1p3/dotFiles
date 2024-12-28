@@ -20,9 +20,9 @@
       size = 12;
     };
     iconTheme = {
-      name = "Tela-circle-dracula";
+      name = "Tela-circle-purple";
       package = pkgs.tela-circle-icon-theme.override {
-        colorVariants = ["dracula"];
+        colorVariants = ["purple"];
       };
     };
   };
