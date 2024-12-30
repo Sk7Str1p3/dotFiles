@@ -5,10 +5,11 @@ import Wp from "gi://AstalWp"
 import Network from "gi://AstalNetwork"
 import Tray from "gi://AstalTray"
 
-import { AppRunner } from "./AppRunner"
+import AppRunner from "./Left/AppRunner/BarButton"
 import { Workspaces } from "./Workspaces"
 import { CavaDraw } from "./Cava"
 import { Time } from "./Time"
+import Power from "./Right/Power/BarButton"
 
 function SysTray() {
     const tray = Tray.get_default()
@@ -49,7 +50,8 @@ function AudioSlider() {
     </box>
 }
 
-/*function BatteryLevel() {
+/* Useless on desktop
+function BatteryLevel() {
     const bat = Battery.get_default()
 
     return <box className="Battery"
@@ -127,6 +129,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                 <SysTray />
                 <Wifi />
                 <AudioSlider />
+                <Power />
             </box>
         </centerbox>
     </window>

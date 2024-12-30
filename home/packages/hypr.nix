@@ -10,7 +10,6 @@
       hyprsunset
       hyprutils
       hyprland-qtutils
-      #hyprpanel
     ];
   };
 }

@@ -93,9 +93,26 @@ window.Bar {
 
     .Time {
         background: rgba($surface0, .8);
-        padding: 0px 10px 0px 10px;
+        font-weight: bold;
+        border: 2px solid rgba($surface0, .8);
+        color: $mauve;
+        padding: 0px 5px 0px 5px;
         margin: 5px 0px;
         border-radius: 10px;
+
+        &:hover {
+            border: 2px solid rgba($mauve, .8);
+        }
+    }
+
+    .Calendar {
+        background: $base;
+        min-height: 100px;
+        min-width: 100px;
+        .Menu {
+            background: $base;
+            color: $mauve;
+        }
     }
 
     .Media .Cover {
@@ -141,6 +158,28 @@ window.Bar {
             min-height: 1em;
             min-width: 1em;
             margin: -.2em;
+        }
+    }
+
+    .Power {
+        label {
+            margin: 0px 0px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        margin : 5px 5px 5px 5px;
+        border: 2px solid rgba($mauve, .8);
+        background-color: rgba($mauve, .8);
+        color: $base;
+        border-color: rgba($mauve, .8);
+        border-radius: 10px;
+
+        &:hover {
+            background-color: color.adjust($mauve, $alpha: -0.8);
+            border: 2px solid rgba($mauve, .8);
+            margin: 5px 5px 5px 5px;
+            color: $mauve
         }
     }
 }

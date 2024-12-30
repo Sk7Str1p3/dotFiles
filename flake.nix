@@ -17,7 +17,6 @@
     catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -26,7 +25,6 @@
     nixvim,
     catppuccin,
     ags,
-    hyprpanel,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,7 +32,6 @@
       inherit system;
       overlays = [
         inputs.nur.overlays.default
-        inputs.hyprpanel.overlay
       ];
     };
   in {

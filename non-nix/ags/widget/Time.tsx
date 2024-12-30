@@ -1,12 +1,16 @@
 import { Variable, GLib } from "astal"
+import { CalendarSheet } from "./Calendar"
 
 export function Time({ format = "%R, %b %d" }) {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format(format)!)
 
-    return <label
+    return <button
         className="Time"
-        onDestroy={() => time.drop()}
-        label={time()}
-    />
+        onClick={() => CalendarSheet()}>
+        <label
+            onDestroy={() => time.drop()}
+            label={time()}
+        />
+    </button>
 }

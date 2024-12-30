@@ -18,14 +18,14 @@
       kamadorueda.alejandra
       jnoortheen.nix-ide
       jeff-hykin.better-nix-syntax
-      arrterian.nix-env-selector
+      # arrterian.nix-env-selector
       mkhl.direnv
 
       # Rust workflow
       rust-lang.rust-analyzer
       fill-labs.dependi
 
-      # Python-specific
+      # Python workflow
       ms-python.python
       ms-python.flake8
       ms-python.black-formatter

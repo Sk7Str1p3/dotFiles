@@ -30,9 +30,9 @@
       '';
     };
     shellAliases = {
-      os-rebuild = "sudo echo ; sudo nixos-rebuild switch --flake /etc/nixos#GodlikeNix &| nom";
-      os-update = "sudo echo ; nix flake update --flake /etc/nixos ; sudo nixos-rebuild switch --flake /etc/nixos#GodlikeNix &| nom";
-      os-cleanup = "sudo nix-collect-garbage -d";
+      os-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#GodlikeNix &| nom";
+      os-update = "nix flake update --flake /etc/nixos ; sudo nixos-rebuild switch --flake /etc/nixos#GodlikeNix &| nom";
+      os-cleanup = "sudo nix-collect-garbage --delete-older-than 3d";
       os-edit = "code /etc/nixos";
 
       hm-rebuild = "home-manager switch --impure -b bak &| nom";
