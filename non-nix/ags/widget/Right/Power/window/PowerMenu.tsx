@@ -20,14 +20,16 @@ export default function PowerMenu() {
             <box hexpand={false} vertical>
                 <eventbox heightRequest={100} onClick={PowerHide} />
                 <box widthRequest={50} className="Power" vertical>
-                    <box spacing={6} vertical>
+                    <box spacing={6} 
+                        marginLeft={1850}
+                        vertical>
                         <button
                         onClick={() => /*PowerSlider(Shutdown)*/ print("нахуй иди")} >
                             ⏻
                         </button>
                         <button
                         onClick={() => /*PowerSlider(Sleep)*/ print("нахуй иди")} >
-                            
+                            
                         </button>
                         <button
                         onClick={() => /*PowerSlider(Lock)*/ print("нахуй иди")} >
@@ -35,11 +37,11 @@ export default function PowerMenu() {
                         </button>
                         <button
                         onClick={() => /*PowerSlider(Hibernate)*/ print("нахуй иди")} >
-                            ⏻
+                            󰤄
                         </button>
                         <button
                         onClick={() => /*PowerSlider(Reboot)*/ print("нахуй иди")} >
-                            ⏻
+                            󰒲
                         </button>
                     </box>
                 </box>

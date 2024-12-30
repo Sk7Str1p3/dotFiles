@@ -17,6 +17,7 @@
     catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
+    nix-software-center.url = "github:snowfallorg/nix-software-center";
   };
 
   outputs = {

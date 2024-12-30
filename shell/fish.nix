@@ -11,7 +11,17 @@
           hash = "sha256-DMIRKRAVOn7YEnuAtz4hIxrU93ULxNoQhW6juxCoh4o=";
         };
       }
-      #async-prompt
+      /*
+        {
+        name = "Async";
+        src = pkgs.fetchFromGitHub {
+          owner = "acomagu";
+          repo = "fish-async-prompt";
+          rev = "v1.2.0";
+          hash = "sha256-B7Ze0a5Zp+5JVsQUOv97mKHh5wiv3ejsDhJMrK7YOx4=";
+        };
+      }
+      */
       #puffer
     ];
     interactiveShellInit = ''
@@ -39,6 +49,7 @@
       hm-update = "nix flake update --flake ~/.config/home-manager ; home-manager switch --impure -b bak &| nom";
       hm-edit = "code ~/.config/home-manager";
 
+      ls = "eza";
       corr = "fuck";
     };
   };

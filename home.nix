@@ -21,12 +21,10 @@
   # manage.
   home.username = "Sk7Str1p3";
   home.homeDirectory = "/home/Sk7Str1p3";
-  /*
-    home.language = {
-    base = "ru";
-    collate = "us";
+  home.language = {
+    base = "ru_RU.UTF-8";
+    collate = "en_US.UTF-8";
   };
-  */
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -45,25 +43,18 @@
     # pkgs.hello
     #firefox
     blender
-    gtk3
-    gtk4
-    yazi
     gimp
     blender
-    vesktop
     git-credential-manager
-    figlet
     rofi-wayland
     rofi-power-menu
     wine-staging
     steam
     obs-studio
-    zapret
     obsidian
-    gcc
-    gdb
     onefetch
     snowmachine
+    inputs.nix-software-center.packages.${system}.nix-software-center
 
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
 

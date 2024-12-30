@@ -5,5 +5,7 @@
     fastfetch
     starship
     tmux
+    eza
+    yazi
   ];
 }
