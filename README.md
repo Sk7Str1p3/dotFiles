@@ -3,9 +3,9 @@
 </div>
 <hr/>
 <div class="body">
-<p1>Sk7's home configuration with both standard and declarative configs!</p1>
+<p>Sk7's home configuration with both standard and declarative configs!</p>
 
-<p1>On this branch, you can find my home-manager configs. My home env contains::<p1/>
+<p>On this branch, you can find my home-manager configs. My home env contains::<p/>
 
 | Name | Description |
 | ---- | ---- |
@@ -15,6 +15,7 @@
 |💅 \ AGS (Astal) | My God that's best framework for customising desktop! We love you, Aylur!! |
 |✍️ \ VSCode | You may think its bloated and slow, but its easiest most powerful Editor I've ever used |
 |✍️ \ NeoViM | Godlike Editor, but hard and long to configure |
-<p1>and many more in my repo...</p1>
+
+and many more in my repo...
 </div>
 <hr/>
