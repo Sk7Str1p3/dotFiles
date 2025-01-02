@@ -17,7 +17,10 @@
     catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
+
     nix-software-center.url = "github:snowfallorg/nix-software-center";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
   };
 
   outputs = {
@@ -26,6 +29,7 @@
     nixvim,
     catppuccin,
     ags,
+    nix-flatpak,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -48,6 +52,7 @@
         catppuccin.homeManagerModules.catppuccin
         nixvim.homeManagerModules.nixvim
         ags.homeManagerModules.default
+        nix-flatpak.homeManagerModules.nix-flatpak
       ];
 
       # Optionally use extraSpecialArgs

@@ -22,7 +22,7 @@
   home.username = "Sk7Str1p3";
   home.homeDirectory = "/home/Sk7Str1p3";
   home.language = {
-    base = "ru_RU.UTF-8";
+    base = "en_US.UTF-8";
     collate = "en_US.UTF-8";
   };
 
@@ -48,15 +48,16 @@
     git-credential-manager
     rofi-wayland
     rofi-power-menu
-    wine-staging
     steam
+    sambaFull
     obs-studio
     obsidian
     onefetch
     snowmachine
     inputs.nix-software-center.packages.${system}.nix-software-center
-
+    inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
     inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
+    wineWowPackages.stagingFull
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -65,6 +66,25 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+  services.flatpak = {
+    enable = true;
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://flathub.org/repo/flathub.flatpakrepo";
+      }
+      {
+        name = "flathub-beta";
+        location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
+      }
+    ];
+    packages = [
+      {
+        appId = "ch.tlaun.TL";
+        origin = "flathub-beta";
+      }
+    ];
+  };
 
   # You can enable systemd units per-user (actually nuh-uh you cant. very sad((()
   #  services.ollama = {
@@ -117,7 +137,7 @@
     gtk.enable = true;
     x11.enable = true;
     name = "catppuccin-mocha-mauve-cursors";
-    size = 24;
+    size = 32;
   };
 
   # Set xdg user directories:

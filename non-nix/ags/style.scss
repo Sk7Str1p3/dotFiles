@@ -183,3 +183,31 @@ window.Bar {
         }
     }
 }
+
+window#power {
+    all: unset;
+    background: none;
+
+    box.PowerMenu {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 5px;
+        background-color: rgba($base, .8);
+        border: 2px solid $mauve;
+        border-radius: 10px;
+
+        button {
+            background-color: $surface0;
+            color: $mauve;
+            border: 2px solid $mauve;
+            margin-top: 3px;
+            margin-bottom: 3px;
+
+            &:hover {
+                background-color: rgba($mauve, $alpha: 0.8);
+                //border: 2px solid rgba($mauve, .8);
+                color: $surface0
+            }
+        }
+    }
+}

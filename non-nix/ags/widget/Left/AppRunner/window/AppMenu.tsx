@@ -6,7 +6,7 @@ import AppButton from "./AppButton"
 
 const MAX_ITEMS = 8
 export function AppHide() {
-    App.get_window("launcher")!.hide()
+    App.get_window("launcher")!.destroy()
 }
 
 export default function AppLauncher() {
@@ -29,7 +29,7 @@ export default function AppLauncher() {
         onShow={() => text.set("")}
         onKeyPressEvent={function (self, event: Gdk.Event) {
             if (event.get_keyval()[1] === Gdk.KEY_Escape)
-                self.hide()
+                self.destroy()
         }}>
         <box>
             <eventbox widthRequest={4000} expand onClick={AppHide} />

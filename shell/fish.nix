@@ -22,7 +22,15 @@
         };
       }
       */
-      #puffer
+      {
+        name = "Pufferfish";
+        src = pkgs.fetchFromGitHub {
+          owner = "nickeb96";
+          repo = "puffer-fish";
+          rev = "12d062eae0ad24f4ec20593be845ac30cd4b5923";
+          hash = "sha256-2niYj0NLfmVIQguuGTA7RrPIcorJEPkxhH6Dhcy+6Bk=";
+        };
+      }
     ];
     interactiveShellInit = ''
       set fish_greeting
@@ -49,7 +57,7 @@
       hm-update = "nix flake update --flake ~/.config/home-manager ; home-manager switch --impure -b bak &| nom";
       hm-edit = "code ~/.config/home-manager";
 
-      ls = "eza";
+      ls = "eza --icons";
       corr = "fuck";
     };
   };
