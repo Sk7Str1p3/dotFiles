@@ -49,7 +49,7 @@
     rofi-wayland
     rofi-power-menu
     steam
-    sambaFull
+    samba
     obs-studio
     obsidian
     onefetch

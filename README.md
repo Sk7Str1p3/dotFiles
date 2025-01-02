@@ -15,6 +15,6 @@
 |💅 \ AGS (Astal) | My God that's best framework for customising desktop! We love you, Aylur!! |
 |✍️ \ VSCode | You may think its bloated and slow, but its easiest most powerful Editor I've ever used |
 |✍️ \ NeoViM | Godlike Editor, but hard and long to configure |
-and many more in my repo...
+<p1>and many more in my repo...</p1>
 </div>
 <hr/>
