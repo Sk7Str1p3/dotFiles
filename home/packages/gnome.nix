@@ -8,6 +8,7 @@
       gnome-software
       packagekit
       loupe
+      totem
     ];
   };
 }
