@@ -1,5 +1,5 @@
 import { execAsync } from "astal";
-import { App, Astal, Gdk } from "astal/gtk3";
+import { App, Astal, Gdk, Gtk } from "astal/gtk3";
 
 function PowerConfirmHide() {
     App.get_window("powerconfirm")!.destroy()
@@ -20,10 +20,10 @@ export default function PowerConfirm(act: string,cmd: string) {
                 <eventbox widthRequest={4000} expand onClick={PowerConfirmHide} />
                 <box hexpand={false} vertical>
                     <eventbox heightRequest={100} onClick={PowerConfirmHide} />
-                    <box className="PowerConfirm">
+                    <box className={"PowerConfirm label"} valign={Gtk.Align.CENTER}>
                         <label label={`Are you sure you want to ${act}?`}/>
                     </box>
-                    <box className="PowerConfirm">
+                    <box halign={Gtk.Align.CENTER} className="PowerConfirm buttons">
                         <button className="Yes" onClick={() => { PowerConfirmHide(), execAsync(`${cmd}`)}}>
                             Yes
                         </button>
