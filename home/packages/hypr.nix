@@ -4,7 +4,8 @@
       hyprland
       hyprland-protocols
       hyprpaper
-      hypridle
+      #hypridle
+      hyprlock
       hyprshot
       hyprpicker
       hyprsunset

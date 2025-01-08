@@ -35,16 +35,16 @@
       chrischinchilla.vscode-pandoc
     ];
     userSettings = {
-      "workbench.colorTheme" = "Catppuccin Mocha";
+      #"workbench.colorTheme" = "Catppuccin Mocha";
 
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
+      #"editor.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
       "editor.fontLigatures" = true;
-      "editor.fontSize" = 16;
-      "editor.minimap.sectionHeaderFontSize" = 16;
-      "editor.suggestFontSize" = 16;
+      #"editor.fontSize" = 16;
+      #"editor.minimap.sectionHeaderFontSize" = 16;
+      #"editor.suggestFontSize" = 16;
 
-      "terminal.integrated.fontSize" = 16;
-      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
+      #"terminal.integrated.fontSize" = 16;
+      #"terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
       "terminal.integrated.fontLigatures" = true;
 
       "git.autofetch" = true;

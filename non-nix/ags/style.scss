@@ -1,19 +1,19 @@
 @use "sass:color";
 
-$base: #1e1e2e;
-$text: #cdd6f4;
-$surface0:#343451;
-$mauve: #cba6f7;
-$red: #f38ba8;
-$green: #a6e3a1;
+$base00: #080808;
+$base07: #838383;
+$base08: #272727;
+$base05: #696969;
+$base01: #455e5e;
+$base02: #956969;
 
 
 window.Bar {
-    border: 3px solid rgba($mauve, .8);
+    border: 3px solid rgba($base05, .8);
     border-radius: 14px;
     box-shadow: none;
-    background-color: rgba($base, .8);
-    color: $text;
+    background-color: rgba($base00, .8);
+    color: $base07;
     font-size: 1.1em;
     font-weight: bold;
 
@@ -29,23 +29,23 @@ window.Bar {
         }
 
         margin : 5px 5px 5px 5px;
-        border: 2px solid rgba($mauve, .8);
-        background-color: rgba($mauve, .8);
-        color: $base;
-        border-color: rgba($mauve, .8);
+        border: 2px solid rgba($base05, .8);
+        background-color: rgba($base05, .8);
+        color: $base00;
+        border-color: rgba($base05, .8);
         border-radius: 10px;
 
         &:hover {
-            background-color: color.adjust($mauve, $alpha: -0.8);
-            border: 2px solid rgba($mauve, .8);
+            background-color: color.adjust($base05, $alpha: -0.8);
+            border: 2px solid rgba($base05, .8);
             margin: 5px 5px 5px 5px;
-            color: $mauve
+            color: $base05
         }
     }
 
     .Workspaces {
-        background-color: rgba($surface0, .8);
-        border: 2px solid rgba($mauve, .8);
+        background-color: rgba($base08, .8);
+        border: 2px solid rgba($base05, .8);
         padding: 0px 10px;
         margin: 5px 0px;
         border-radius: 10px;
@@ -56,7 +56,7 @@ window.Bar {
         }
 
         .ws-button {
-            background-color: rgba($text, .4);
+            background-color: rgba($base07, .4);
             min-height: 6px;
             min-width: 6px;
             border-radius: 3px;
@@ -66,55 +66,60 @@ window.Bar {
             &.focused {
                 min-width: 30px;
                 min-height: 15px;
-                background-color: $mauve;
-                color: $mauve;
-                border-color: $mauve;
+                background-color: $base05;
+                color: $base05;
+                border-color: $base05;
             }
         }
     }
 
     .Cava {
-        background-color: rgba($surface0, .8);
-        border: 2px solid rgba($surface0, .8);
-        color: $mauve;
+        background-color: rgba($base08, .8);
+        border: 2px solid rgba($base08, .8);
+        color: $base05;
         padding: 2px 5px;
         margin: 5px 5px;
         border-radius: 10px;
     }
 
     .SysTray {
+        margin-top: 0px;
+        //margin-bottom: 0px;
         margin-right: 8px;
+        padding: 10px 10px 10px 10px;
 
         button {
-            padding: 0 4px;
+            padding: 0px 4px;
+            margin: 0px 2px;
+            border: 2px solid rgba($base05, .5);
         }
     }
 
     .FocusedClient {
-        color: $mauve;
+        color: $base05;
     }
 
     .Time {
-        background: rgba($surface0, .8);
+        background: rgba($base08, .8);
         font-weight: bold;
-        border: 2px solid rgba($surface0, .8);
-        color: $mauve;
+        border: 2px solid rgba($base08, .8);
+        color: $base05;
         padding: 0px 5px 0px 5px;
         margin: 5px 0px;
         border-radius: 10px;
 
         &:hover {
-            border: 2px solid rgba($mauve, .8);
+            border: 2px solid rgba($base05, .8);
         }
     }
 
     .Calendar {
-        background: $base;
+        background: $base00;
         min-height: 100px;
         min-width: 100px;
         .Menu {
-            background: $base;
-            color: $mauve;
+            background: $base00;
+            color: $base05;
         }
     }
 
@@ -145,18 +150,18 @@ window.Bar {
         }
 
         trough {
-            background-color: color.adjust($text, $alpha: -0.8);
+            background-color: color.adjust($base07, $alpha: -0.8);
             border-radius: 7px;
         }
 
         highlight {
-            background-color: $mauve;
+            background-color: $base05;
             min-height: .8em;
             border-radius: 7px;
         }
 
         slider {
-            background-color: $text;
+            background-color: $base07;
             border-radius: 7px;
             min-height: 1em;
             min-width: 1em;
@@ -172,17 +177,17 @@ window.Bar {
         }
 
         margin : 5px 5px 5px 5px;
-        border: 2px solid rgba($mauve, .8);
-        background-color: rgba($mauve, .8);
-        color: $base;
-        border-color: rgba($mauve, .8);
+        border: 2px solid rgba($base05, .8);
+        background-color: rgba($base05, .8);
+        color: $base00;
+        border-color: rgba($base05, .8);
         border-radius: 10px;
 
         &:hover {
-            background-color: color.adjust($mauve, $alpha: -0.8);
-            border: 2px solid rgba($mauve, .8);
+            background-color: color.adjust($base05, $alpha: -0.8);
+            border: 2px solid rgba($base05, .8);
             margin: 5px 5px 5px 5px;
-            color: $mauve
+            color: $base05
         }
     }
 }
@@ -195,21 +200,21 @@ window#power {
         font-weight: bold;
         font-size: 20px;
         padding: 5px;
-        background-color: rgba($base, .8);
-        border: 2px solid $mauve;
+        background-color: rgba($base00, .8);
+        border: 2px solid $base05;
         border-radius: 10px;
 
         button {
-            background-color: $surface0;
-            color: $mauve;
-            border: 2px solid $mauve;
+            background-color: $base08;
+            color: $base05;
+            border: 2px solid $base05;
             margin-top: 3px;
             margin-bottom: 3px;
 
             &:hover {
-                background-color: rgba($mauve, $alpha: 0.8);
+                background-color: rgba($base05, $alpha: 0.8);
                 //border: 2px solid rgba($mauve, .8);
-                color: $surface0
+                color: $base08
             }
         }
     }
@@ -217,27 +222,27 @@ window#power {
 
 window#powerconfirm {
     all: unset;
-    background: rgba($base, .8);
+    background: rgba($base00, .8);
 
     box.PowerConfirm {
         font-weight: bold;
         font-size: 20px;
         padding: 5px;
-        background-color: rgba($base, .8);
-        border: 2px solid $mauve;
+        background-color: rgba($base00, .8);
+        border: 2px solid $base05;
         border-radius: 10px;
 
         button .Yes {
-            background-color: $green;
-            color: $surface0;
-            border: 2px solid $surface0;
+            background-color: $base02;
+            color: $base08;
+            border: 2px solid $base08;
             margin-top: 3px;
             margin-bottom: 3px;
 
             &:hover {
-                background-color: rgba($mauve, $alpha: 0.8);
+                background-color: rgba($base05, $alpha: 0.8);
                 //border: 2px solid rgba($mauve, .8);
-                color: $surface0
+                color: $base08
             }
         }
     }

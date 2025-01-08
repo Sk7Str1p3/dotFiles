@@ -14,22 +14,22 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
     ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
 
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nixvim,
-    catppuccin,
     ags,
     nix-flatpak,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -40,6 +40,14 @@
       ];
     };
   in {
+    #development shell for home-manager config editing
+    devShells.${system}.default = pkgs.mkShell {
+      name = "dotFiles";
+      packages = with pkgs; [
+        alejandra
+        nixd
+      ];
+    };
     # home-manager output
     homeConfigurations."Sk7Str1p3" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
@@ -49,7 +57,7 @@
       modules = [
         ./home.nix
         ./home/modules/vesktop.nix
-        catppuccin.homeManagerModules.catppuccin
+        stylix.homeManagerModules.stylix
         nixvim.homeManagerModules.nixvim
         ags.homeManagerModules.default
         nix-flatpak.homeManagerModules.nix-flatpak

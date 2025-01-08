@@ -8,10 +8,10 @@
     enable = true;
     settings = {
       preload = [
-        "${config.home.homeDirectory}/.config/home-manager/non-nix/images/bg-9.png"
+        "${config.home.homeDirectory}/.config/home-manager/non-nix/images/carson.png"
       ];
       wallpaper = [
-        "HDMI-A-1, ${config.home.homeDirectory}/.config/home-manager/non-nix/images/bg-9.png"
+        "HDMI-A-1, ${config.home.homeDirectory}/.config/home-manager/non-nix/images/carson.png"
       ];
     };
   };

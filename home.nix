@@ -3,6 +3,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }: {
   # # You may split your configuration into many files. If so, list them in imports.
@@ -51,12 +52,12 @@
     steam
     samba
     obs-studio
-    obsidian
+    #obsidian
     onefetch
     snowmachine
     inputs.nix-software-center.packages.${system}.nix-software-center
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
-    inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
+    #inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
     wineWowPackages.stagingFull
 
     # # You can also create simple shell scripts directly inside your
@@ -133,12 +134,14 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.pointerCursor = {
+  /*
+    home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
     name = "catppuccin-mocha-mauve-cursors";
     size = 32;
   };
+  */
 
   # Set xdg user directories:
   xdg.userDirs = {
@@ -166,8 +169,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font Propo";
-      size = 12;
+      name = lib.mkDefault "JetBrainsMono Nerd Font"; # Propo";
+      #size = 12;
     };
     settings = {
       confirm_os_window_close = 0;
@@ -177,7 +180,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    font = "JetBrainsMono Nerd Font Propo 13";
+    #font = "JetBrainsMono Nerd Font Propo 13";
     terminal = "${pkgs.kitty}/bin/kitty";
     extraConfig = {
       modi = "run,drun,window";
@@ -193,7 +196,8 @@
       display-Network = " 󰤨  Network";
       sidebar-mode = true;
     };
-    theme = let
+    /*
+      theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
@@ -201,6 +205,7 @@
         border-col = mkLiteral "#cba6f7";
       };
     };
+    */
   };
 
   programs.fzf = {

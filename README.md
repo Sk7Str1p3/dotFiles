@@ -5,7 +5,7 @@
 <div class="body">
 <p>Sk7's home configuration with both standard and declarative configs!</p>
 
-<p>On this branch, you can find my home-manager configs flavoured with Catppuccin. My home env contains::<p/>
+<p>On this branch, you can find my home-manager configs flavoured with Opium-inspired colorscheme. My home env contains::<p/>
 
 | Name | Description |
 | ---- | ---- |
