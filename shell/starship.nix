@@ -45,11 +45,11 @@ in {
         "$custom"
         "$java"
         "$python"
-        "[](bg:blue fg:teal)"
+        "[](bg:${base02} fg:${base01})"
         "$status"
-        "[](fg:blue bg:mauve)"
+        "[](fg:${base02} bg:${base0F})"
         "$time"
-        "[](bg:base fg:mauve)"
+        "[](fg:${base0F})"
         "\n[╰─](bold fg:${base03})"
         "$character"
       ];
@@ -66,13 +66,13 @@ in {
         style = "bg:${base04} fg:${base0A}";
       };
       git_status = {
-        format = "[ $all_status ]($style)";
+        format = "[ \\[$all_status\\] ]($style)";
         style = "bg:${base04} fg:${base0A}";
       };
       c = {
         symbol = "  ";
-        style = "bg:${base01} fg:surface0";
-        format = "[$symbol-> $name $version]($style)";
+        style = "bg:${base01} fg:${base05}";
+        format = "[($symbol-> $name $version)]($style)";
       };
       custom.cpp = {
         detect_extensions = [
@@ -80,41 +80,41 @@ in {
           "hpp"
           "cc"
         ];
-        symbol = "  ";
-        format = "[$symbol-> $output]($style)";
+        symbol = "";
+        format = "[ via $symbol $output ]($style)";
         command = "echo v$(clang++ --version | grep version | cut -f3 -d ' ')";
-        style = "bg:${base01} fg:surface0";
+        style = "bg:${base01} fg:${base05}";
         disabled = false;
       };
       python = {
-        symbol = "  ";
-        style = "bg:teal fg:surface0";
-        format = "[$symbol$pyenv_prefix-> $version (\($virtualenv\) )]($style)";
+        symbol = "";
+        style = "bg:${base01} fg:${base05}";
+        format = "[ via $symbol$pyenv_prefix $version \\($virtualenv\\) ]($style)";
       };
       nix_shell = {
-        symbol = "  ";
+        symbol = "";
         pure_msg = "[Pure](bg:${base01} fg:${base08})";
         impure_msg = "[Impure](bg:${base01} fg:${base0A})";
         unknown_msg = "[???](bg:${base01} fg:${base09})";
-        style = "bg:teal fg:surface0";
-        format = "[$symbol-> $name ($state)]($style)";
+        style = "bg:${base01} fg:${base05}";
+        format = "[ via $symbol $name \\($state\\) ]($style)";
       };
       status = {
         disabled = false;
-        symbol = "  ";
-        success_symbol = "  ";
-        not_executable_symbol = "  ";
-        not_found_symbol = "  ";
-        sigint_symbol = " 󱤷 ";
-        signal_symbol = " 󱐋 ";
+        symbol = "";
+        success_symbol = "";
+        not_executable_symbol = "";
+        not_found_symbol = "";
+        sigint_symbol = "󱤷";
+        signal_symbol = "󱐋";
         map_symbol = true;
-        style = "fg:crust bg:blue";
-        format = "[$symbol $status ]($style)";
+        style = "fg:${base0B} bg:${base02}";
+        format = "[ $symbol $status ]($style)";
       };
       time = {
         disabled = false;
         time_format = "%R";
-        style = "bg:mauve fg:surface0";
+        style = "bg:${base0F} fg:${base07}";
         format = "[ 󱑍 $time ]($style)";
       };
     };
