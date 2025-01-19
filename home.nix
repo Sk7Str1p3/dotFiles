@@ -49,7 +49,6 @@
     rofi-wayland
     #rofi-power-menu
     steam
-    samba
     obs-studio
     #obsidian
     onefetch
