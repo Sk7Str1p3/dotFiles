@@ -15,9 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
-    ayugram.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
     ags.url = "github:aylur/ags";
-
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
@@ -40,6 +38,15 @@
       ];
     };
   in {
+    #development shell for home-manager config editing
+    devShells.${system}.default = pkgs.mkShell {
+      name = "dotFiles";
+      packages = with pkgs; [
+        alejandra
+        nixd
+      ];
+    };
+
     # home-manager output
     homeConfigurations."Sk7Str1p3" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
