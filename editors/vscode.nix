@@ -23,7 +23,7 @@
 
       # Rust workflow
       rust-lang.rust-analyzer
-      fill-labs.dependi
+      #fill-labs.dependi
 
       # Python workflow
       ms-python.python
