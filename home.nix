@@ -42,22 +42,25 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     #firefox
-    blender
+    #blender
     gimp
     blender
-    git-credential-manager
+    #git-credential-manager
     rofi-wayland
-    rofi-power-menu
+    transmission-gtk
+    qbittorrent-enhanced
+    #rofi-power-menu
     steam
     samba
     obs-studio
-    obsidian
+    #obsidian
     onefetch
     snowmachine
     inputs.nix-software-center.packages.${system}.nix-software-center
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
-    inputs.ayugram.packages.${pkgs.system}.ayugram-desktop
+    ayugram-desktop
     wineWowPackages.stagingFull
+    winetricks
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -67,7 +70,7 @@
     # '')
   ];
   services.flatpak = {
-    enable = true;
+    enable = false;
     remotes = [
       {
         name = "flathub";
@@ -137,7 +140,8 @@
     gtk.enable = true;
     x11.enable = true;
     name = "catppuccin-mocha-mauve-cursors";
-    size = 32;
+    package = pkgs.catppuccin-cursors.mochaMauve;
+    size = 24;
   };
 
   # Set xdg user directories:
