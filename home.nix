@@ -47,8 +47,6 @@
     blender
     #git-credential-manager
     rofi-wayland
-    transmission-gtk
-    qbittorrent-enhanced
     #rofi-power-menu
     steam
     samba
