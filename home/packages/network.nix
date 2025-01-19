@@ -6,5 +6,6 @@
     arrpc
     transmission_3-gtk
     qbittorrent-enhanced
+    samba
   ];
 }
