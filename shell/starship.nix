@@ -16,11 +16,11 @@
         "$git_status"
         "$git_metrics"
         "[](fg:green bg:teal)"
+        "$nix_shell"
         "$c"
         "$custom"
         "$java"
         "$python"
-        "$nix_shell"
         "[](bg:blue fg:teal)"
         "$status"
         "[](fg:blue bg:mauve)"
@@ -38,17 +38,17 @@
       };
       git_branch = {
         format = "[ $symbol$branch(:$remote_branch)]($style)";
-        symbol = "  ";
+        symbol = "󰊢 ";
         style = "bg:green fg:surface0";
       };
       git_status = {
-        format = "[$all_status ]($style)";
+        format = "[ \\[$all_status\\] ]($style)";
         style = "bg:green fg:surface0";
       };
       c = {
-        symbol = " ";
+        symbol = "";
         style = "bg:teal fg:surface0";
-        format = "[$symbol $name $version]($style)";
+        format = "[ via $symbol $name $version ]($style)";
       };
       custom.cpp = {
         detect_extensions = [
@@ -57,35 +57,35 @@
           "cc"
         ];
         symbol = " ";
-        format = "[$symbol $output]($style)";
+        format = "[via $symbol $output ]($style)";
         command = "echo v$(clang++ --version | grep version | cut -f3 -d ' ')";
         style = "bg:teal fg:surface0";
         disabled = false;
       };
       python = {
-        symbol = " ";
+        symbol = "";
         style = "bg:teal fg:surface0";
-        format = "[$symbol$pyenv_prefix $version (\($virtualenv\) )]($style)";
+        format = "[ via $symbol$pyenv_prefix $version \\($virtualenv\\) ]($style)";
       };
       nix_shell = {
-        symbol = " ";
-        pure_msg = "[Pure](bg:teal fg:surface0)";
-        impure_msg = "[Impure](bg:teal fg:red)";
-        unknown_msg = "[???](bg:teal fg:peach)";
+        symbol = "";
+        pure_msg = "[](bg:teal fg:surface0)";
+        impure_msg = "[](bg:teal fg:surface0)";
+        unknown_msg = "[](bg:teal fg:surface0)";
         style = "bg:teal fg:surface0";
-        format = "[$symbol $name ($state)]($style)";
+        format = "[ via $symbol $name $state ]($style)";
       };
       status = {
         disabled = false;
-        symbol = "  ";
-        success_symbol = "  ";
-        not_executable_symbol = "  ";
-        not_found_symbol = "  ";
-        sigint_symbol = " 󱤷 ";
-        signal_symbol = " 󱐋 ";
+        symbol = "";
+        success_symbol = "";
+        not_executable_symbol = "";
+        not_found_symbol = "";
+        sigint_symbol = "󱤷";
+        signal_symbol = "󱐋";
         map_symbol = true;
         style = "fg:crust bg:blue";
-        format = "[$symbol $status ]($style)";
+        format = "[ $symbol $status ]($style)";
       };
       time = {
         disabled = false;
