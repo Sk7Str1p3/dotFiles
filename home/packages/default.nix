@@ -1,6 +1,6 @@
 {
   imports = [
-    ./dev_nix.nix
+    ./nix.nix
     ./hypr.nix
     ./gnome.nix
     ./shell.nix
