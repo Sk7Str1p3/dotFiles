@@ -1,5 +1,6 @@
 {
   imports = [
     ./packages
+    ./nixpkgs.nix
   ];
 }
