@@ -33,11 +33,11 @@
       }
     ];
     interactiveShellInit = ''
-      set fish_greeting
       any-nix-shell fish --info-right | source
       fastfetch
     '';
     functions = {
+      fish_greeting = '''';
       yy = ''
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
         yazi $argv --cwd-file="$tmp"
