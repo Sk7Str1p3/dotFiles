@@ -49,6 +49,7 @@
     rofi-wayland
     #rofi-power-menu
     steam
+    bottles
     obs-studio
     #obsidian
     onefetch
@@ -138,7 +139,7 @@
     x11.enable = true;
     name = "catppuccin-mocha-mauve-cursors";
     package = pkgs.catppuccin-cursors.mochaMauve;
-    size = 24;
+    size = 20;
   };
 
   # Set xdg user directories:
