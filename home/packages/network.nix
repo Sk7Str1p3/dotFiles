@@ -7,5 +7,7 @@
     transmission_3-gtk
     qbittorrent-enhanced
     samba
+    ayugram-desktop
+    #firefox # installed with home-manager module
   ];
 }
