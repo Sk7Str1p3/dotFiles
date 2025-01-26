@@ -41,24 +41,18 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    #firefox
     #blender
     gimp
     blender
     #git-credential-manager
     rofi-wayland
     #rofi-power-menu
-    steam
-    bottles
     obs-studio
     #obsidian
     onefetch
     snowmachine
     inputs.nix-software-center.packages.${system}.nix-software-center
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
-    ayugram-desktop
-    wineWow64Packages.stagingFull
-    winetricks
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
