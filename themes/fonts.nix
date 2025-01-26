@@ -8,9 +8,9 @@
         };
       };
     };
-    home.packages = with pkgs; [
-      nerd-fonts.iosevka
-      nerd-fonts.jetbrains-mono
+    home.packages = with pkgs.nerd-fonts; [
+      iosevka
+      jetbrains-mono
     ];
   };
 }
