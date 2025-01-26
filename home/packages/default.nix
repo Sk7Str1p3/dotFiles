@@ -1,9 +1,10 @@
 {
   imports = [
-    ./nix.nix
-    ./hypr.nix
+    ./games.nix
     ./gnome.nix
-    ./shell.nix
+    ./hypr.nix
     ./network.nix
+    ./nix.nix
+    ./shell.nix
   ];
 }
