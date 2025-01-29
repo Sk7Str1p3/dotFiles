@@ -7,6 +7,7 @@
     extensions = with pkgs.vscode-extensions; [
       # VSC generic extensions
       catppuccin.catppuccin-vsc
+      leonardssh.vscord
 
       # Better Git integration
       mhutchie.git-graph
@@ -23,7 +24,7 @@
 
       # Rust workflow
       rust-lang.rust-analyzer
-      #fill-labs.dependi
+      fill-labs.dependi
 
       # Python workflow
       ms-python.python
@@ -49,10 +50,10 @@
 
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;
+      "git.confirmSync" = false;
 
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
-      "git.confirmSync" = false;
     };
   };
 }
