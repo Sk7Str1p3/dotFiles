@@ -44,6 +44,15 @@
     #blender
     gimp
     blender
+    neovim-gtk
+    (lunarvim.override {
+      nvimAlias = true;
+      vimAlias = true;
+      viAlias = true;
+    })
+    #neovim
+    neovide
+    vimPlugins.LazyVim
     #git-credential-manager
     rofi-wayland
     #rofi-power-menu
@@ -62,17 +71,6 @@
     # '')
   ];
   services.flatpak = {
-    enable = false;
-    remotes = [
-      {
-        name = "flathub";
-        location = "https://flathub.org/repo/flathub.flatpakrepo";
-      }
-      {
-        name = "flathub-beta";
-        location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
-      }
-    ];
     packages = [
       {
         appId = "ch.tlaun.TL";
