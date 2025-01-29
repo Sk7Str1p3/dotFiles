@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,8 +15,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcord.url = "github:kaylorben/nixcord";
     catppuccin.url = "github:catppuccin/nix";
     ags.url = "github:aylur/ags";
+
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
@@ -23,8 +26,10 @@
 
   outputs = {
     nixpkgs,
+    nur,
     home-manager,
     nixvim,
+    nixcord,
     catppuccin,
     ags,
     nix-flatpak,
@@ -34,7 +39,7 @@
     pkgs = import nixpkgs {
       inherit system;
       overlays = [
-        inputs.nur.overlays.default
+        nur.overlays.default
       ];
     };
   in {
@@ -55,9 +60,9 @@
       # the path to your home.nix.
       modules = [
         ./home.nix
-        ./home/modules/vesktop.nix
         catppuccin.homeManagerModules.catppuccin
         nixvim.homeManagerModules.nixvim
+        nixcord.homeManagerModules.nixcord
         ags.homeManagerModules.default
         nix-flatpak.homeManagerModules.nix-flatpak
       ];
