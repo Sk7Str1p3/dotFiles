@@ -3,7 +3,7 @@
     home.packages = with pkgs; [
       steam
       bottles
-      wineWow64Packages.stagingFull
+      wineWow64Packages.stableFull
       winetricks
     ];
   };
