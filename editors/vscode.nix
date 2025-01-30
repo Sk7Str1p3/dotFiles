@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    enableExtensionUpdateCheck = true;
-    enableUpdateCheck = true;
+    enableExtensionUpdateCheck = false;
+    enableUpdateCheck = false;
     package = pkgs.vscode;
+    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       # VSC generic extensions
       catppuccin.catppuccin-vsc
@@ -55,5 +56,9 @@
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
     };
+  };
+  home.file.".vscode/argv.json".text = builtins.toJSON {
+    enable-crash-reporter = false;
+    password-store = "gnome-libsecret";
   };
 }
