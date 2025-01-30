@@ -2,7 +2,7 @@
   config = {
     home.packages = with pkgs; [
       hyprland
-      hyprland-protocols
+      #hyprland-protocols
       hyprpaper
       hypridle
       hyprshot
