@@ -3,8 +3,11 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs";
-    nur.url = "github:nix-community/NUR";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
@@ -18,10 +21,12 @@
     nixcord.url = "github:kaylorben/nixcord";
     catppuccin.url = "github:catppuccin/nix";
     ags.url = "github:aylur/ags";
+    impermanence.url = "github:nix-community/impermanence";
 
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
@@ -32,6 +37,7 @@
     nixcord,
     catppuccin,
     ags,
+    impermanence,
     nix-flatpak,
     ...
   } @ inputs: let
@@ -64,6 +70,7 @@
         nixvim.homeManagerModules.nixvim
         nixcord.homeManagerModules.nixcord
         ags.homeManagerModules.default
+        impermanence.homeManagerModules.impermanence
         nix-flatpak.homeManagerModules.nix-flatpak
       ];
 
