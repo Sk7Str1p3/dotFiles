@@ -1,5 +1,7 @@
 {
   imports = [
+    ./managers
+
     ./games.nix
     ./gnome.nix
     ./hypr.nix
