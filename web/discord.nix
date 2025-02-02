@@ -30,12 +30,26 @@
       plugins = {
         accountPanelServerProfile.enable = true;
         alwaysAnimate.enable = true;
+        alwaysExpandRoles.enable = true;
+        betterFonders = {
+          enable = true;
+        };
+        betterRoleContext.enable = true;
+
         voiceMessages = {
           enable = true;
           noiseSuppression = true;
           echoCancellation = true;
         };
+        volumeBooster = {
+          enable = true;
+          multiplier = 1.5;
+        };
+        whoReacted.enable = true;
+
+        webKeybinds.enable = true;
         webRichPresence.enable = true;
+        webScreenShareFixes.enable = true;
       };
     };
   };
