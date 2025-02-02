@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  customPkgs = pkgs.callPackage ../home/packages/custom;
+in {
   programs.firefox = {
     enable = true;
 
@@ -41,7 +43,8 @@
 
       # TODO: containers = {};
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions = [
+        customPkgs.firefoxAddons.catppuccin
       ];
     };
   };
