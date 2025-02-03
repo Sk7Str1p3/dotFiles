@@ -3,7 +3,6 @@
   buildDotnetModule,
   fetchFromGitHub,
   dotnetCorePackages,
-  vistafonts,
   zlib,
   icu,
   openssl,
@@ -17,10 +16,10 @@ buildDotnetModule rec {
     owner = "PhantomGamers";
     repo = "SFP";
     rev = "${version}";
-    sha256 = lib.fakeSha256;
+    sha256 = "sha256-mflwufC82jHGhKjBWzQHfNezd3+rk62XX1az8awjl2s=";
   };
-  projectFile = "SFP.sln";
-  dotnet-sdk = dotnetCorePackages.runtime_8_0;
+  projectFile = "./SFP.sln";
+  dotnet-runtime = dotnetCorePackages.runtime_8_0;
 
   runtimeDeps = [
     zlib
@@ -28,7 +27,8 @@ buildDotnetModule rec {
     icu
     openssl
   ];
-  executables = ["SFP-UI"];
+  nugetDeps = ./nuDeps.json;
+  executables = ["sfp-ui"];
 
   meta = with lib; {
     description = ''
