@@ -21,10 +21,10 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir $out
     mkdir $out/bin
-    cp ./SFP_UI $out/bin/SFP_UI-bin
+    cp ./SFP_UI $out/bin/sfp-ui_bin
   '';
   postFixup = ''
-    patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" $out/bin/SFP_UI
+    patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" $out/bin/sfp-ui_bin
     patchelf --set-rpath "${
       lib.makeLibraryPath [
         zlib
@@ -32,7 +32,7 @@ stdenv.mkDerivation {
         icu
         openssl
       ]
-    }" $out/bin/SFP_UI
+    }" $out/bin/sfp-ui_bin
   '';
   dontStrip = true;
 
