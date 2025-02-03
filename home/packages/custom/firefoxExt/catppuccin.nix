@@ -11,6 +11,9 @@ buildFirefoxXpiAddon rec {
   meta = with lib; {
     homepage = "https://github.com/catppuccin/firefox";
     description = "Soothing pastel theme for firefox!";
+    maintainers = with maintainers; [
+      Sk7Str1p3
+    ];
     license = licenses.mit;
     platforms = platforms.all;
   };
