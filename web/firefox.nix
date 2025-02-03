@@ -1,5 +1,10 @@
-{pkgs, ...}: let
-  customPkgs = pkgs.callPackage ../home/packages/custom;
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: let
+  customPkgs = import ../home/packages/custom {inherit pkgs inputs lib;};
 in {
   programs.firefox = {
     enable = true;
