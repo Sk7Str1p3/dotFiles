@@ -1,9 +1,11 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: let
   gamePkgs = inputs.nix-gaming.packages.${pkgs.hostPlatform.system};
+  customPkgs = import ./custom {inherit pkgs inputs lib;};
 in {
   config = {
     home.packages = with pkgs; [
@@ -13,6 +15,8 @@ in {
       winetricks
 
       gamePkgs.wine-discord-ipc-bridge
+
+      customPkgs.SFP
     ];
   };
 }
