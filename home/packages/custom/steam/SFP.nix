@@ -1,23 +1,35 @@
 {
   stdenv,
-  fetchFromGithub,
-  dotnet-runtime_8,
+  buildDotnetModule,
+  fetchFromGitHub,
+  dotnetCorePackages,
   vistafonts,
+  zlib,
+  icu,
+  openssl,
   lib,
 }:
-stdenv.mkDerivation rec {
+buildDotnetModule rec {
   pname = "SFP";
   version = "0.0.60-beta1";
-  src = fetchFromGithub {
+
+  src = fetchFromGitHub {
     owner = "PhantomGamers";
     repo = "SFP";
     rev = "${version}";
-    sha256 = "sha256-pSlzVe7XbTbrC76iAinYrr7qIl69OpH3Wk00MoAIe74=";
+    sha256 = lib.fakeSha256;
   };
-  buildInputs = [
-    dotnet-runtime_8
-    vistafonts
+  projectFile = "SFP.sln";
+  dotnet-sdk = dotnetCorePackages.runtime_8_0;
+
+  runtimeDeps = [
+    zlib
+    stdenv.cc.cc
+    icu
+    openssl
   ];
+  executables = ["SFP-UI"];
+
   meta = with lib; {
     description = ''
       SFP (Formerly SteamFriendsPatcher) - utility allows you
