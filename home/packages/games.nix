@@ -15,8 +15,6 @@ in {
       winetricks
 
       gamePkgs.wine-discord-ipc-bridge
-
-      customPkgs.SFP
     ];
   };
 }
