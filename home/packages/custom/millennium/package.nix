@@ -5,6 +5,7 @@
   gnumake,
   cmake,
   asio,
+  nlohmann_json,
   crow,
   fmt,
   websocketpp,
@@ -28,6 +29,7 @@ multiStdenv.mkDerivation {
     #boxer
     crow
     fmt
+    nlohmann_json
     websocketpp
   ];
 

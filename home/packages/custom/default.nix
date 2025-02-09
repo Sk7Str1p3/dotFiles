@@ -16,6 +16,7 @@
       fetchFromGitHub
       multiStdenv
       asio
+      nlohmann_json
       #boxer
       crow
       fmt
