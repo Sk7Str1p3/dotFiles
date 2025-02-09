@@ -43,14 +43,8 @@
     # pkgs.hello
     #blender
     gimp
-    blender
-    neovim-gtk
-    (lunarvim.override {
-      nvimAlias = true;
-      vimAlias = true;
-      viAlias = true;
-    })
-    #neovim
+    #blender
+    lunarvim
     neovide
     vimPlugins.LazyVim
     #git-credential-manager
