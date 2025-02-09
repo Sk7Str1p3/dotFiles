@@ -26,7 +26,7 @@
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    prismLauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
   };
 
   outputs = {
@@ -39,6 +39,7 @@
     ags,
     impermanence,
     nix-flatpak,
+    prismLauncher,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -46,6 +47,7 @@
       inherit system;
       overlays = [
         nur.overlays.default
+        prismLauncher.overlays.default
       ];
     };
   in {
