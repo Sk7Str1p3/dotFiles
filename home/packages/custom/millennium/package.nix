@@ -1,21 +1,38 @@
 {
-  stdenv,
+  multiStdenv,
   lib,
   fetchFromGitHub,
+  gnumake,
+  cmake,
+  asio,
+  crow,
+  fmt,
+  websocketpp,
+  curl,
 }:
-stdenv.mkDerivation rec {
-  pname = "Millennium";
+multiStdenv.mkDerivation {
+  pname = "millennium";
   version = "2.17.2";
 
   src = fetchFromGitHub {
-    owner = "shdwmrt";
-    name = "millennium";
-    rev = "${version}";
-    sha256 = lib.fakeSha256;
+    owner = "shdwmtr";
+    repo = "millennium";
+    rev = "better-unix-fhs";
+    sha256 = "sha256-WBMgkXWRl9/iAdPApcqDRGGAtb8VxL4fSc8ZKJldnHI=";
   };
+  buildInputs = [
+    gnumake
+    cmake
+    curl
+    asio
+    #boxer
+    crow
+    fmt
+    websocketpp
+  ];
 
   buildPhase = ''
-    ls ./.
+    make
   '';
 
   meta = with lib; {
