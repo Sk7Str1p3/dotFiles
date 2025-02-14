@@ -14,8 +14,6 @@ in {
       #wine-discord-ipc-bridge
       winetricks
       prismlauncher
-
-      customPkgs.millennium
     ];
   };
 }
