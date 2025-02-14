@@ -13,7 +13,7 @@
       settings = {
         "discordBranch" = "ptb";
         "minimizeToTray" = true;
-        "arRPC" = true;
+        "arRPC" = false;
         "splashColor" = "rgb(205, 214, 244)";
         "splashBackground" = "rgb(30, 30, 46)";
         "splashTheming" = true;
