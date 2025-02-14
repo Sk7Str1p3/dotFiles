@@ -6,6 +6,7 @@
     qbittorrent-enhanced
     samba
     ayugram-desktop
+    nekoray
     #firefox // installed with home-manager module
   ];
 }
