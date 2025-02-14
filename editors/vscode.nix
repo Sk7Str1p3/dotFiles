@@ -20,8 +20,11 @@
       kamadorueda.alejandra
       jnoortheen.nix-ide
       jeff-hykin.better-nix-syntax
-      # arrterian.nix-env-selector
+      arrterian.nix-env-selector
       mkhl.direnv
+
+      # C workflow
+      ms-vscode.cmake-tools
 
       # Rust workflow
       rust-lang.rust-analyzer
