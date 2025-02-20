@@ -27,8 +27,8 @@
       ms-vscode.cmake-tools
 
       # Rust workflow
-      rust-lang.rust-analyzer
-      fill-labs.dependi
+      # rust-lang.rust-analyzer
+      # fill-labs.dependi
 
       # Python workflow
       ms-python.python
