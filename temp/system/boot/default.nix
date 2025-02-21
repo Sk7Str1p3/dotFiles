@@ -5,7 +5,6 @@
     ./initrd.nix
     ./kernel.nix
     ./loader.nix
-    ./plymouth.nix
   ];
 
   boot = {
