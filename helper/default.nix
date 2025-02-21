@@ -3,11 +3,14 @@
   inputs,
   ...
 }: let
+  # default state version
   defaultStateVersion = "24.11";
+  # modules sources
   source = [
     "${self}/users"
     "${self}/system"
   ];
+  # function to automatically import all directories
   allDirectories = directoryName:
     builtins.filter (
       module: (
@@ -60,6 +63,12 @@
         ++ source;
     };
 in {
-  mkNixos = builtins.mapAttrs mkConfiguration;
   forAllSystems = inputs.stable.lib.systems.flakeExposed;
+
+  /*
+  * This function just add mkConfiguration before hosts attrset
+  * e.g. generic = { username = "test"; stateVersion = "24.11"; }; ->
+  * generic = mkHost { username = "test"; stateVersion = "24.11"; };
+  */
+  mkNixos = builtins.mapAttrs mkConfiguration;
 }

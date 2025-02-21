@@ -7,12 +7,14 @@
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs.follows = "stable";
+
     # Unofficial repositories
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "stable";
     };
+
     # System Modules
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -42,6 +44,7 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "stable";
     };
+
     # Home Modules
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -55,8 +58,8 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "stable";
     };
-    #Additional Software
 
+    #Additional Software
     nix-software-center = {
       url = "github:snowfallorg/nix-software-center";
       inputs.nixpkgs.follows = "stable";
