@@ -88,7 +88,6 @@
   };
 
   services.fwupd.enable = true;
-  services.resolved.enable = true;
   virtualisation.vmware.host.enable = true;
   # List services that you want to enable:
 
