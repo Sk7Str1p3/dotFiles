@@ -11,7 +11,8 @@
           hash = "sha256-DMIRKRAVOn7YEnuAtz4hIxrU93ULxNoQhW6juxCoh4o=";
         };
       }
-    /*{
+      /*
+      {
         name = "Async";
         src = pkgs.fetchFromGitHub {
           owner = "acomagu";
@@ -20,7 +21,8 @@
           hash = "sha256-B7Ze0a5Zp+5JVsQUOv97mKHh5wiv3ejsDhJMrK7YOx4=";
         };
       }
-    */{
+      */
+      {
         name = "Pufferfish";
         src = pkgs.fetchFromGitHub {
           owner = "nickeb96";
@@ -50,6 +52,7 @@
       os-update = "nix flake update --flake /etc/nixos ; nh os switch /etc/nixos";
       os-cleanup = "nh clean all";
       os-edit = "code /etc/nixos";
+      os-repair = "nix-store --verify --check-contents --repair";
 
       hm-rebuild = "nh home switch ~/.config/home-manager";
       hm-update = "nix flake update --flake ~/.config/home-manager ; nh home switch ~/.config/home-manager";
