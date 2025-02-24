@@ -115,7 +115,7 @@
           type = "gpt";
           partitions = {
             HDD = {
-              name = "btl_hard";
+              name = "HDD";
               size = "100%";
               content = {
                 type = "luks";
