@@ -49,7 +49,7 @@
     vimPlugins.LazyVim
     #git-credential-manager
     rofi-wayland
-    vmware-workstation
+    #vmware-workstation
     #rofi-power-menu
     obs-studio
     #obsidian
