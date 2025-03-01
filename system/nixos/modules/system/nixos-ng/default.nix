@@ -4,11 +4,11 @@
   ...
 }:
 with lib; let
-  cfg = config.module.nixos-rs;
+  cfg = config.module.nixos-ng;
 in {
   # Declare options
   options = {
-    module.nixos-rs = {
+    module.nixos-ng = {
       enable = mkEnableOption "Enable the next-gen NixOS tools";
     };
   };
@@ -28,6 +28,10 @@ in {
     # Some system tools
     system = {
       switch = {
+        enable = false;
+        enableNg = true;
+      };
+      rebuild = {
         enable = false;
         enableNg = true;
       };
