@@ -35,11 +35,6 @@
     enable = true;
     acceleration = "cuda";
   };
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   services.openssh.enable = true;
   programs.fish.enable = true;
