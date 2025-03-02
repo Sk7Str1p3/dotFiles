@@ -26,6 +26,7 @@
   mkConfiguration = configurationDir: {
     hostName ? "NixOS",
     stateVersion ? defaultStateVersion,
+    homeStateVersion ? stateVersion,
     defaultBranch ? "unstable",
     users ? ["user"],
     headless ? false,
@@ -45,6 +46,7 @@
           headless
           hostPlatform
           stateVersion
+          homeStateVersion
           users
           ;
       };
