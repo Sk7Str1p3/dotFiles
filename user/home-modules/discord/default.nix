@@ -5,11 +5,11 @@
   ...
 }:
 with lib; let
-  cfg = config.module.discord;
+  cfg = config.module.user.discord;
 in {
   # Declare Options
   options = {
-    discord = {
+    module.user.discord = {
       enable = mkEnableOption "Discord";
     };
   };
