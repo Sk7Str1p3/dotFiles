@@ -1,6 +1,7 @@
 {
   # SystemD service for impermanence based on btrfs subvolumes
-  boot.initrd.systemd.impermanence = {
+  /*
+    boot.initrd.systemd.impermanence = {
     description = "Impermanence based on BTRFS subvolumes";
     unitConfig.DefaultDependencies = "no";
     serviceConfig.Type = "oneshot";
@@ -33,4 +34,5 @@
       umount /btrfs_tmp
     '';
   };
+  */
 }

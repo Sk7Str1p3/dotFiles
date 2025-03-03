@@ -5,7 +5,7 @@
       device = "/dev/mapper/NixOS";
       fsType = "btrfs";
       options = [
-        "subvol=nixStore"
+        "subvol=@nix"
         "compress-force=zstd"
       ];
     };
@@ -13,23 +13,33 @@
       device = "/dev/mapper/NixOS";
       fsType = "btrfs";
       options = [
-        "subvol=root"
+        "subvol=@"
         "compress-force=zstd"
       ];
     };
-    "/persist" = {
+    /*
+    * "/persist" = {
+    *   device = "/dev/mapper/NixOS";
+    *   neededForBoot = true;
+    *   fsType = "btrfs";
+    *   options = [
+    *     "subvol=persist"
+    *     "compress-force=zstd"
+    *   ];
+    * };
+    */
+    "/home" = {
       device = "/dev/mapper/NixOS";
-      neededForBoot = true;
       fsType = "btrfs";
       options = [
-        "subvol=persist"
+        "subvol=@home"
         "compress-force=zstd"
       ];
     };
     "/.swapvol" = {
       device = "/dev/mapper/NixOS";
       fsType = "btrfs";
-      options = ["subvol=swap"];
+      options = ["subvol=@swap"];
     };
   };
 }
