@@ -50,6 +50,7 @@ in {
           # Rust workflow # TODO: wait for fix on rust-analyzer; for now replaced with custom extension
           # rust-lang.rust-analyzer
           fill-labs.dependi
+          vadimcn.vscode-lldb
 
           # Python workflow
           ms-python.python
