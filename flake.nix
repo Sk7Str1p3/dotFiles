@@ -9,9 +9,12 @@
     nixpkgs.follows = "stable";
 
     # Unofficial repositories
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "stable";
+    };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "stable";
     };
 

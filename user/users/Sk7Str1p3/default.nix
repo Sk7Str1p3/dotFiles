@@ -68,6 +68,7 @@ in {
       nixpkgs.overlays = with inputs; [
         nur.overlay
         prismLauncher.overlays.default
+        nix-vscode-extensions.overlays.default
       ];
       home = {
         inherit homeDirectory;
