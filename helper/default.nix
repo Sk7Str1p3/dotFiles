@@ -7,7 +7,7 @@
   defaultStateVersion = "24.11";
   # modules sources
   source = [
-    "${self}/users"
+    "${self}/user"
     "${self}/system"
   ];
   # function to automatically import all directories
@@ -58,7 +58,6 @@
           lanzaboote.nixosModules.lanzaboote
           impermanence.nixosModules.impermanence
           nix-flatpak.nixosModules.nix-flatpak
-          chaotic.nixosModules.default
           nur.modules.nixos.default
           sops.nixosModules.sops
         ]
