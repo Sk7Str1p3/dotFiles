@@ -19,6 +19,7 @@
   username = "Sk7Str1p3";
 in {
   # Essential user information which must be declared on system level
+  programs.fish.enable = true;
   users.users.Sk7Str1p3 = {
     hashedPassword = "$y$j9T$uWq7PDLmdqjQmf4j8i85v1$cTuvGw3cZFKeUvhD65Mde6fiNuVypgy8cBp/BSBli4D";
     isNormalUser = true;
@@ -27,7 +28,6 @@ in {
   };
   # home-manager settings
   home-manager = {
-    useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension =
       "backup-"
@@ -40,6 +40,7 @@ in {
         inputs
         self
         hostName
+        isDarwin
         username
         homeStateVersion
         headless
@@ -51,7 +52,8 @@ in {
     users.${username} = {
       imports = with inputs;
         [
-          impermanence.nixosSystem.home-manager.impermanence
+          impermanence.nixosModules.home-manager.impermanence
+          catppuccin.homeManagerModules.catppuccin
           sops.homeManagerModules.sops
           nur.modules.homeManager.default
           nixvim.homeManagerModules.nixvim
@@ -59,14 +61,17 @@ in {
           ags.homeManagerModules.default
         ]
         ++ [
-          "${self}/common/modules"
           "${self}/user/home-modules"
           "${self}/user/users/${username}/modules"
           "${self}/user/users/${username}/home.nix"
+        ]
+        ++ [
+          "${self}/common/overlays"
+          "${self}/common/modules"
         ];
 
       nixpkgs.overlays = with inputs; [
-        nur.overlay
+        nur.overlays.default
         prismLauncher.overlays.default
         nix-vscode-extensions.overlays.default
       ];
