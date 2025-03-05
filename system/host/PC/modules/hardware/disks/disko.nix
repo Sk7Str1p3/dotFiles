@@ -1,5 +1,5 @@
 # FIXME: real disk config is different and not
-# disko compatible, so this file is temporarily disables
+# disko compatible, so this file is temporarily disabled
 {
   disko.devices.disk = {
     nvme = {
