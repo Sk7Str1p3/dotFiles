@@ -27,7 +27,7 @@ in {
     networking = {
       # Basic settings
       inherit hostName;
-      useDHCP = true;
+      useDHCP = mkDefault true;
       # Configure network-manager
       networkmanager = {
         enable = true;
@@ -36,6 +36,7 @@ in {
           macAddress = "random";
         };
       };
+      firewall.checkReversePath = false;
       # Configure IWD as NM backend
       wireless.iwd = {
         enable = true;

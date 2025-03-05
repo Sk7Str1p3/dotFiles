@@ -9,7 +9,7 @@ in {
   # Declare options
   options = {
     module.network.zapret = {
-      enable = true;
+      enable = mkEnableOption "Zapret";
     };
   };
 
