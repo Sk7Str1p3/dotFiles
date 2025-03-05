@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  self,
   ...
 }:
 with lib; let
@@ -21,10 +22,10 @@ in {
       enable = true;
       settings = {
         preload = [
-          "${../non-nix/images/purple-sea.jpg}"
+          "${self}/assets/wallpapers/purple-sea.jpg"
         ];
         wallpaper = [
-          "HDMI-A-1, ${../non-nix/images/purple-sea.jpg}"
+          "HDMI-A-1, ${self}/assets/wallpapers/purple-sea.jpg"
         ];
       };
     };

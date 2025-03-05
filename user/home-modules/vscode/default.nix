@@ -18,12 +18,12 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs.vscode;
+      package = pkgs.stable.unfree.vscode;
       # Disable some annoying and not ''nix way'' stuff
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
-      extensions = with pkgs.vscode-extensions;
+      extensions = with pkgs.stable.unfree.vscode-extensions;
         [
           # VSC generic extensions
           catppuccin.catppuccin-vsc
@@ -61,7 +61,7 @@ in {
           dbaeumer.vscode-eslint
           chrischinchilla.vscode-pandoc
         ]
-        ++ (with vscode-marketplace; [
+        ++ (with pkgs.vscode-marketplace-release; [
           rust-lang.rust-analyzer
         ]);
       # TODO: Add more extensions

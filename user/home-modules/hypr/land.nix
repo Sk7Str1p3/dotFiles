@@ -34,7 +34,7 @@ in {
             "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
             "${pkgs.hyprsunset}/bin/hyprsunset -t 4000"
           ]
-          ++ optionals config.module.user.ags.enable
+          ++ #optionals config.module.user.ags.enable
           ["ags run"]
           ++ optionals config.module.user.hypr.paper.enable
           ["${pkgs.hyprpaper}/bin/hyprpaper"];
@@ -148,9 +148,8 @@ in {
         ];
         layerrule =
           []
-          ++ optionals config.module.user.ags.enable [
-            "blur, AGS"
-          ];
+          ++ #optionals config.module.user.ags.enable [
+          ["blur, AGS"];
       };
     };
   };

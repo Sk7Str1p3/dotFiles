@@ -138,20 +138,6 @@
   # Many programs can be configured with home-manager modules.
   # For configuration options, check
   # https://nix-community.github.io/home-manager/
-  programs.git = {
-    package = pkgs.gitFull;
-    enable = true;
-    extraConfig = {
-      credential = {
-        helper = "manager";
-        credentialStore = "secretservice";
-      };
-      user = {
-        email = "finenkofedor@gmail.com";
-        name = "Sk7Str1pe";
-      };
-    };
-  };
 
   programs.rofi = {
     enable = true;
