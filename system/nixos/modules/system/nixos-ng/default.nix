@@ -32,8 +32,11 @@ in {
         enableNg = true;
       };
       rebuild = {
-        enable = false;
         enableNg = true;
+      };
+      etc.overlay = {
+        enable = true;
+        # mutable = false;
       };
     };
   };
