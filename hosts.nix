@@ -10,7 +10,7 @@
       ];
       headless = false;
       hostPlatform = "x86_64-linux";
-      hostType = "NixOS";
+      hostType = "nixos";
     };
   };
 }
