@@ -1,25 +1,19 @@
 {
   self,
-  lib,
-  machineDir,
+  configurationDir,
   hostType,
   stateVersion,
   hostPlatform,
   ...
-}: let
-  machineConfigurationPath = "${self}/system/machine/${machineDir}";
-  machineConfigurationPathExist = builtins.pathExists machineConfigurationPath;
-  machineModulesPath = "${self}/system/machine/${machineDir}/modules";
-  machineModulesPathExist = builtins.pathExists machineModulesPath;
-in {
-  imports =
-    [
-      "${self}/common/modules"
-      "${self}/common/overlays"
-      "${self}/system/${hostType}/modules"
-    ]
-    ++ lib.optional machineConfigurationPathExist machineConfigurationPath
-    ++ lib.optional machineModulesPathExist machineModulesPath;
+}: {
+  imports = [
+    "${self}/common/modules"
+    "${self}/common/overlays"
+    "${self}/system/${hostType}/modules"
+    "${self}/system/host/${configurationDir}"
+    "${self}/system/host/${configurationDir}/modules"
+    "${self}/system/host/${configurationDir}/overlays"
+  ];
 
   system = {
     inherit stateVersion;
