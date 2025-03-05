@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  ...
 }:
 with lib; let
   cfg = config.module.common.catppuccin;
@@ -20,11 +21,7 @@ in {
       enable = true;
       flavor = "mocha";
       accent = "mauve";
-      cursors = {
-        enable = true;
-        accent = "mauve";
-        flavor = "mocha";
-      };
+      # TODO: replace with Stylix
     };
   };
 }
