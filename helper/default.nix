@@ -24,7 +24,7 @@
       )));
   # Function for creating configurations
   mkConfiguration = configurationDir: {
-    hostName ? "NixOS",
+    hostName ? "nixos",
     stateVersion ? defaultStateVersion,
     homeStateVersion ? stateVersion,
     defaultBranch ? "unstable",
@@ -32,8 +32,7 @@
     headless ? false,
     hostPlatform ? "x86_64-linux",
     hostType ? "nixos",
-  }: let
-  in
+  }:
     inputs.${defaultBranch}.lib.nixosSystem {
       specialArgs = {
         inherit
