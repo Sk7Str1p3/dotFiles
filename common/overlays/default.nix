@@ -1,55 +1,53 @@
-{inputs, ...}: let
-  baseSettings = {
-    config = {
-      allowBroken = true;
-    };
-  };
-  permittedInsecurePackages = [];
-  unfreeSettings =
-    baseSettings.config
-    // {
-      inherit permittedInsecurePackages;
-      allowUnfree = true;
-    };
-in {
+{inputs, ...}: {
   nixpkgs.overlays = [
     (self: super: {
       # Stable
       stable = {
-        default =
-          import inputs.stable {
-            inherit (self) system;
-          }
-          // baseSettings;
-        unfree =
-          import inputs.stable {
-            inherit (self) system;
-          }
-          // unfreeSettings;
+        default = import inputs.stable {
+          inherit (self) system;
+          config = {
+            allowBroken = true;
+          };
+        };
+        unfree = import inputs.stable {
+          inherit (self) system;
+          config = {
+            allowBroken = true;
+            allowUnfree = true;
+          };
+        };
       };
+      # Unstable
       unstable = {
-        default =
-          import inputs.unstable {
-            inherit (self) system;
-          }
-          // baseSettings;
-        unfree =
-          import inputs.unstable {
-            inherit (self) system;
-          }
-          // unfreeSettings;
+        default = import inputs.unstable {
+          inherit (self) system;
+          config = {
+            allowBroken = true;
+          };
+        };
+        unfree = import inputs.unstable {
+          inherit (self) system;
+          config = {
+            allowBroken = true;
+            allowUnfree = true;
+          };
+        };
       };
+      # Master
       master = {
-        default =
-          import inputs.master {
-            inherit (self) system;
-          }
-          // baseSettings;
-        unfree =
-          import inputs.master {
-            inherit (self) system;
-          }
-          // unfreeSettings;
+        default = import inputs.master {
+          inherit (self) system;
+          config = {
+            allowBroken = true;
+          };
+        };
+        unfree = import inputs.master {
+          inherit (self) system;
+          config = {
+            allowBroken = true;
+            allowUnfree = true;
+          };
+        };
       };
     })
   ];
