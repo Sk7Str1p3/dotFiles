@@ -4,6 +4,12 @@
   isDarwin,
   ...
 }: {
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
+  };
+
   programs.git = {
     package = pkgs.gitFull;
     enable = true;
@@ -30,6 +36,10 @@
 
     discord.enable = !headless;
     firefox.enable = !headless;
+
+    themes = {
+      gtk.enable = true;
+    };
 
     hypr = {
       land.enable = !headless && !isDarwin;
