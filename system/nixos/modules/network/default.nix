@@ -19,11 +19,6 @@ in {
 
   # Implementation
   config = mkIf cfg.enable {
-    # Enable ResolveD
-    services.resolved = {
-      enable = true;
-    };
-
     networking = {
       # Basic settings
       inherit hostName;
