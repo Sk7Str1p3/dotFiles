@@ -29,6 +29,7 @@
     };
 
     discord.enable = !headless;
+    firefox.enable = !headless;
 
     hypr = {
       land.enable = !headless && !isDarwin;
