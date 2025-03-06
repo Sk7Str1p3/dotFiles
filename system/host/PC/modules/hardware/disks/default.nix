@@ -17,6 +17,14 @@
         "compress-force=zstd"
       ];
     };
+    "/boot" = {
+      device = "/dev/nvme0n1p1";
+      fsType = "vfat";
+      options = [
+        "defaults"
+        "umask=0077"
+      ];
+    };
     /*
     * "/persist" = {
     *   device = "/dev/mapper/NixOS";
