@@ -18,12 +18,12 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs.stable.unfree.vscode;
+      package = pkgs.stable.vscode;
       # Disable some annoying and not ''nix way'' stuff
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
-      extensions = with pkgs.stable.unfree.vscode-extensions;
+      extensions = with pkgs.stable.vscode-extensions;
         [
           # VSC generic extensions
           catppuccin.catppuccin-vsc
