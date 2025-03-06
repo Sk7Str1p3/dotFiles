@@ -9,6 +9,8 @@
       enable = true;
     };
 
+    hardware.sound.enable = true;
+
     nixos-ng.enable = true;
 
     virtualisation.libvirtd.enable = true;
