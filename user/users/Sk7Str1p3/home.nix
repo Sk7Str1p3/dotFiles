@@ -34,6 +34,7 @@
       starship.enable = true;
       yazi.enable = true;
       direnv.enable = true;
+      fastfetch.enable = true;
     };
 
     discord.enable = !headless;
