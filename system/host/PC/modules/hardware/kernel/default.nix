@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  hardware.enableAllFirmware = true;
   boot = {
     kernelModules = [
       "kvm-intel"
@@ -7,7 +8,7 @@
     kernelParams = [
       "resume_offset=13183565"
     ];
-    #kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_6_12;
   };
   boot.initrd = {
     enable = true;
