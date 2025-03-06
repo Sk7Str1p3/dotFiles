@@ -33,6 +33,9 @@ in {
         name = "Catppuccin-GTK-Purple-Dark";
       };
       font = {
+        package = pkgs.nerdfonts.override {
+          fonts = ["JetBrainsMono"];
+        };
         name = "JetBrainsMono Nerd Font Propo";
         size = 12;
       };
