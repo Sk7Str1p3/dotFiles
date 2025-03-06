@@ -33,13 +33,14 @@
       fish.enable = true;
       starship.enable = true;
       yazi.enable = true;
+      direnv.enable = true;
     };
 
     discord.enable = !headless;
     firefox.enable = !headless;
 
     theme = {
-      gtk.enable = true;
+      gtk.enable = !isDarwin && !headless;
     };
 
     hypr = {

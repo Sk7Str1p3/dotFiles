@@ -4,6 +4,5 @@
     nix-tree
     nix-output-monitor
     any-nix-shell
-    direnv
   ];
 }
