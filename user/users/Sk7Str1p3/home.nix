@@ -32,12 +32,13 @@
     shell = {
       fish.enable = true;
       starship.enable = true;
+      yazi.enable = true;
     };
 
     discord.enable = !headless;
     firefox.enable = !headless;
 
-    themes = {
+    theme = {
       gtk.enable = true;
     };
 

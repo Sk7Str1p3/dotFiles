@@ -4,6 +4,5 @@
     fastfetch
     tmux
     eza
-    yazi
   ];
 }
