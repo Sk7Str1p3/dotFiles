@@ -7,6 +7,7 @@
         yazi
         git
         lunarvim
+        nixd
       ];
     };
   };
