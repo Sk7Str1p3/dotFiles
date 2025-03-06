@@ -27,5 +27,7 @@ in {
   config = mkIf cfg.enable {
     # This allow firewall to redirect packets. Required for TUN mode.
     networking.firewall.checkReversePath = config.networking.firewall.enable;
+
+    # Add Nekoray to system packages
   };
 }

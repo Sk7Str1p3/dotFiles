@@ -23,6 +23,11 @@
     kitty.enable = !headless;
     vscode.enable = !headless;
 
+    shell = {
+      fish.enable = true;
+      starship.enable = true;
+    };
+
     discord.enable = !headless;
 
     hypr = {
