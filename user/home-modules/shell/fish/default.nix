@@ -73,8 +73,6 @@ in {
         hm-rebuild = "nh home switch ~/.config/home-manager";
         hm-update = "nix flake update --flake ~/.config/home-manager ; nh home switch ~/.config/home-manager";
         hm-edit = "code ~/.config/home-manager";
-
-        ls = "eza --icons";
       };
     };
   };
