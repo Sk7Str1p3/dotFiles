@@ -44,6 +44,7 @@
     firefox.enable = !headless;
 
     rofi.enable = true;
+    ags.enable = true;
 
     theme = {
       cursor.enable = !isDarwin && !headless;
