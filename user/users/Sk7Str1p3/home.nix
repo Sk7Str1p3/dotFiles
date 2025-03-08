@@ -36,6 +36,7 @@
       direnv.enable = true;
       fastfetch.enable = true;
       eza.enable = true;
+      nh.enable = true;
     };
 
     discord.enable = !headless;
