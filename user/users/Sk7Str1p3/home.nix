@@ -43,6 +43,8 @@
     discord.enable = !headless;
     firefox.enable = !headless;
 
+    rofi.enable = true;
+
     theme = {
       cursor.enable = !isDarwin && !headless;
       gtk.enable = !isDarwin && !headless;
