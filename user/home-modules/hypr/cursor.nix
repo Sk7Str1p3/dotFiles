@@ -17,7 +17,7 @@ in {
     home.pointerCursor = {
       hyprcursor = {
         enable = true;
-        size = 32;
+        size = 30;
       };
     };
   };

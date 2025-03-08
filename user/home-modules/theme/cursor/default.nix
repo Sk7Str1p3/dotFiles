@@ -19,7 +19,7 @@ in {
     home.pointerCursor = {
       package = pkgs.catppuccin-cursors.mochaMauve;
       name = "catppuccin-mocha-mauve-cursors";
-      size = 32;
+      size = 24;
     };
   };
 }
