@@ -37,6 +37,7 @@
       fastfetch.enable = true;
       eza.enable = true;
       nh.enable = true;
+      nix-shell.enable = true;
     };
 
     discord.enable = !headless;

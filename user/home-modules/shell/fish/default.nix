@@ -50,7 +50,6 @@ in {
         }
       ];
       interactiveShellInit = ''
-        any-nix-shell fish --info-right | source
         fastfetch
       '';
       functions = {
