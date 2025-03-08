@@ -41,7 +41,6 @@
     impermanence.url = "github:nix-community/impermanence";
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/latest";
-      inputs.nixpkgs.follows = "stable";
     };
     catppuccin = {
       url = "github:catppuccin/nix";
