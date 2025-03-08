@@ -49,9 +49,6 @@ in {
           };
         }
       ];
-      interactiveShellInit = ''
-        fastfetch
-      '';
       functions = {
         fish_greeting = '''';
         yy = ''

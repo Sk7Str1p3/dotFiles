@@ -135,5 +135,8 @@ in {
         ];
       };
     };
+    programs.fish.interactiveShellInit = ''
+      fastfetch
+    '';
   };
 }
