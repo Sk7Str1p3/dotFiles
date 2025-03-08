@@ -44,6 +44,7 @@
     firefox.enable = !headless;
 
     theme = {
+      cursor.enable = !isDarwin && !headless;
       gtk.enable = !isDarwin && !headless;
     };
 
@@ -52,6 +53,7 @@
       idle.enable = !headless && !isDarwin;
       paper.enable = !headless && !isDarwin;
       lock.enable = !headless && !isDarwin;
+      cursor.enable = !headless && !isDarwin;
     };
   };
 }

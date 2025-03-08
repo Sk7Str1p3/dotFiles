@@ -4,5 +4,6 @@
     ./idle.nix
     ./paper.nix
     ./lock.nix
+    ./cursor.nix
   ];
 }

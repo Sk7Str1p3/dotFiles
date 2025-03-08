@@ -120,15 +120,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "catppuccin-mocha-mauve-cursors";
-    package = pkgs.catppuccin-cursors.mochaMauve;
-    size = 20;
-  };
-
   # Set xdg user directories:
   xdg.userDirs = {
     enable = true;

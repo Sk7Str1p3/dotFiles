@@ -46,5 +46,6 @@ in {
         };
       };
     };
+    home.pointerCursor.gtk.enable = true;
   };
 }
