@@ -48,6 +48,7 @@
 
     theme = {
       cursor.enable = !isDarwin && !headless;
+      font.enable = true;
       gtk.enable = !isDarwin && !headless;
     };
 
