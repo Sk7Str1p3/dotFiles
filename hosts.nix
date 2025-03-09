@@ -2,8 +2,8 @@
   nixos = {
     PC = {
       hostName = "GodlikeNix";
-      stateVersion = "24.11";
-      defaultBranch = "stable";
+      stateVersion = "25.05";
+      defaultBranch = "unstable";
       users = [
         "Sk7Str1p3"
         "Nataly"

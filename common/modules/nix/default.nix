@@ -31,11 +31,12 @@ in {
         persistent = true;
         randomizedDelaySec = "0";
       };
+
       /*
         optimise = {
         automatic = true;
-        #persistent = true;
-        #randomizedDelaySec = "0";
+        persistent = true;
+        randomizedDelaySec = "0";
         dates = [
           "06:00"
           "18:00"

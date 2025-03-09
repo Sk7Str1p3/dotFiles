@@ -4,7 +4,7 @@
       "inputs": {
         "astal": "astal",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -45,7 +45,7 @@
     "catppuccin": {
       "inputs": {
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -101,7 +101,7 @@
     "disko": {
       "inputs": {
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -227,7 +227,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -452,7 +452,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -539,7 +539,7 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ],
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
         "rust-overlay": "rust-overlay"
@@ -647,7 +647,7 @@
       "inputs": {
         "nixos-appstream-data": "nixos-appstream-data",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ],
         "utils": "utils"
       },
@@ -670,7 +670,7 @@
         "flake-compat": "flake-compat_2",
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -691,7 +691,7 @@
       "inputs": {
         "flake-compat": "flake-compat_3",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ],
         "systems": "systems_3",
         "treefmt-nix": "treefmt-nix"
@@ -740,7 +740,7 @@
       "inputs": {
         "flake-compat": "flake-compat_4",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ],
         "snowfall-lib": "snowfall-lib"
       },
@@ -815,7 +815,7 @@
         "home-manager": "home-manager_2",
         "nix-darwin": "nix-darwin",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ],
         "nuschtosSearch": "nuschtosSearch",
         "treefmt-nix": "treefmt-nix_2"
@@ -838,7 +838,7 @@
       "inputs": {
         "flake-parts": "flake-parts_4",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ],
         "treefmt-nix": "treefmt-nix_3"
       },
@@ -912,7 +912,7 @@
         "libnbtplusplus": "libnbtplusplus",
         "nix-filter": "nix-filter",
         "nixpkgs": [
-          "stable"
+          "nixpkgs"
         ]
       },
       "locked": {

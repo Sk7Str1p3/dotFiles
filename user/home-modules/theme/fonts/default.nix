@@ -24,10 +24,9 @@ in {
         };
       };
     };
-    home.packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = ["JetBrainsMono"];
-      })
+    home.packages = with pkgs.nerd-fonts; [
+      jetbrains-mono
+      iosevka
     ];
   };
 }
