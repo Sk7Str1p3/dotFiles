@@ -1,7 +1,7 @@
 {
   nixos = {
-    PC = {
-      hostName = "GodlikeNix";
+    pcnix = {
+      hostName = "pcnix";
       stateVersion = "25.05";
       defaultBranch = "unstable";
       users = [
