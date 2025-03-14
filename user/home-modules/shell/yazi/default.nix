@@ -16,18 +16,32 @@ in {
 
   # Implementation
   config = mkIf cfg.enable {
-    programs.yazi = {
-      enable = true;
-      enableFishIntegration = true;
+    programs.yazi = mkMerge (attrValues {
+      _ = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+
       # Plugins
-      plugins.mdcat = pkgs.callPackage ./plugins/mdcat/package.nix {};
-      settings.plugin.prepend_previewers = [
-        {
-          name = "*.md";
-          run = "mdcat";
-        }
-      ];
-    };
+      glow = {
+        plugins.glow = pkgs.callPackage ./plugins/glow/package.nix {};
+        settings.plugin.prepend_previewers = [
+          {
+            name = "*.md";
+            run = "glow";
+          }
+        ];
+      };
+      miller = {
+        plugins.miller = pkgs.callPackage ./plugins/miller/package.nix {};
+        settings.plugin.prepend_previewers = [
+          {
+            mime = "text/csv";
+            run = "miller";
+          }
+        ];
+      };
+    });
     #TODO: more detailed configuration
   };
 }
