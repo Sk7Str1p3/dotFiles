@@ -41,6 +41,31 @@ in {
           }
         ];
       };
+      mediainfo = {
+        plugins.mediainfo = pkgs.callPackage ./plugins/mediainfo/package.nix {};
+        settings.plugin = {
+          prepend_previewers = [
+            {
+              mime = "{audio,video,image}/*";
+              run = "mediainfo";
+            }
+            {
+              mime = "application/subrip";
+              run = "mediainfo";
+            }
+          ];
+          prepend_preloaders = [
+            {
+              mime = "{audio,video,image}/*";
+              run = "mediainfo";
+            }
+            {
+              mime = "application/subrip";
+              run = "mediainfo";
+            }
+          ];
+        };
+      };
     });
     #TODO: more detailed configuration
   };
