@@ -60,17 +60,6 @@ in {
           rm -f -- "$tmp"
         '';
       };
-      shellAliases = {
-        os-rebuild = "nh os switch /etc/nixos";
-        os-update = "nix flake update --flake /etc/nixos ; nh os switch /etc/nixos";
-        os-cleanup = "nh clean all";
-        os-edit = "code /etc/nixos";
-        os-repair = "nix-store --verify --check-contents --repair";
-
-        hm-rebuild = "nh home switch ~/.config/home-manager";
-        hm-update = "nix flake update --flake ~/.config/home-manager ; nh home switch ~/.config/home-manager";
-        hm-edit = "code ~/.config/home-manager";
-      };
     };
   };
 }
