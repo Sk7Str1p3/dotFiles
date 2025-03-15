@@ -28,7 +28,7 @@ stdenv.mkDerivation {
   postFixup = ''
     substituteInPlace $out/main.lua \
       --replace 'Command("ffmpeg")' 'Command("${ffmpeg}/bin/ffmpeg")' \
-      --replace 'cmd = "mediainfo"' "${mediainfo}/bin/mediainfo"
+      --replace 'cmd = "mediainfo"' 'cmd = "${mediainfo}/bin/mediainfo"'
   '';
 
   meta = with lib; {
