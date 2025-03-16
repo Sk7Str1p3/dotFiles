@@ -59,6 +59,7 @@
       paper.enable = !headless && !isDarwin;
       lock.enable = !headless && !isDarwin;
       cursor.enable = !headless && !isDarwin;
+      sunset.enable = !headless && !isDarwin;
     };
   };
 }
