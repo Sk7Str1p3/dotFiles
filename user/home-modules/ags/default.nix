@@ -19,6 +19,7 @@ in {
   config = mkIf cfg.enable {
     programs.ags = {
       enable = true;
+      systemd.enable = true;
       configDir = ./configuration;
       extraPackages = with inputs.ags.packages.${pkgs.system}; [
         hyprland
