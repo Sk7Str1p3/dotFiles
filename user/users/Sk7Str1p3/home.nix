@@ -2,8 +2,57 @@
   headless,
   pkgs,
   isDarwin,
+  inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+    # ideally should be empty
+    # because home-manager provides modules for almost all apps
+    gimp
+    blender
+    lunarvim
+    neovide
+    vimPlugins.LazyVim
+    git-credential-manager
+    rofi-wayland
+    #vmware-workstation
+    rofi-power-menu
+    obs-studio
+    obsidian
+    onefetch
+    snowmachine
+    inputs.nix-software-center.packages.${system}.nix-software-center
+    inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
+
+    adwsteamgtk
+    bottles
+    wineWow64Packages.stableFull
+    winetricks
+    prismlauncher
+
+    nautilus
+    gnome-disk-utility
+    gnome-calculator
+    gnome-calendar
+    gnome-software
+    gnome-logs
+    gnome-connections
+    baobab
+    loupe
+    totem
+
+    hyprshot
+    hyprpicker
+    hyprutils
+    hyprland-qtutils
+
+    arrpc
+    transmission_3-gtk
+    qbittorrent-enhanced
+    samba
+    ayugram-desktop
+    nekoray
+  ];
   qt = {
     enable = true;
     platformTheme.name = "kvantum";
@@ -20,7 +69,7 @@
       };
       user = {
         email = "finenkofedor@gmail.com";
-        name = "Sk7Str1pe";
+        name = "Sk7Str1p3";
       };
     };
   };
