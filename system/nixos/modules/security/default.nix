@@ -2,6 +2,7 @@
   lib,
   config,
   headless,
+  pkgs,
   ...
 }:
 with lib; let
@@ -26,7 +27,7 @@ in {
       sudo-rs = {
         enable = true;
         execWheelOnly = true;
-        wheelNeedsPassword = true;
+        wheelNeedsPassword = false;
       };
 
       polkit = optionalAttrs (!headless) {
@@ -46,15 +47,14 @@ in {
       };
     };
     systemd.user.services.polkit-gtk = {
+      enable = true;
       description = "Polkit authentication agent";
-
       wantedBy = ["graphical-session.target"];
       wants = ["graphical-session.target"];
       after = ["graphical-session.target"];
-
-      script = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       serviceConfig = {
         Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
