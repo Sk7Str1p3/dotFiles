@@ -31,12 +31,9 @@ in {
         enable = false;
         enableNg = true;
       };
-      /*
-      * rebuild = {
-      *   enableNg = true;
-      * };
-      * disabled because not implemented in stable yet
-      */
+      rebuild = {
+        enableNg = true;
+      };
       etc.overlay = {
         enable = true;
         # mutable = false;
