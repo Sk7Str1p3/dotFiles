@@ -29,9 +29,6 @@ in {
         env = [
           "NIXOS_OZONE_WL, 1"
         ];
-        exec-once = [
-          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        ];
         general = {
           gaps_in = 7;
           gaps_out = 30;
