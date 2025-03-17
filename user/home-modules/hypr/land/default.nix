@@ -29,16 +29,9 @@ in {
         env = [
           "NIXOS_OZONE_WL, 1"
         ];
-        exec-once =
-          [
-            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-            "${pkgs.hyprsunset}/bin/hyprsunset -t 4000"
-          ]
-          ++ #optionals config.module.user.ags.enable
-          ["ags run"]
-          ++ optionals config.module.user.hypr.paper.enable
-          ["${pkgs.hyprpaper}/bin/hyprpaper"];
-
+        exec-once = [
+          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+        ];
         general = {
           gaps_in = 7;
           gaps_out = 30;
