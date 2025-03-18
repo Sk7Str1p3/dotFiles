@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.module.services;
+  cfg = config.module.services.gnome;
 in {
   options = {
     module.services = {
@@ -14,6 +14,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    programs.seahorse.enable = true;
     services = {
       gvfs.enable = true;
       udisks2.enable = true;

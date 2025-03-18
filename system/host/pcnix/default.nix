@@ -16,6 +16,10 @@
       # smth weird happened
     };
 
+    services = {
+      gnome.enable = true;
+    };
+
     hardware.sound.enable = true;
 
     nixos-ng.enable = true;
