@@ -70,6 +70,7 @@
       cursor.enable = !isDarwin && !headless;
       font.enable = true;
       gtk.enable = !isDarwin && !headless;
+      qt.enable = !isDarwin && !headless;
     };
 
     hypr = {

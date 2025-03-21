@@ -27,9 +27,12 @@ in {
       };
 
       profiles.Sk7Str1p3 = {
-        bookmarks = [
-          {}
-        ];
+        bookmarks = {
+          force = true;
+          settings = [
+            {}
+          ];
+        };
 
         # TODO: containers = {};
 

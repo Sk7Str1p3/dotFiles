@@ -19,9 +19,9 @@
 
   username = "Sk7Str1p3";
 in {
-  secrets = {
+  sops.secrets = {
     "Sk7Str1p3/userPassword" = {
-      sopsFile = ./users/Sk7Str1p3/userPassword.yaml;
+      sopsFile = ../../../secrets/users/Sk7Str1p3/userPassword.yaml;
       neededForUsers = true;
     };
   };
