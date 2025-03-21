@@ -1,6 +1,7 @@
 {
   self,
   pkgs,
+  config,
   inputs,
   hostName,
   homeStateVersion,
@@ -18,13 +19,19 @@
 
   username = "Sk7Str1p3";
 in {
+  secrets = {
+    "Sk7Str1p3/userPassword" = {
+      sopsFile = ./users/Sk7Str1p3/userPassword.yaml;
+      neededForUsers = true;
+    };
+  };
   # Essential user information which must be declared on system level
   programs.fish.enable = true;
   users.users.Sk7Str1p3 = {
-    hashedPassword = "$y$j9T$uWq7PDLmdqjQmf4j8i85v1$cTuvGw3cZFKeUvhD65Mde6fiNuVypgy8cBp/BSBli4D";
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = ["wheel"];
+    hashedPasswordFile = config.sops.secrets."Sk7Str1p3/userPassword".path;
   };
   # home-manager settings
   home-manager = {

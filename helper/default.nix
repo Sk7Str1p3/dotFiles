@@ -9,6 +9,7 @@
   source = [
     "${self}/user"
     "${self}/system"
+    "${self}/secrets"
   ];
   # function to automatically import all directories
   allDirectories = directoryName:
