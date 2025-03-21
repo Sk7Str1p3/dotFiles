@@ -18,73 +18,84 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs.stable.vscode;
+      package = pkgs.vscode;
       mutableExtensionsDir = false;
       # Disable some annoying and not ''nix way'' stuff
       profiles.default = {
         enableExtensionUpdateCheck = false;
         enableUpdateCheck = false;
-        extensions = with pkgs.stable.vscode-extensions;
-          [
-            # VSC generic extensions
-            catppuccin.catppuccin-vsc
-            leonardssh.vscord
-            github.copilot
-            github.copilot-chat
+        extensions = with pkgs.vscode-extensions; [
+          # VSC generic extensions
+          catppuccin.catppuccin-vsc
+          leonardssh.vscord
+          github.copilot
+          github.copilot-chat
 
-            # Better Git integration
-            mhutchie.git-graph
-            github.vscode-pull-request-github
-            eamodio.gitlens
+          # Better Git integration
+          mhutchie.git-graph
+          github.vscode-pull-request-github
+          eamodio.gitlens
 
-            # Nix-specific extensions for better workflow
-            bbenoist.nix
-            kamadorueda.alejandra
-            jnoortheen.nix-ide
-            jeff-hykin.better-nix-syntax
-            arrterian.nix-env-selector
-            mkhl.direnv
+          # Nix-specific extensions for better workflow
+          bbenoist.nix
+          kamadorueda.alejandra
+          jnoortheen.nix-ide
+          jeff-hykin.better-nix-syntax
+          arrterian.nix-env-selector
+          mkhl.direnv
 
-            # C workflow
-            ms-vscode.cmake-tools
+          # C workflow
+          ms-vscode.cmake-tools
 
-            # Rust workflow # TODO: wait for fix on rust-analyzer; for now replaced with custom extension
-            # rust-lang.rust-analyzer
-            fill-labs.dependi
-            vadimcn.vscode-lldb
+          # Rust workflow
+          rust-lang.rust-analyzer
+          fill-labs.dependi
+          vadimcn.vscode-lldb
 
-            # Python workflow
-            ms-python.python
-            ms-python.flake8
-            ms-python.black-formatter
-            matangover.mypy
+          # Python workflow
+          ms-python.python
+          ms-python.flake8
+          ms-python.black-formatter
+          matangover.mypy
 
-            dbaeumer.vscode-eslint
-            chrischinchilla.vscode-pandoc
-          ]
-          ++ (with pkgs.vscode-marketplace-release; [
-            rust-lang.rust-analyzer
-          ]);
+          dbaeumer.vscode-eslint
+          chrischinchilla.vscode-pandoc
+        ];
+        /*
+        * ++ (with pkgs.vscode-marketplace; [
+        *   rust-lang.rust-analyzer
+        * ]);
+        */
         # TODO: Add more extensions
         userSettings = {
-          "workbench.colorTheme" = "Catppuccin Mocha";
+          workbench.colorTheme = "Catppuccin Mocha";
 
-          "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
-          "editor.fontLigatures" = true;
-          "editor.fontSize" = 16;
-          "editor.minimap.sectionHeaderFontSize" = 16;
-          "editor.suggestFontSize" = 16;
+          editor = {
+            fontFamily = "'JetBrainsMono Nerd Font Propo'";
+            fontLigatures = true;
+            fontSize = 16;
+            minimap.sectionHeaderFontSize = 16;
+            suggestFontSize = 16;
+          };
 
-          "terminal.integrated.fontSize" = 16;
-          "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Propo'";
-          "terminal.integrated.fontLigatures" = true;
+          terminal = {
+            integrated = {
+              fontSize = 16;
+              fontFamily = "'JetBrainsMono Nerd Font Propo'";
+              fontLigatures.enabled = true;
+            };
+          };
 
-          "git.autofetch" = true;
-          "git.enableSmartCommit" = true;
-          "git.confirmSync" = false;
+          git = {
+            autofetch = true;
+            enableSmartCommit = true;
+            confirmSync = false;
+          };
 
-          "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "nixd";
+          nix = {
+            enableLanguageServer = true;
+            serverPath = "nixd";
+          };
         };
       };
     };
