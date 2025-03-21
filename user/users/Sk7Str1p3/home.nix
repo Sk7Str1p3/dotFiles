@@ -2,7 +2,6 @@
   headless,
   pkgs,
   isDarwin,
-  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -14,15 +13,8 @@
     neovide
     vimPlugins.LazyVim
     git-credential-manager
-    rofi-wayland
-    #vmware-workstation
-    rofi-power-menu
-    obs-studio
     obsidian
     onefetch
-    snowmachine
-    inputs.nix-software-center.packages.${system}.nix-software-center
-    inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
 
     adwsteamgtk
     bottles
@@ -43,21 +35,13 @@
 
     hyprshot
     hyprpicker
-    hyprutils
-    hyprland-qtutils
 
-    arrpc
     transmission_3-gtk
     qbittorrent-enhanced
     samba
     ayugram-desktop
     nekoray
   ];
-  qt = {
-    enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-  };
 
   programs.git = {
     package = pkgs.gitFull;
