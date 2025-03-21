@@ -43,20 +43,6 @@
     nekoray
   ];
 
-  programs.git = {
-    package = pkgs.gitFull;
-    enable = true;
-    extraConfig = {
-      credential = {
-        helper = "manager";
-        credentialStore = "secretservice";
-      };
-      user = {
-        email = "finenkofedor@gmail.com";
-        name = "Sk7Str1p3";
-      };
-    };
-  };
   nixpkgs.overlays = [];
   module.user = {
     kitty.enable = !headless;
