@@ -10,7 +10,7 @@ in {
   # Declare options
   options = {
     module.user.theme.cursor = {
-      enable = mkEnableOption "gtk";
+      enable = mkEnableOption "cursor";
     };
   };
 
