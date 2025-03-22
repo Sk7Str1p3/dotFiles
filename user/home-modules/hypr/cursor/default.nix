@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.hypr.cursor;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.hypr.cursor = {

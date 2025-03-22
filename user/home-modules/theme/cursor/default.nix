@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.theme.cursor;
-in {
+in
+{
   # Declare options
   options = {
     module.user.theme.cursor = {

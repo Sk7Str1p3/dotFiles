@@ -2,7 +2,8 @@
   self,
   inputs,
   ...
-}: let
+}:
+let
   # default state version
   defaultStateVersion = "24.11";
   # modules sources
@@ -12,28 +13,24 @@
     "${self}/secrets"
   ];
   # function to automatically import all directories
-  allDirectories = directoryName:
-    builtins.filter (
-      module: (
-        (builtins.pathExists module)
-        && ((builtins.readFileType module) == "directory")
-      )
-    ) (map (
-        module: "${directoryName}/${module}"
-      ) (builtins.attrNames (
-        builtins.readDir directoryName
-      )));
+  allDirectories =
+    directoryName:
+    builtins.filter
+      (module: ((builtins.pathExists module) && ((builtins.readFileType module) == "directory")))
+      (map (module: "${directoryName}/${module}") (builtins.attrNames (builtins.readDir directoryName)));
   # Function for creating configurations
-  mkConfiguration = configurationDir: {
-    hostName ? "nixos",
-    stateVersion ? defaultStateVersion,
-    homeStateVersion ? stateVersion,
-    defaultBranch ? "unstable",
-    users ? ["user"],
-    headless ? false,
-    hostPlatform ? "x86_64-linux",
-    hostType ? "nixos",
-  }:
+  mkConfiguration =
+    configurationDir:
+    {
+      hostName ? "nixos",
+      stateVersion ? defaultStateVersion,
+      homeStateVersion ? stateVersion,
+      defaultBranch ? "unstable",
+      users ? [ "user" ],
+      headless ? false,
+      hostPlatform ? "x86_64-linux",
+      hostType ? "nixos",
+    }:
     inputs.${defaultBranch}.lib.nixosSystem {
       specialArgs = {
         inherit
@@ -50,7 +47,8 @@
           users
           ;
       };
-      modules = with inputs;
+      modules =
+        with inputs;
         [
           home-manager.nixosModules.home-manager
           catppuccin.nixosModules.catppuccin
@@ -63,13 +61,14 @@
         ]
         ++ source;
     };
-in {
+in
+{
   forAllSystems = inputs.stable.lib.systems.flakeExposed;
 
   /*
-  * This function just add mkConfiguration before hosts attrset
-  * e.g. generic = { username = "test"; stateVersion = "24.11"; }; ->
-  * generic = mkHost { username = "test"; stateVersion = "24.11"; };
+    * This function just add mkConfiguration before hosts attrset
+    * e.g. generic = { username = "test"; stateVersion = "24.11"; }; ->
+    * generic = mkHost { username = "test"; stateVersion = "24.11"; };
   */
   mkNixos = builtins.mapAttrs mkConfiguration;
 }

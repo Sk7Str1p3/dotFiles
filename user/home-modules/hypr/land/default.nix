@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.hypr.land;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.hypr.land = {
@@ -115,14 +117,15 @@ in {
           ]
           ++ (builtins.concatLists (
             builtins.genList (
-              i: let
+              i:
+              let
                 ws = i + 1;
-              in [
+              in
+              [
                 "$MOD, code:1${toString i}, workspace, ${toString ws}"
                 "$MOD SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
               ]
-            )
-            9
+            ) 9
           ));
         bindm = [
           "$MOD, mouse:272, movewindow"
@@ -137,9 +140,7 @@ in {
           ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         ];
         layerrule =
-          []
-          ++ #optionals config.module.user.ags.enable [
-          ["blur, AGS"];
+          [ "blur, AGS" ];
       };
     };
   };

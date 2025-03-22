@@ -1,12 +1,13 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.network.nekoray;
-in {
+in
+{
   # Declare options
   options = {
     module.network.nekoray = {
@@ -17,7 +18,7 @@ in {
       };
       profiles = mkOption {
         type = types.string;
-        default = {};
+        default = { };
         description = "Nekoray configuration";
       };
     };

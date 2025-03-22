@@ -5,7 +5,8 @@
   stateVersion,
   hostPlatform,
   ...
-}: {
+}:
+{
   imports = [
     "${self}/common/modules"
     "${self}/common/overlays"

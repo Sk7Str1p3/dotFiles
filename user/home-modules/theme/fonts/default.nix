@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.theme.font;
-in {
+in
+{
   # Declare options
   options = {
     module.user.theme.font = {
@@ -20,7 +22,7 @@ in {
       fontconfig = {
         enable = true;
         defaultFonts = {
-          monospace = ["JetBrainsMono Nerd Font Mono"];
+          monospace = [ "JetBrainsMono Nerd Font Mono" ];
         };
       };
     };

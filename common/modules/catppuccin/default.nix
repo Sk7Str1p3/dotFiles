@@ -3,9 +3,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.common.catppuccin;
-in {
+in
+{
   options = {
     module.common.catppuccin = {
       enable = mkOption {

@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.shell.rg;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.shell.rg = {
@@ -19,7 +21,7 @@ in {
     programs.ripgrep = {
       enable = true;
       package = pkgs.ripgrep-all;
-      arguments = [];
+      arguments = [ ];
     };
     programs.fish.shellAliases = {
       grep = "${pkgs.ripgrep-all}/bin/rga";

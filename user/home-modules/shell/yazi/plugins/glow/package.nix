@@ -32,7 +32,7 @@ stdenv.mkDerivation {
     description = "Plugin for Yazi to preview markdown files with glow.";
     homepage = "https://github.com/Reledia/glow.yazi";
     license = licenses.mit;
-    maintainers = [];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 }

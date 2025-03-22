@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
     services.displayManager = {
       # defaultSession = "hyprland";

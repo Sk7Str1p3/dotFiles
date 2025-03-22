@@ -72,17 +72,19 @@
     };
   };
 
-  outputs = {
-    flake-parts,
-    self,
-    ...
-  } @ inputs: let
-    hosts = import ./hosts.nix;
-    helper = import ./helper {inherit self inputs;};
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    {
+      flake-parts,
+      self,
+      ...
+    }@inputs:
+    let
+      hosts = import ./hosts.nix;
+      helper = import ./helper { inherit self inputs; };
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = helper.forAllSystems;
-      imports = [./flake-parts];
+      imports = [ ./flake-parts ];
       flake = {
         nixosConfigurations = helper.mkNixos hosts.nixos;
       };

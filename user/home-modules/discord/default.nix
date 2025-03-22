@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.discord;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.discord = {

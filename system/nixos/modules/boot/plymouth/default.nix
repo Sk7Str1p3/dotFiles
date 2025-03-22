@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.boot.plymouth;
-in {
+in
+{
   # Declare module options
   options = {
     module.boot.plymouth = {

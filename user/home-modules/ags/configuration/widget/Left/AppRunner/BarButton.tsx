@@ -1,10 +1,10 @@
-import AppLauncher from "./window/AppMenu"
+import AppLauncher from "./window/AppMenu";
 
 export default function AppRunner() {
-    return <button 
-        className="AppRunner"
-        onClick={() => AppLauncher()} >
-            
+  return (
+    <button className="AppRunner" onClick={() => AppLauncher()}>
+      
     </button>
-    // TODO: Replace rofi with custom widget // DONE
+  );
+  // TODO: Replace rofi with custom widget // DONE
 }

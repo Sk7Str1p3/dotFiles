@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.boot.systemd-boot;
-in {
+in
+{
   # Declare module options
   options = {
     module.boot.systemd-boot = {

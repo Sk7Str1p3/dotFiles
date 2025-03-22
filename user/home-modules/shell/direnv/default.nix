@@ -1,12 +1,13 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.shell.direnv;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.shell.direnv = {

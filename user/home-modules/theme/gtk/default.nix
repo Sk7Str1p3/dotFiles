@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.theme.gtk;
-in {
+in
+{
   # Declare options
   options = {
     module.user.theme.gtk = {
@@ -21,7 +23,7 @@ in {
       theme = {
         package = pkgs.magnetic-catppuccin-gtk.override {
           shade = "dark";
-          accent = ["purple"];
+          accent = [ "purple" ];
           size = "standard";
           tweaks = [
             "black"
@@ -40,7 +42,7 @@ in {
       iconTheme = {
         name = "Tela-circle-purple";
         package = pkgs.tela-circle-icon-theme.override {
-          colorVariants = ["purple"];
+          colorVariants = [ "purple" ];
         };
       };
     };

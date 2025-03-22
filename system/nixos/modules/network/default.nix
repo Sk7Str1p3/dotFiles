@@ -5,9 +5,11 @@
   allDirectories,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.network;
-in {
+in
+{
   imports = allDirectories ./.;
 
   # Declare options

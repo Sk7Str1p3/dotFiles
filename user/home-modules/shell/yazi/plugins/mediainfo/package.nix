@@ -35,7 +35,7 @@ stdenv.mkDerivation {
     description = "Yazi plugin for previewing media files.";
     homepage = "https://github.com/boydaihungst/mediainfo.yazi";
     license = licenses.mit;
-    maintainers = [];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 }

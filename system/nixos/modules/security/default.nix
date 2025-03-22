@@ -5,9 +5,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.security;
-in {
+in
+{
   options = {
     module.security = {
       enable = mkEnableOption "Enables security";
@@ -21,7 +23,7 @@ in {
       sudo.enable = false;
 
       pam.services = optionalAttrs (!headless) {
-        hyprlock = {};
+        hyprlock = { };
       };
 
       sudo-rs = {
@@ -49,9 +51,9 @@ in {
     systemd.user.services.polkit-gtk = {
       enable = true;
       description = "Polkit authentication agent";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

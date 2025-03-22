@@ -2,9 +2,10 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   services.xserver = {
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
   };
 
   hardware = {

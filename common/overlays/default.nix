@@ -1,7 +1,8 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (self: super: {
+    (self: _super: {
       # Stable
       stable = import inputs.stable {
         inherit (self) system;

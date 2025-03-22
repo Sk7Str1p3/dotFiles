@@ -29,7 +29,7 @@
               name = "NixOS";
               content = {
                 type = "btrfs";
-                extraArgs = ["f"];
+                extraArgs = [ "f" ];
                 subvolumes = {
                   "root" = {
                     mountpoint = "/";
@@ -122,7 +122,7 @@
                 name = "HardDrive";
                 content = {
                   type = "btrfs";
-                  extraArgs = ["f"];
+                  extraArgs = [ "f" ];
                   subvolumes = {
                     "main" = {
                       mountpoint = "/media/HardDrive";
@@ -138,4 +138,3 @@
   };
 }
 # TODO: add keyfiles settings and add keyfiles into secrets
-

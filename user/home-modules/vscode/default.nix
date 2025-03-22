@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.vscode;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.vscode = {
@@ -62,9 +64,9 @@ in {
           chrischinchilla.vscode-pandoc
         ];
         /*
-        * ++ (with pkgs.vscode-marketplace; [
-        *   rust-lang.rust-analyzer
-        * ]);
+          * ++ (with pkgs.vscode-marketplace; [
+          *   rust-lang.rust-analyzer
+          * ]);
         */
         # TODO: Add more extensions
         userSettings = {

@@ -1,13 +1,15 @@
-{isDarwin, ...}: let
+{ isDarwin, ... }:
+let
   username = "Sk7Str1p3";
-in {
+in
+{
   home.persistence = {
     "/persist/home/${username}" = {
       enable = !isDarwin;
       allowOther = true;
 
-      directories = [];
-      files = [];
+      directories = [ ];
+      files = [ ];
       #TODO
     };
   };

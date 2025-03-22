@@ -1,13 +1,13 @@
 {
-  pkgs,
-  inputs,
   lib,
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.firefox;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.firefox = {
@@ -30,7 +30,7 @@ in {
         bookmarks = {
           force = true;
           settings = [
-            {}
+            { }
           ];
         };
 

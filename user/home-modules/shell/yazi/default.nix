@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.shell.yazi;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.shell.yazi = {
@@ -24,7 +26,7 @@ in {
 
       # Plugins
       glow = {
-        plugins.glow = pkgs.callPackage ./plugins/glow/package.nix {};
+        plugins.glow = pkgs.callPackage ./plugins/glow/package.nix { };
         settings.plugin.prepend_previewers = [
           {
             name = "*.md";
@@ -33,7 +35,7 @@ in {
         ];
       };
       miller = {
-        plugins.miller = pkgs.callPackage ./plugins/miller/package.nix {};
+        plugins.miller = pkgs.callPackage ./plugins/miller/package.nix { };
         settings.plugin.prepend_previewers = [
           {
             mime = "text/csv";
@@ -42,7 +44,7 @@ in {
         ];
       };
       mediainfo = {
-        plugins.mediainfo = pkgs.callPackage ./plugins/mediainfo/package.nix {};
+        plugins.mediainfo = pkgs.callPackage ./plugins/mediainfo/package.nix { };
         settings.plugin = {
           prepend_previewers = [
             {
@@ -67,7 +69,7 @@ in {
         };
       };
       ouch = {
-        plugins.ouch = pkgs.callPackage ./plugins/ouch/package.nix {};
+        plugins.ouch = pkgs.callPackage ./plugins/ouch/package.nix { };
         settings = {
           plugin.prepend_previewers = [
             {
@@ -106,7 +108,7 @@ in {
           manager.pretend_keymap = [
             {
               run = "plugin ouch --args=zip";
-              on = ["C"];
+              on = [ "C" ];
               desc = "Compress with ouch";
             }
           ];

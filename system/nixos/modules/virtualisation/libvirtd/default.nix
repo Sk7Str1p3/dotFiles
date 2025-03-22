@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.virtualisation.libvirtd;
-in {
+in
+{
   # Declare options
   options = {
     module.virtualisation.libvirtd = {
@@ -39,7 +41,7 @@ in {
           enable = true;
           package = pkgs.swtpm;
         };
-        vhostUserPackages = [pkgs.virtiofsd];
+        vhostUserPackages = [ pkgs.virtiofsd ];
       };
     };
   };

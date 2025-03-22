@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.rofi;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.rofi = {
@@ -35,14 +37,17 @@ in {
         display-Network = " 󰤨  Network";
         sidebar-mode = true;
       };
-      theme = let
-        inherit (config.lib.formats.rasi) mkLiteral;
-      in {
-        "*" = {
-          blue = mkLiteral "#cba6f7";
-          border-col = mkLiteral "#cba6f7";
+
+      /*
+        theme = let
+          inherit (config.lib.formats.rasi) mkLiteral;
+        in {
+          "*" = {
+            blue = mkLiteral "#cba6f7";
+            border-col = mkLiteral "#cba6f7";
+          };
         };
-      };
+      */
     };
   };
 }

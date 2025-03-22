@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.network.zapret;
-in {
+in
+{
   # Declare options
   options = {
     module.network.zapret = {

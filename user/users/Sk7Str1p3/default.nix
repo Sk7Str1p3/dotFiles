@@ -9,16 +9,15 @@
   allDirectories,
   hostPlatform,
   ...
-}: let
+}:
+let
   # Determine OS to know where to put the home directory
   inherit (pkgs.stdenv) isDarwin;
-  homeDirectory =
-    if isDarwin
-    then "/Users/${username}"
-    else "/home/${username}";
+  homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
 
   username = "Sk7Str1p3";
-in {
+in
+{
   sops.secrets = {
     "Sk7Str1p3/userPassword" = {
       sopsFile = ../../../secrets/users/Sk7Str1p3/userPassword.yaml;
@@ -30,7 +29,7 @@ in {
   users.users.Sk7Str1p3 = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     hashedPasswordFile = config.sops.secrets."Sk7Str1p3/userPassword".path;
   };
   # home-manager settings
@@ -38,10 +37,9 @@ in {
     useUserPackages = true;
     backupFileExtension =
       "backup-"
-      + pkgs.lib.readFile
-      "${pkgs.runCommandNoCC
-        "timestamp" {}
-        "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
+      + pkgs.lib.readFile "${pkgs.runCommandNoCC "timestamp" { }
+        "echo -n `date '+%Y%m%d%H%M%S'` > $out"
+      }";
     extraSpecialArgs = {
       inherit
         inputs
@@ -57,7 +55,8 @@ in {
     };
 
     users.${username} = {
-      imports = with inputs;
+      imports =
+        with inputs;
         [
           impermanence.nixosModules.home-manager.impermanence
           catppuccin.homeManagerModules.catppuccin

@@ -1,22 +1,18 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "strict": true,
-        "target": "ES2022",
-        "module": "ES2022",
-        "moduleResolution": "Bundler",
-        // "checkJs": true,
-        // "allowJs": true,
-        "jsx": "react-jsx",
-        "jsxImportSource": "/home/Sk7Str1p3/.local/share/ags/gtk3",
-        "paths": {
-            "astal": [
-                "/home/Sk7Str1p3/.local/share/ags"
-            ],
-            "astal/*": [
-                "/home/Sk7Str1p3/.local/share/ags/*"
-            ]
-        },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "strict": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    // "checkJs": true,
+    // "allowJs": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "/home/Sk7Str1p3/.local/share/ags/gtk3",
+    "paths": {
+      "astal": ["/home/Sk7Str1p3/.local/share/ags"],
+      "astal/*": ["/home/Sk7Str1p3/.local/share/ags/*"]
     }
+  }
 }

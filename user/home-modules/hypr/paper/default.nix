@@ -5,9 +5,11 @@
   self,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.hypr.paper;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.hypr.paper = {

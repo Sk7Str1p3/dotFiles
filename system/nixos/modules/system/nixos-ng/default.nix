@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.nixos-ng;
-in {
+in
+{
   # Declare options
   options = {
     module.nixos-ng = {

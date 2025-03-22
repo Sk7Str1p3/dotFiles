@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.boot.secureBoot;
-in {
+in
+{
   # Declare module options
   options = {
     module.boot.secureBoot = {
@@ -17,7 +19,7 @@ in {
   # Implementation
   config = mkIf cfg.enable {
     # Install sbctl for keys management
-    environment.systemPackages = [pkgs.sbctl];
+    environment.systemPackages = [ pkgs.sbctl ];
 
     boot = {
       lanzaboote = {

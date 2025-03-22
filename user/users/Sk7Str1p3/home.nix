@@ -3,7 +3,8 @@
   pkgs,
   isDarwin,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     # ideally should be empty
     # because home-manager provides modules for almost all apps
@@ -43,7 +44,7 @@
     nekoray
   ];
 
-  nixpkgs.overlays = [];
+  nixpkgs.overlays = [ ];
   module.user = {
     kitty.enable = !headless;
     vscode.enable = !headless;

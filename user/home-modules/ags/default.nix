@@ -5,9 +5,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.ags;
-in {
+in
+{
   # Declare options
   options = {
     module.user.ags = {

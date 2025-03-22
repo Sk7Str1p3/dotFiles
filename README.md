@@ -12,6 +12,7 @@
 - 🔐 Sops \\\ declarative secrets management
 
 ## 🗃 File structure
+
 - [flake.nix](flake.nix) \\\ repo core
 - [flake-parts](flake-parts/) \\\ flake modules
 - [system](system/) \\\ system configuration core
@@ -33,6 +34,7 @@
 Here's some screenshots of my workspace (work in progress)
 
 ### 💧 Hyprland
+
 <img src=./assets/hyprland/main.png>
 <img src=./assets/hyprland/vsc.png>
 <img src=./assets/hyprland/all.png>

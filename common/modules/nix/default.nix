@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.common.nix;
-in {
+in
+{
   # Declare options
   options = {
     module.common.nix = {
@@ -33,16 +35,16 @@ in {
       };
 
       /*
-        optimise = {
-        automatic = true;
-        persistent = true;
-        randomizedDelaySec = "0";
-        dates = [
-          "06:00"
-          "18:00"
-          "22:00"
-        ];
-      };
+          optimise = {
+          automatic = true;
+          persistent = true;
+          randomizedDelaySec = "0";
+          dates = [
+            "06:00"
+            "18:00"
+            "22:00"
+          ];
+        };
       */
 
       settings = {

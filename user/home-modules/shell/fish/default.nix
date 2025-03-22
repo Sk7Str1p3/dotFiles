@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.shell.fish;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.shell.fish = {
@@ -29,15 +31,15 @@ in {
           };
         }
         /*
-        {
-          name = "Async";
-          src = pkgs.fetchFromGitHub {
-            owner = "acomagu";
-            repo = "fish-async-prompt";
-            rev = "v1.2.0";
-            hash = "sha256-B7Ze0a5Zp+5JVsQUOv97mKHh5wiv3ejsDhJMrK7YOx4=";
-          };
-        }
+          {
+            name = "Async";
+            src = pkgs.fetchFromGitHub {
+              owner = "acomagu";
+              repo = "fish-async-prompt";
+              rev = "v1.2.0";
+              hash = "sha256-B7Ze0a5Zp+5JVsQUOv97mKHh5wiv3ejsDhJMrK7YOx4=";
+            };
+          }
         */
         {
           name = "Pufferfish";

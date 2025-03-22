@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   hardware.enableAllFirmware = true;
   boot = {
     kernelModules = [

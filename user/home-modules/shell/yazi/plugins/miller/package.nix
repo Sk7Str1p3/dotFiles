@@ -32,7 +32,7 @@ stdenv.mkDerivation {
     description = "Miller now in yazi.";
     homepage = "https://github.com/Reledia/miller.yazi";
     license = licenses.mit;
-    maintainers = [];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 }

@@ -32,7 +32,7 @@ stdenv.mkDerivation {
     description = "An ouch plugin for Yazi, supporting preview and compression.";
     homepage = "https://github.com/ndtoan96/ouch.yazi";
     license = licenses.mit;
-    maintainers = [];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 }

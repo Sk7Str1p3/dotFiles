@@ -1,3 +1,4 @@
-{allDirectories, ...}: {
+{ allDirectories, ... }:
+{
   imports = allDirectories ./.;
 }

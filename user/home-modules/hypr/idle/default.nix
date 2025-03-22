@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.module.user.hypr.idle;
-in {
+in
+{
   # Declare Options
   options = {
     module.user.hypr.idle = {
@@ -24,16 +26,16 @@ in {
         };
         listener = [
           /*
-          * {
-          *   timeout = 150;
-          *   on-timeout = "brightnessctl -s set 10";
-          *   on-resume = "brightnessctl -r";
-          * }
-          * {
-          *   timeout = 150;
-          *   on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
-          *   on-resume = "brightnessctl -sd rgb:kbd_backlight";
-          *  } shit's not gonna work on my hw
+            * {
+            *   timeout = 150;
+            *   on-timeout = "brightnessctl -s set 10";
+            *   on-resume = "brightnessctl -r";
+            * }
+            * {
+            *   timeout = 150;
+            *   on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
+            *   on-resume = "brightnessctl -sd rgb:kbd_backlight";
+            *  } shit's not gonna work on my hw
           */
           {
             timeout = 330;

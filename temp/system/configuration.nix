@@ -1,5 +1,6 @@
 # Your NixOS configuration. Here's the structure:
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware
     ./network.nix
@@ -93,27 +94,25 @@
 
   nixpkgs = {
     overlays = [
-      (self: super: {
+      (_self: super: {
         gnome-shell = super.gnome-shell.overrideAttrs (old: {
-          patches =
-            (old.patches or [])
-            ++ [
-              (
-                let
-                  bg = ./wp.png;
-                in
-                  pkgs.writeText "bg.patch" ''
-                    --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
-                    +++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
-                    @@ -15,4 +15,5 @@ $_gdm_dialog_width: 23em;
-                     /* Login Dialog */
-                     .login-dialog {
-                       background-color: $_gdm_bg;
-                    +  background-image: url('file://${bg}');
-                     }
-                  ''
-              )
-            ];
+          patches = (old.patches or [ ]) ++ [
+            (
+              let
+                bg = ./wp.png;
+              in
+              pkgs.writeText "bg.patch" ''
+                --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+                +++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+                @@ -15,4 +15,5 @@ $_gdm_dialog_width: 23em;
+                 /* Login Dialog */
+                 .login-dialog {
+                   background-color: $_gdm_bg;
+                +  background-image: url('file://${bg}');
+                 }
+              ''
+            )
+          ];
         });
       })
     ];
