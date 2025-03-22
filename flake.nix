@@ -7,7 +7,6 @@
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs.follows = "stable";
-
     # Unofficial repositories
     nur = {
       url = "github:nix-community/NUR";
@@ -17,12 +16,13 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # System Modules
+    # Config helpers
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    # System Modules
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
