@@ -40,7 +40,6 @@ in
 
           # Nix-specific extensions for better workflow
           bbenoist.nix
-          kamadorueda.alejandra
           jnoortheen.nix-ide
           jeff-hykin.better-nix-syntax
           arrterian.nix-env-selector
@@ -63,11 +62,6 @@ in
           dbaeumer.vscode-eslint
           chrischinchilla.vscode-pandoc
         ];
-        /*
-          * ++ (with pkgs.vscode-marketplace; [
-          *   rust-lang.rust-analyzer
-          * ]);
-        */
         # TODO: Add more extensions
         userSettings = {
           workbench.colorTheme = "Catppuccin Mocha";
