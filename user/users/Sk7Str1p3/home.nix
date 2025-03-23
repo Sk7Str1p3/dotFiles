@@ -10,10 +10,6 @@
     # because home-manager provides modules for almost all apps
     gimp
     blender
-    lunarvim
-    neovide
-    vimPlugins.LazyVim
-    git-credential-manager
     obsidian
     onefetch
     libreoffice-fresh
@@ -49,6 +45,10 @@
   module.user = {
     kitty.enable = !headless;
     vscode.enable = !headless;
+    neovim = {
+      enable = true;
+      gui.enable = !headless;
+    };
 
     shell = {
       fish.enable = true;
