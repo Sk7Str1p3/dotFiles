@@ -24,7 +24,7 @@ in
   config = mkIf cfg.enable {
     nix = {
       enable = true;
-      package = lib.mkForce pkgs.lix;
+      package = mkForce pkgs.nixVersions.latest;
 
       gc = {
         automatic = true;
@@ -56,6 +56,7 @@ in
         experimental-features = [
           "nix-command"
           "flakes"
+          "pipe-operators"
         ];
         max-jobs = 5;
         require-sigs = true;
