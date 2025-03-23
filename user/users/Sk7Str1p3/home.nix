@@ -16,6 +16,7 @@
     git-credential-manager
     obsidian
     onefetch
+    libreoffice-fresh
 
     adwsteamgtk
     bottles
