@@ -1,5 +1,6 @@
 {
   sops = {
-    age.keyFile = "/home/Sk7Str1p3/.config/sops/age/keys.txt";
+    #TODO: store key in more secure way
+    age.keyFile = "/keys.txt";
   };
 }
