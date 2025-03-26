@@ -21,13 +21,28 @@ in
   config = mkIf cfg.enable {
     programs.neovim = {
       enable = true;
-      package = pkgs.lunarvim; # TODO: custom nvim config
+      #package = pkgs.lunarvim; # TODO: custom nvim config
       viAlias = true;
       vimAlias = true;
+      defaultEditor = true;
     };
     programs.neovide = mkIf cfg.gui.enable {
       enable = true;
-      #settings = {...} #TODO: custom neovide settings
+      settings = {
+        backtraces_path = "${config.home.homeDirectory}/.local/share/neovide";
+        fork = true;
+        frame = "full";
+        idle = true;
+        maximized = false;
+        mouse-cursor-icon = "arrow";
+        #neovim-bin = "${pkgs.lunarvim}/bin/lvim";
+        no-multigrid = false;
+        srgb = true;
+        tabs = true;
+        theme = "auto";
+        vsync = true;
+        wsl = false;
+      }; 
     };
   };
 }

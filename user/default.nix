@@ -96,7 +96,7 @@ in
                 catppuccin.homeManagerModules.catppuccin
                 sops.homeManagerModules.sops
                 nur.modules.homeManager.default
-                nixvim.homeManagerModules.nixvim
+                nvf.homeManagerModules.default
                 nixcord.homeManagerModules.nixcord
                 ags.homeManagerModules.default
               ]
