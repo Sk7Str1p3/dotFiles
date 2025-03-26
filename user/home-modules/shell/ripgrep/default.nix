@@ -20,11 +20,11 @@ in
   config = mkIf cfg.enable {
     programs.ripgrep = {
       enable = true;
-      package = pkgs.ripgrep-all;
+      package = pkgs.ripgrep;
       arguments = [ ];
     };
     programs.fish.shellAliases = {
-      grep = "${pkgs.ripgrep-all}/bin/rga";
+      grep = "${pkgs.ripgrep}/bin/rg";
     };
   };
 }
