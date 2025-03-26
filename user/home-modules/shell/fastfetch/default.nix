@@ -1,6 +1,6 @@
 {
   config,
-  lib,
+  lib,self,
   ...
 }:
 with lib;
@@ -22,7 +22,7 @@ in
       settings = {
         logo = {
           padding.top = 1;
-          source = "~/.config/pics/nixos-logo.png";
+          source = "${self}/assets/logo.png";
           height = 22;
         };
         display = {

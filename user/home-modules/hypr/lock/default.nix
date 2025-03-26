@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  self,
   ...
 }:
 with lib;
@@ -63,7 +64,7 @@ in
 
           # BACKGROUND
           background = {
-            path = "/home/Sk7Str1p3/.config/home-manager/non-nix/images/bg-9.png";
+            path = "${self}/assets/wallpapers/purple-sea.png";
             blur_passes = 3;
           };
           # shape = [
