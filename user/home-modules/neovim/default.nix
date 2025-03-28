@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib;
@@ -42,7 +41,7 @@ in
         theme = "auto";
         vsync = true;
         wsl = false;
-      }; 
+      };
     };
   };
 }

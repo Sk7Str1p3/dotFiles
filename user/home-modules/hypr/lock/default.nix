@@ -31,42 +31,43 @@ in
           path = "${self}/assets/wallpapers/purple-sea.png";
           blur_passes = 3;
         };
-        label = [{
-          color = "$accent";
-          font_family = "$font";
-          font_size = 150;
-          halign = "center";
-          position = "0,170";
-          text = "cmd[update:43200000] date +'%H'";
-          valign = "center";
-        }
-        {
-          color = "$accent";
-          font_family = "$font";
-          font_size = 150;
-          halign = "center";
-          position = "0,0";
-          text = "cmd[update:43200000] date +'%M'";
-          valign = "center";
-        }
-        {
-          color = "$accent";
-          font_family = "$font";
-          font_size = 20;
-          halign = "center";
-          position = "0,-130";
-          text = "cmd[update:43200000] date +'%A'";
-          valign = "center";
-        }
-        {
-          color = "$accent";
-          font_family = "$font";
-          font_size = 20;
-          halign = "center";
-          position = "0,-165";
-          text = "cmd[update:43200000] date +'%e %b'";
-          valign = "center";
-        }
+        label = [
+          {
+            color = "$accent";
+            font_family = "$font";
+            font_size = 150;
+            halign = "center";
+            position = "0,170";
+            text = "cmd[update:43200000] date +'%H'";
+            valign = "center";
+          }
+          {
+            color = "$accent";
+            font_family = "$font";
+            font_size = 150;
+            halign = "center";
+            position = "0,0";
+            text = "cmd[update:43200000] date +'%M'";
+            valign = "center";
+          }
+          {
+            color = "$accent";
+            font_family = "$font";
+            font_size = 20;
+            halign = "center";
+            position = "0,-130";
+            text = "cmd[update:43200000] date +'%A'";
+            valign = "center";
+          }
+          {
+            color = "$accent";
+            font_family = "$font";
+            font_size = 20;
+            halign = "center";
+            position = "0,-165";
+            text = "cmd[update:43200000] date +'%e %b'";
+            valign = "center";
+          }
         ];
         input-field = {
           size = "250, 50";
