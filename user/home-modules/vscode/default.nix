@@ -32,6 +32,7 @@ in
           leonardssh.vscord
           github.copilot
           github.copilot-chat
+          editorconfig.editorconfig
 
           # Better Git integration
           mhutchie.git-graph
