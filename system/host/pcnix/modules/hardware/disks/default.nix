@@ -50,4 +50,22 @@
       options = [ "subvol=@swap" ];
     };
   };
+
+  swapDevices = [
+    {
+      device = "/.swapvol/NixSwap";
+      size = 12 * 1024;
+    }
+  ];
+  boot.resumeDevice = "/dev/mapper/NixOS";
+  #TODO: attempt to automatically calculate offset
+  #      or use separate swap volume
+  boot.kernelParams = [
+    "resume_offset=13183565"
+  ];
+
+  zramSwap = {
+    enable = true;
+  };
+
 }
