@@ -124,4 +124,20 @@ in
       )
       |> lib.foldl (acc: usr: acc // usr) { };
   };
+
+  # Enable desktop environments according to users and system type
+  services.xserver.displayManager.gdm = {
+    enable = (!headless && !isDarwin);
+    wayland = true;
+    autoSuspend = true;
+  };
+  programs.hyprland = {
+    enable = (!headless && !isDarwin && builtins.elem "Sk7Str1p3" userList);
+    withUWSM = true;
+    xwayland.enable = true;
+    systemd.setPath.enable = true;
+  };
+  services.xserver.desktopManager.gnome.enable = (
+    !headless && !isDarwin && builtins.elem "Nataly" userList
+  );
 }
