@@ -1,0 +1,27 @@
+[formatter.deadnix]
+command = "/nix/store/hjblq2f9wswgk6c0am0nqls3x7wb856n-deadnix-1.2.1/bin/deadnix"
+excludes = []
+includes = ["*.nix"]
+options = ["--edit"]
+
+[formatter.nixfmt]
+command = "/nix/store/vhz4dnzk48ilvfdac1cr11vl9gj1mmf7-nixfmt-unstable-2024-12-04/bin/nixfmt"
+excludes = []
+includes = ["*.nix"]
+options = []
+
+[formatter.prettier]
+command = "/nix/store/4gfhc5i9shmjj6b2sy540zzdcnrk05b7-prettier-3.3.3/bin/prettier"
+excludes = []
+includes = ["*.cjs", "*.css", "*.html", "*.js", "*.json", "*.json5", "*.jsx", "*.md", "*.mdx", "*.mjs", "*.scss", "*.ts", "*.tsx", "*.vue", "*.yaml", "*.yml"]
+options = ["--write"]
+
+[formatter.statix]
+command = "/nix/store/m5qpck71nd33v2yclkn4z90g2a3zwqxn-statix-fix/bin/statix-fix"
+excludes = []
+includes = ["*.nix"]
+options = []
+
+[global]
+excludes = ["*.lock", "*.patch", "package-lock.json", "go.mod", "go.sum", ".gitignore", ".gitmodules", ".hgignore", ".svnignore", "LICENSE", ".gitattributes", "*.png", "*.svg"]
+on-unmatched = "warn"
