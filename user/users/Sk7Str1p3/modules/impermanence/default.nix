@@ -4,13 +4,29 @@ let
 in
 {
   home.persistence = {
-    "/persist/home/${username}" = {
+    "/persist/${username}" = {
       enable = !isDarwin;
+      
       allowOther = true;
 
-      directories = [ ];
-      files = [ ];
-      #TODO
+      directories = [
+        "Desktop"
+        "Documents"
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Videos"
+
+        ".cargo" # TODO: set up crane
+
+        ".mozilla" # TODO: set up firefox with nix
+        ".local/share/Trash"
+        ".local/share/bottles"
+      ];
+      files = [
+        ".local/share/fish/fish_history"
+        ".local/share/nix/repl-history"
+      ];
     };
   };
 }

@@ -36,9 +36,10 @@
       *   ];
       * };
     */
-    "/home" = {
+    "/persist" = {
       device = "/dev/mapper/NixOS";
       fsType = "btrfs";
+      neededForBoot = true;
       options = [
         "subvol=@home"
         "compress-force=zstd"
