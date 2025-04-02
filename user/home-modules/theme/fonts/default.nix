@@ -22,13 +22,16 @@ in
       fontconfig = {
         enable = true;
         defaultFonts = {
-          monospace = [ "JetBrainsMono Nerd Font Mono" ];
+          monospace = [ "JetBrainsMono Nerd Font Propo" ];
+          emoji = [ "Noto Color Emoji" ];
+          sansSerif = [ "JetBrainsMono Nerd Font Propo" ];
+          serif = [ "JetBrainsMono Nerd Font Propo" ];
         };
       };
     };
-    home.packages = with pkgs.nerd-fonts; [
-      jetbrains-mono
-      iosevka
+    home.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      noto-fonts-color-emoji
     ];
   };
 }
