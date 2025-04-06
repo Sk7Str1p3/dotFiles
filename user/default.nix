@@ -25,23 +25,21 @@ in
 {
 
   # Passwords (with sops-nix)
-  sops.secrets =
-    userList
-    |> map (user: {
+  sops.secrets = lib.foldl (acc: usr: acc // usr) { } (
+    map (user: {
       "${user}/userPassword" = {
         sopsFile = ../secrets/users + "/${user}/userPassword.yaml";
         neededForUsers = true;
       };
-    })
-    |> lib.foldl (acc: usr: acc // usr) { };
+    }) userList
+  );
 
   # Shells
   programs.fish.enable = true;
 
   # User Settings
-  users.users =
-    userList
-    |> map (user: {
+  users.users = lib.foldl (acc: usr: acc // usr) { } (
+    map (user: {
       ${user} = {
         isNormalUser = if (user != "root") then true else false;
         isSystemUser = !config.users.users.${user}.isNormalUser;
@@ -49,8 +47,8 @@ in
         extraGroups = [ "wheel" ];
         hashedPasswordFile = config.sops.secrets."${user}/userPassword".path;
       };
-    })
-    |> lib.foldl (acc: usr: acc // usr) { };
+    }) userList
+  );
 
   home-manager = {
     # Home-Manager configuration
@@ -73,9 +71,8 @@ in
     };
 
     # Users configuration
-    users =
-      userList
-      |> map (
+    users = lib.foldl (acc: usr: acc // usr) { } (
+      map (
         user:
         let
           # define $home according to system type
@@ -121,23 +118,21 @@ in
             };
           };
         }
-      )
-      |> lib.foldl (acc: usr: acc // usr) { };
+      ) userList
+    );
   };
 
   # Enable desktop environments according to users and system type
   services.xserver.displayManager.gdm = {
-    enable = (!headless && !isDarwin);
+    enable = !headless && !isDarwin;
     wayland = true;
     autoSuspend = true;
   };
   programs.hyprland = {
-    enable = (!headless && !isDarwin && builtins.elem "Sk7Str1p3" userList);
+    enable = !headless && !isDarwin && builtins.elem "Sk7Str1p3" userList;
     withUWSM = true;
     xwayland.enable = true;
     systemd.setPath.enable = true;
   };
-  services.xserver.desktopManager.gnome.enable = (
-    !headless && !isDarwin && builtins.elem "Nataly" userList
-  );
+  services.xserver.desktopManager.gnome.enable = !headless && !isDarwin && builtins.elem "Nataly" userList;
 }

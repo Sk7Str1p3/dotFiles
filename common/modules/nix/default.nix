@@ -56,7 +56,6 @@ in
         experimental-features = [
           "nix-command"
           "flakes"
-          "pipe-operators"
         ];
         max-jobs = 5;
         require-sigs = true;
