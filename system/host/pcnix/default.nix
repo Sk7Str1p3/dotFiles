@@ -1,7 +1,10 @@
 {
   module = {
     boot = {
-      secureBoot.enable = true;
+      #secureBoot.enable = true;
+      #TODO: enable secure boot;
+      #      store secureboot keys as secret with git-agecrypt
+      systemd-boot.enable = true;
       plymouth.enable = false;
     };
 

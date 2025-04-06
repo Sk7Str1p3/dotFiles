@@ -1,72 +1,136 @@
 {
-  # TODO: enable disko and set mount points referring to disko config
-  fileSystems = {
-    "/nix/store" = {
-      device = "/dev/mapper/NixOS";
-      fsType = "btrfs";
-      options = [
-        "subvol=@nix"
-        "compress-force=zstd"
-      ];
+  fileSystems."/nix".neededForBoot = true;
+  disko.devices.disk = {
+    nvme = {
+      type = "disk";
+      device = "/dev/disk/by-id/nvme-KINGSTON_SKC3000S1024G_50026B7382BF814E";
+      content = {
+        type = "gpt";
+        partitions = {
+          esp = {
+            size = "512M";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              mountOptions = [
+                "defaults"
+                "umask=0077"
+              ];
+            };
+          };
+          nixos = {
+            size = "153600M";
+            content = {
+              type = "luks";
+              name = "NixOS";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "f" ];
+                subvolumes = {
+                  "root" = {
+                    mountpoint = "/";
+                    mountOptions = [
+                      "compress-force=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "store" = {
+                    mountpoint = "/nix";
+                    mountOptions = [
+                      "compress-force=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "swap" = {
+                    mountpoint = "/.swapvol";
+                    mountOptions = [
+                      "compress-force=zstd"
+                      "noatime"
+                    ];
+                    swap = {
+                      NixSwap.size = "8192M";
+                    };
+                  };
+                };
+              };
+            };
+          };
+          raid-volume = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "RaidNVME";
+              content = {
+                type = "btrfs";
+                extraArgs = [
+                  "-f"
+                  "-m raid1 -d raid1"
+                  "/dev/mapper/RaidSATA"
+                ];
+                subvolumes = {
+                  "main" = {
+                    mountpoint = "/media/LinuxWare";
+                    mountOptions = [
+                      "compress-force=zstd"
+                      "noatime"
+                    ];
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
     };
-    "/" = {
-      device = "/dev/mapper/NixOS";
-      fsType = "btrfs";
-      options = [
-        "subvol=@"
-        "compress-force=zstd"
-      ];
+    ssd = {
+      type = "disk";
+      device = "/dev/disk/by-id/ata-ADATA_SU650_1M1520100693";
+      content = {
+        type = "gpt";
+        partitions = {
+          raid-volume = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "RaidSATA";
+            };
+          };
+        };
+      };
     };
-    "/boot" = {
-      device = "/dev/nvme0n1p1";
-      fsType = "vfat";
-      options = [
-        "defaults"
-        "umask=0077"
-      ];
+    hdd = {
+      type = "disk";
+      device = "/dev/disk/by-id/ata-WDC_WD7500AAKS-00RBA0_WD-WCAPT0571131";
+      content = {
+        type = "gpt";
+        partitions = {
+          HDD = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "HDD";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "f" ];
+                subvolumes = {
+                  "main" = {
+                    mountpoint = "/media/HardDrive";
+                    mountOptions = [
+                      "compress-force=zstd"
+                      "noatime"
+                      "nofail"
+                    ];
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
     };
-    /*
-      * "/persist" = {
-      *   device = "/dev/mapper/NixOS";
-      *   neededForBoot = true;
-      *   fsType = "btrfs";
-      *   options = [
-      *     "subvol=persist"
-      *     "compress-force=zstd"
-      *   ];
-      * };
-    */
-    "/persist" = {
-      device = "/dev/mapper/NixOS";
-      fsType = "btrfs";
-      neededForBoot = true;
-      options = [
-        "subvol=@home"
-        "compress-force=zstd"
-      ];
-    };
-    "/.swapvol" = {
-      device = "/dev/mapper/NixOS";
-      fsType = "btrfs";
-      options = [ "subvol=@swap" ];
-    };
-  };
-
-  swapDevices = [
-    {
-      device = "/.swapvol/NixSwap";
-      size = 12 * 1024;
-    }
-  ];
-  boot.resumeDevice = "/dev/mapper/NixOS";
-  #TODO: attempt to automatically calculate offset
-  #      or use separate swap volume
-  boot.kernelParams = [
-    "resume_offset=13183565"
-  ];
-
-  zramSwap = {
-    enable = true;
   };
 
 }
+# TODO: add keyfiles settings and add keyfiles into secrets
