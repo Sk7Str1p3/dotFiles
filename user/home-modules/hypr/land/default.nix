@@ -139,8 +139,7 @@ in
           ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
           ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         ];
-        layerrule =
-          [ "blur, AGS" ];
+        layerrule = [ "blur, AGS" ];
       };
     };
   };

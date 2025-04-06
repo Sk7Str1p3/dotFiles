@@ -43,8 +43,7 @@ in
           {
             type = "datetime";
             key = "{#magenta}│  Fetched at";
-            format = "{day-pretty}.{month-pretty}.{year}" +
-                     " {hour-pretty}:{minute-pretty} {timezone-name}";
+            format = "{day-pretty}.{month-pretty}.{year} {hour-pretty}:{minute-pretty} {timezone-name}";
           }
           {
             type = "os";
