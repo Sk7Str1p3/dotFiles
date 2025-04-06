@@ -1,6 +1,6 @@
 {
   sops = {
-    #TODO: store key in more secure way
-    age.keyFile = "/keys.txt";
+    #TODO: store key in repo with git-agecrypt
+    age.keyFile = "/nix/persist/system/keys.txt";
   };
 }

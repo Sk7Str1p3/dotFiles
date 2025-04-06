@@ -1,19 +1,19 @@
 {
   programs.fuse.userAllowOther = true;
 
-  environment.persistence."/persist" = {
+  environment.persistence."/nix/persist/host" = {
     enable = false;
     hideMounts = true;
     directories = [
-      "/.rw-etc/upper/NetworkManager"
-      "/.rw-etc/upper/resolve.conf"
-      "/val/lib/sbctl"
+      "/etc/NetworkManager"
+      "/var/lib/sbctl"
       "/var/lib/systemd"
-      "/var/lib"
+      "/var/lib/AccountsService/users"
     ];
 
     files = [
-      "/.rw-etc/machine-id"
+      "/etc/machine-id"
+      "/keys.txt"
     ];
   };
 }
