@@ -4,9 +4,9 @@ let
 in
 {
   home.persistence = {
-    "/persist/${username}" = {
+    "/nix/persist/user/${username}" = {
       enable = !isDarwin;
-      
+
       allowOther = true;
 
       directories = [
@@ -17,15 +17,18 @@ in
         "Pictures"
         "Videos"
 
-        ".cargo" # TODO: set up crane
+        ".cargo"
 
         ".mozilla" # TODO: set up firefox with nix
         ".local/share/Trash"
         ".local/share/bottles"
+        ".local/share/keyrings"
+        ".local/share/direnv"
       ];
       files = [
         ".local/share/fish/fish_history"
         ".local/share/nix/repl-history"
+        ".config/onefetch/config.toml"
       ];
     };
   };
