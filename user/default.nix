@@ -72,53 +72,47 @@ in
 
     # Users configuration
     users = lib.foldl (acc: usr: acc // usr) { } (
-      map (
-        user:
-        let
-          # define $home according to system type
-          homeDirectory =
-            if (user == "root") then
-              "/root"
-            else if isDarwin then
-              "/Users/${user}"
-            else
-              "/home/${user}";
-        in
-        {
-          ${user} = {
-            imports =
-              with inputs;
-              [
-                impermanence.nixosModules.home-manager.impermanence
-                catppuccin.homeManagerModules.catppuccin
-                sops.homeManagerModules.sops
-                nur.modules.homeManager.default
-                nvf.homeManagerModules.default
-                nixcord.homeManagerModules.nixcord
-                ags.homeManagerModules.default
-              ]
-              ++ [
-                "${self}/user/home-modules"
-                "${self}/user/users/${user}/modules"
-                "${self}/user/users/${user}/home.nix"
-              ]
-              ++ [
-                "${self}/common/overlays"
-                "${self}/common/modules"
-              ];
-
-            nixpkgs.overlays = with inputs; [
-              nur.overlays.default
-              prismLauncher.overlays.default
-              nix-vscode-extensions.overlays.default
+      map (user: {
+        ${user} = {
+          imports =
+            with inputs;
+            [
+              impermanence.nixosModules.home-manager.impermanence
+              catppuccin.homeManagerModules.catppuccin
+              sops.homeManagerModules.sops
+              nur.modules.homeManager.default
+              nvf.homeManagerModules.default
+              nixcord.homeManagerModules.nixcord
+              ags.homeManagerModules.default
+            ]
+            ++ [
+              "${self}/user/home-modules"
+              "${self}/user/users/${user}/modules"
+              "${self}/user/users/${user}/home.nix"
+            ]
+            ++ [
+              "${self}/common/overlays"
+              "${self}/common/modules"
             ];
-            home = {
-              inherit homeDirectory;
-              stateVersion = homeStateVersion;
-            };
+
+          nixpkgs.overlays = with inputs; [
+            nur.overlays.default
+            prismLauncher.overlays.default
+            nix-vscode-extensions.overlays.default
+          ];
+          home = {
+            homeDirectory =
+              # define $home according to system type
+              if (user == "root") then
+                "/root"
+              else if isDarwin then
+                "/Users/${user}"
+              else
+                "/home/${user}";
+            stateVersion = homeStateVersion;
           };
-        }
-      ) userList
+        };
+      }) userList
     );
   };
 
@@ -134,5 +128,6 @@ in
     xwayland.enable = true;
     systemd.setPath.enable = true;
   };
-  services.xserver.desktopManager.gnome.enable = !headless && !isDarwin && builtins.elem "Nataly" userList;
+  services.xserver.desktopManager.gnome.enable =
+    !headless && !isDarwin && builtins.elem "Nataly" userList;
 }
