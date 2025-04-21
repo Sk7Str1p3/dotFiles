@@ -16,9 +16,11 @@
       settings = {
         global.excludes = [
           "LICENSE"
-          ".gitattributes"
+          "**/.gitignore"
           "*.png"
           "*.svg"
+          "*.enc"
+          ".envrc"
         ];
       };
     };
