@@ -1,7 +1,31 @@
 {
+  lib,
+  self,
+  config,
+  ...
+}:
+{
   fileSystems."/nix".neededForBoot = true;
+
+  sops.secrets = lib.foldl' (acc: key: acc // key) { } (
+    let
+      keyNames = [
+        "HardDrive"
+        "RaidSATA"
+        "RaidNVME"
+        "NixOS"
+      ];
+    in
+    map (key: {
+      "${key}" = {
+        sopsFile = "${self}/secrets/hosts/pcnix/luksKeys/${key}.key.enc";
+        format = "binary";
+      };
+    }) keyNames
+  );
+
   disko.devices.disk = {
-    nvme = {
+    main = {
       type = "disk";
       device = "/dev/disk/by-id/nvme-KINGSTON_SKC3000S1024G_50026B7382BF814E";
       content = {
@@ -25,6 +49,9 @@
             content = {
               type = "luks";
               name = "NixOS";
+              settings = {
+                keyFile = config.sops.secrets."NixOS".path;
+              };
               content = {
                 type = "btrfs";
                 extraArgs = [ "f" ];
@@ -62,6 +89,9 @@
             content = {
               type = "luks";
               name = "RaidNVME";
+              settings = {
+                keyFile = config.sops.secrets."RaidNVME".path;
+              };
               content = {
                 type = "btrfs";
                 extraArgs = [
@@ -95,6 +125,9 @@
             content = {
               type = "luks";
               name = "RaidSATA";
+              settings = {
+                keyFile = config.sops.secrets."RaidSATA".path;
+              };
             };
           };
         };
@@ -111,6 +144,9 @@
             content = {
               type = "luks";
               name = "HDD";
+              settings = {
+                keyFile = config.sops.secrets."HardDrive".path;
+              };
               content = {
                 type = "btrfs";
                 extraArgs = [ "f" ];
@@ -131,6 +167,4 @@
       };
     };
   };
-
 }
-# TODO: add keyfiles settings and add keyfiles into secrets
