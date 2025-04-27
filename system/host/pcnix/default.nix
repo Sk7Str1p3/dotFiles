@@ -1,10 +1,11 @@
 {
   module = {
+    system.boot.loader = {
+      enable = true;
+      type = "systemd-boot";
+      isSecured = true;
+    };
     boot = {
-      #secureBoot.enable = true;
-      #TODO: enable secure boot;
-      #      store secureboot keys as secret with git-agecrypt
-      systemd-boot.enable = true;
       plymouth.enable = false;
     };
 
