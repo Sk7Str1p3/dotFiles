@@ -3,7 +3,6 @@
   self,
   pkgs,
   lib,
-  config,
   inputs,
   hostName,
   homeStateVersion,
@@ -12,46 +11,16 @@
   hostPlatform,
   ...
 }:
-/*
-  Here's some info about user
-  to be declared on system level
-*/
 let
-  # add root user in case it didn't appear in users list
   userList = users ++ [ "root" ];
-  # detect if nix installed on MacOS
   inherit (pkgs.stdenv) isDarwin;
 in
 {
-
-  # Passwords (with sops-nix)
-  sops.secrets = lib.foldl (acc: usr: acc // usr) { } (
-    map (user: {
-      "${user}/userPassword" = {
-        sopsFile = ../secrets/users + "/${user}/userPassword.yaml";
-        neededForUsers = true;
-      };
-    }) userList
-  );
-
-  # Shells
-  programs.fish.enable = true;
-
-  # User Settings
-  users.users = lib.foldl (acc: usr: acc // usr) { } (
-    map (user: {
-      ${user} = {
-        isNormalUser = if (user != "root") then true else false;
-        isSystemUser = !config.users.users.${user}.isNormalUser;
-        shell = pkgs.fish;
-        extraGroups = [ "wheel" ];
-        hashedPasswordFile = config.sops.secrets."${user}/userPassword".path;
-      };
-    }) userList
-  );
+  imports = [
+    ./system-modules
+  ];
 
   home-manager = {
-    # Home-Manager configuration
     backupFileExtension =
       "backup-"
       + builtins.readFile "${pkgs.runCommandNoCC "timestamp" { }
@@ -70,15 +39,14 @@ in
         ;
     };
 
-    # Users configuration
-    users = lib.foldl (acc: usr: acc // usr) { } (
+    users = lib.foldl' (acc: usr: acc // usr) { } (
       map (user: {
         ${user} = {
           imports =
             with inputs;
             [
               impermanence.nixosModules.home-manager.impermanence
-              catppuccin.homeManagerModules.catppuccin
+              catppuccin.homeModules.catppuccin
               sops.homeManagerModules.sops
               nur.modules.homeManager.default
               nvf.homeManagerModules.default
@@ -102,7 +70,6 @@ in
           ];
           home = {
             homeDirectory =
-              # define $home according to system type
               if (user == "root") then
                 "/root"
               else if isDarwin then
@@ -115,19 +82,4 @@ in
       }) userList
     );
   };
-
-  # Enable desktop environments according to users and system type
-  services.xserver.displayManager.gdm = {
-    enable = !headless && !isDarwin;
-    wayland = true;
-    autoSuspend = true;
-  };
-  programs.hyprland = {
-    enable = !headless && !isDarwin && builtins.elem "Sk7Str1p3" userList;
-    withUWSM = true;
-    xwayland.enable = true;
-    systemd.setPath.enable = true;
-  };
-  services.xserver.desktopManager.gnome.enable =
-    !headless && !isDarwin && builtins.elem "Nataly" userList;
 }

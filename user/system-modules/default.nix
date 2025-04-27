@@ -1,0 +1,4 @@
+{ allDirectories, ... }:
+{
+  imports = allDirectories ./.;
+}
