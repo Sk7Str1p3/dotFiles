@@ -95,6 +95,13 @@ in
       )
     ]))
 
-    #(throwIf (cfg.type == "efistub") "EFISTUB is not implemented yet!")
+    {
+      assertions = [
+        {
+          assertion = cfg.type != "efistub";
+          message = "EFISTUB is not implemented yet!";
+        }
+      ];
+    }
   ]);
 }
