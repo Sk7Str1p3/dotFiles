@@ -16,6 +16,9 @@ in
         "Music"
         "Pictures"
         "Videos"
+        ".local/share/Steam"
+        ".local/share/PrismLauncher"
+        ".local/share/AyuGramDesktop"
 
         ".cargo"
 
@@ -27,7 +30,6 @@ in
       ];
       files = [
         ".local/share/fish/fish_history"
-        ".local/share/nix/repl-history"
         ".config/onefetch/config.toml"
       ];
     };
