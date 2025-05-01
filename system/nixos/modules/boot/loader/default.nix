@@ -42,58 +42,19 @@ in
       };
     }
 
-    (mkIf (cfg.type == "systemd-boot") (mkMerge [
-      {
-        boot.loader.systemd-boot = {
-          enable = mkForce (!cfg.isSecured);
-          configurationLimit = 20;
-          consoleMode = "max";
-          editor = false;
-        };
-        boot.loader.timeout = 3;
-      }
-      (
-        let
-          keys = [
-            "db"
-            "KEK"
-            "PK"
-          ];
-          types = [
-            "key"
-            "pem"
-          ];
-        in
-        mkIf cfg.isSecured {
-          boot.lanzaboote = {
-            enable = true;
-            pkiBundle = "/var/lib/sbctl";
-          };
-          sops.secrets = foldl' (acc: sbKey: acc // sbKey) { } (
-            builtins.concatMap (
-              key:
-              map (type: {
-                "secureBoot/${key}/${type}" = {
-                  sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/${key}.yaml";
-                };
-                "secureBoot/guid".sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/guid.yaml";
-              }) types
-            ) keys
-          );
-          systemd.tmpfiles.settings."11-sbKeys" = foldl' (acc: sbKey: acc // sbKey) { } (
-            builtins.concatMap (
-              key:
-              map (type: {
-                "/var/lib/sbctl/keys/${key}/${key}.${type}" = {
-                  "L+".argument = config.sops.secrets."secureBoot/${key}/${type}".path;
-                };
-                "/var/lib/sbctl/GUID"."L+".argument = config.sops.secrets."secureBoot/guid".path;
-              }) types
-            ) keys
-          );
-        }
-      )
-    ]))
+    (mkIf (cfg.type == "systemd-boot") {
+      boot.loader.systemd-boot = {
+        enable = mkForce (!cfg.isSecured);
+        configurationLimit = 20;
+        consoleMode = "max";
+        editor = false;
+      };
+      boot.loader.timeout = 3;
+      boot.lanzaboote = {
+        enable = cfg.isSecured;
+        pkiBundle = "/var/lib/sbctl";
+      };
+    })
 
     {
       assertions = [
@@ -103,5 +64,43 @@ in
         }
       ];
     }
+
+    (mkIf cfg.isSecured (
+      let
+        keys = [
+          "db"
+          "KEK"
+          "PK"
+        ];
+        types = [
+          "key"
+          "pem"
+        ];
+      in
+      {
+        sops.secrets = foldl' (acc: sbKey: acc // sbKey) { } (
+          builtins.concatMap (
+            key:
+            map (type: {
+              "secureBoot/${key}/${type}" = {
+                sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/${key}.yaml";
+              };
+              "secureBoot/guid".sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/guid.yaml";
+            }) types
+          ) keys
+        );
+        systemd.tmpfiles.settings."11-sbKeys" = foldl' (acc: sbKey: acc // sbKey) { } (
+          builtins.concatMap (
+            key:
+            map (type: {
+              "/var/lib/sbctl/keys/${key}/${key}.${type}" = {
+                "L+".argument = config.sops.secrets."secureBoot/${key}/${type}".path;
+              };
+              "/var/lib/sbctl/GUID"."L+".argument = config.sops.secrets."secureBoot/guid".path;
+            }) types
+          ) keys
+        );
+      }
+    ))
   ]);
 }
