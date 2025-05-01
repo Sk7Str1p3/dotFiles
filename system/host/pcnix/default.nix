@@ -5,6 +5,15 @@
       type = "systemd-boot";
       isSecured = true;
     };
+
+    system.network.ssh = {
+      enable = true;
+      keyAlgorithm = [
+        "rsa"
+        "ed25519"
+        "ecdsa"
+      ];
+    };
     boot = {
       plymouth.enable = false;
     };
