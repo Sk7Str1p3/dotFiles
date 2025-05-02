@@ -12,7 +12,7 @@ in
 
   programs.fish.enable = true;
 
-  users.users = lib.foldl' (acc: usr: acc // usr) { } (
+  users.users = lib.mkMerge (
     map (user: {
       ${user} = {
         isNormalUser = if (user != "root") then true else false;

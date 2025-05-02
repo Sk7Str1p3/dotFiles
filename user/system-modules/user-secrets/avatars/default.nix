@@ -5,7 +5,7 @@
   ...
 }:
 {
-  sops.secrets = lib.foldl' (acc: usr: acc // usr) { } (
+  sops.secrets = lib.mkMerge (
     map (user: {
       "${user}-face" = {
         sopsFile = "${self}/secrets/users/${user}/face.png.enc";

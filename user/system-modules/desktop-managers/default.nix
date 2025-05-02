@@ -26,7 +26,7 @@ in
   };
   security.pam.services.gdm.enableGnomeKeyring = true;
   systemd.tmpfiles.settings = lib.mkIf (!headless && !isDarwin) {
-    "20-gdm-default-session" = lib.foldl' (acc: usr: acc // usr) { } (
+    "20-gdm-default-session" = lib.mkMerge (
       map (user: {
         "/run/tmpfiles/var/lib/AccountsService/users/${user}".f = {
           argument = ''${lib.generators.toINI { } {

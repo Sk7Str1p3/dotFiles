@@ -8,7 +8,7 @@ let
   userList = users ++ [ "root" ];
 in
 {
-  sops.secrets = lib.foldl' (acc: usr: acc // usr) { } (
+  sops.secrets = lib.mkMerge (
     map (user: {
       "${user}/userPassword" = {
         sopsFile = "${self}/secrets/users/${user}/userPassword.yaml";

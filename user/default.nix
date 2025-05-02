@@ -39,7 +39,7 @@ in
         ;
     };
 
-    users = lib.foldl' (acc: usr: acc // usr) { } (
+    users = lib.mkMerge (
       map (user: {
         ${user} = {
           imports =

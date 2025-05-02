@@ -7,7 +7,7 @@
 {
   fileSystems."/nix".neededForBoot = true;
 
-  sops.secrets = lib.foldl' (acc: key: acc // key) { } (
+  sops.secrets = lib.mkMerge (
     let
       keyNames = [
         "HardDrive"

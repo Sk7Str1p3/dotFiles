@@ -46,7 +46,7 @@ in
     }
 
     (mkIf (cfg.keyAlgorithm != null) {
-      sops.secrets = foldl' (acc: key: acc // key) { } (
+      sops.secrets = mkMerge (
         map (algo: {
           "ssh/${algo}/pub" = {
             sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
@@ -55,7 +55,7 @@ in
           "ssh/${algo}/key".sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
         }) cfg.keyAlgorithm
       );
-      environment.etc = foldl' (acc: key: acc // key) { } (
+      environment.etc = mkMerge (
         map (algo: {
             "ssh/ssh_host_${algo}_key".source = config.sops.secrets."ssh/${algo}/key".path;
             "ssh/ssh_host_${algo}_key.pub".source = config.sops.secrets."ssh/${algo}/pub".path;
