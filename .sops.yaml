@@ -5,6 +5,10 @@ creation_rules:
     key_groups:
       - age:
           - *primary
+  - path_regex: secrets/users/[^/]+/[^/]+/[^/]+\.(yaml|enc)$
+    key_groups:
+      - age:
+          - *primary
   - path_regex: secrets/hosts/[^/]+/[^/]+/[^/]+\.(yaml|enc)$
     key_groups:
       - age:
