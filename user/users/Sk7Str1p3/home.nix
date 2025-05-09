@@ -50,6 +50,15 @@
       gui.enable = !headless;
     };
 
+    network.ssh = {
+      enable = true;
+      keyAlgorithm = [
+        "ecdsa"
+        "ed25519"
+        "rsa"
+      ];
+    };
+
     shell = {
       fish.enable = true;
       starship.enable = true;
