@@ -10,6 +10,7 @@
           git
           lunarvim
           nixd
+          nixfmt-rfc-style
         ];
       };
     };
