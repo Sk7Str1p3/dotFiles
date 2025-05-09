@@ -6,6 +6,10 @@
       isSecured = true;
     };
 
+    system.impermanence = {
+      enable = true;
+    };
+
     system.network.ssh = {
       enable = true;
       keyAlgorithm = [

@@ -1,4 +1,0 @@
-{ allDirectories, ... }:
-{
-  imports = allDirectories ./.;
-}
