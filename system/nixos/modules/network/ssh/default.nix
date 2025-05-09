@@ -57,8 +57,8 @@ in
       );
       environment.etc = mkMerge (
         map (algo: {
-            "ssh/ssh_host_${algo}_key".source = config.sops.secrets."ssh/${algo}/key".path;
-            "ssh/ssh_host_${algo}_key.pub".source = config.sops.secrets."ssh/${algo}/pub".path;
+          "ssh/ssh_host_${algo}_key".source = config.sops.secrets."ssh/${algo}/key".path;
+          "ssh/ssh_host_${algo}_key.pub".source = config.sops.secrets."ssh/${algo}/pub".path;
         }) cfg.keyAlgorithm
       );
     })

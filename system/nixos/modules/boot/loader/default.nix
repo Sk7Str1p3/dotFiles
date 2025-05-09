@@ -67,11 +67,19 @@ in
 
     (mkIf cfg.isSecured (
       let
-        keys = ["db" "KEK" "PK"];
-        types = ["key" "pem"];
+        keys = [
+          "db"
+          "KEK"
+          "PK"
+        ];
+        types = [
+          "key"
+          "pem"
+        ];
       in
       mkMerge (
-        builtins.concatMap (key:
+        builtins.concatMap (
+          key:
           map (type: {
             sops.secrets = {
               "secureBoot/${key}/${type}".sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/${key}.yaml";
