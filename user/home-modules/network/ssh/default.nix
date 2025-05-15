@@ -37,7 +37,7 @@ in
         enable = true;
         addKeysToAgent = "confirm";
         compression = true;
-        controlMaster = true;
+        controlMaster = "yes";
         hashKnownHosts = true;
       };
     }
@@ -55,9 +55,12 @@ in
       );
       home.file = mkMerge (
         map (algo: {
-          ".ssh/id_${algo}".source = config.sops.secrets."${config.home.username}/sshKeys/${algo}/key".path;
+          ".ssh/id_${algo}".source =
+            config.lib.file.mkOutOfStoreSymlink
+              config.sops.secrets."${config.home.username}/sshKeys/${algo}/key".path;
           ".ssh/id_${algo}.pub".source =
-            config.sops.secrets."${config.home.username}/sshKeys/${algo}/pub".path;
+            config.lib.file.mkOutOfStoreSymlink
+              config.sops.secrets."${config.home.username}/sshKeys/${algo}/pub".path;
         }) cfg.keyAlgorithm
       );
     })
