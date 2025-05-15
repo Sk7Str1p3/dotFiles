@@ -67,7 +67,6 @@ in
           "https://lanzaboote.cachix.org/"
           "https://cache.garnix.io/"
           "https://nixos-cache-proxy.cofob.dev/"
-          "https://ags.cachix.org"
           "https://prismlauncher.cachix.org"
         ];
         trusted-public-keys = [
@@ -77,7 +76,6 @@ in
           "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
           "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
           "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
-          "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
         ];
 
         trusted-users = [
