@@ -28,7 +28,7 @@ in
           hide_cursor = true;
         };
         background = {
-          path = "${self}/assets/wallpapers/purple-sea.png";
+          path = "${self}/assets/wallpapers/catp/purple-sea.png";
           blur_passes = 3;
         };
         label = [

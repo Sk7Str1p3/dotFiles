@@ -24,10 +24,10 @@ in
       enable = true;
       settings = {
         preload = [
-          "${self}/assets/wallpapers/purple-sea.png"
+          "${self}/assets/wallpapers/catp/purple-sea.png"
         ];
         wallpaper = [
-          "HDMI-A-1, ${self}/assets/wallpapers/purple-sea.png"
+          "HDMI-A-1, ${self}/assets/wallpapers/catp/purple-sea.png"
         ];
       };
     };
