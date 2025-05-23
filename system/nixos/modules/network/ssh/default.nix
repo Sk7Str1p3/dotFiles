@@ -48,17 +48,17 @@ in
     (mkIf (cfg.keyAlgorithm != null) {
       sops.secrets = mkMerge (
         map (algo: {
-          "ssh/${algo}/pub" = {
+          "sshKeys/${algo}/pub" = {
             sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
             mode = "0444";
           };
-          "ssh/${algo}/key".sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
+          "sshKeys/${algo}/key".sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
         }) cfg.keyAlgorithm
       );
       environment.etc = mkMerge (
         map (algo: {
-          "ssh/ssh_host_${algo}_key".source = config.sops.secrets."ssh/${algo}/key".path;
-          "ssh/ssh_host_${algo}_key.pub".source = config.sops.secrets."ssh/${algo}/pub".path;
+          "ssh/ssh_host_${algo}_key".source = config.sops.secrets."sshKeys/${algo}/key".path;
+          "ssh/ssh_host_${algo}_key.pub".source = config.sops.secrets."sshKeys/${algo}/pub".path;
         }) cfg.keyAlgorithm
       );
     })
