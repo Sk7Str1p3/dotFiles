@@ -65,7 +65,7 @@ in
 
           nixpkgs.overlays = with inputs; [
             nur.overlays.default
-            prismLauncher.overlays.default
+            elyprism.overlays.default
             nix-vscode-extensions.overlays.default
           ];
           home = {

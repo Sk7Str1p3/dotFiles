@@ -66,7 +66,7 @@
       url = "github:snowfallorg/nixos-conf-editor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    prismLauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
+    elyprism.url = "github:ElyPrismLauncher/ElyPrismLauncher";
   };
 
   outputs =

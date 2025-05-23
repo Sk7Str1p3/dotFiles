@@ -42,27 +42,27 @@ in
         allowOther = true;
         defaultDirectoryMethod = "bindfs";
         directories = [
-        "Desktop"
-        "Documents"
-        "Downloads"
-        "Music"
-        "Pictures"
-        "Videos"
-        ".local/share/Steam"
-        ".local/share/PrismLauncher"
-        ".local/share/AyuGramDesktop"
+          "Desktop"
+          "Documents"
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Videos"
+          ".local/share/Steam"
+          ".local/share/ElyPrismLauncher"
+          ".local/share/AyuGramDesktop"
 
-        ".cargo"
+          ".cargo"
 
-        ".mozilla" # TODO: set up firefox with nix
-        ".local/share/Trash"
-        ".local/share/bottles"
-        ".local/share/keyrings"
-        ".local/share/direnv"
+          ".mozilla" # TODO: set up firefox with nix
+          ".local/share/Trash"
+          ".local/share/bottles"
+          ".local/share/keyrings"
+          ".local/share/direnv"
         ] ++ cfg.extraDirs;
         files = [
-        ".local/share/fish/fish_history"
-        ".config/onefetch/config.toml"
+          ".local/share/fish/fish_history"
+          ".config/onefetch/config.toml"
         ] ++ cfg.extraFiles;
       };
     };
