@@ -7,6 +7,18 @@
 {
   fileSystems."/nix".neededForBoot = true;
 
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [
+      "/"
+      "/media/LinuxWare"
+      "/media/HardDrive"
+      "/nix"
+      "/.swapvol"
+    ];
+    interval = "daily";
+  };
+
   sops.secrets = lib.mkMerge (
     let
       keyNames = [
