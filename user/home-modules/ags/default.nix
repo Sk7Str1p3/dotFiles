@@ -42,5 +42,7 @@ in
         "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
       ];
     };
+    # keep until #703 is merged
+    systemd.user.services.ags.Service.RestartSec = "10";
   };
 }

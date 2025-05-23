@@ -21,13 +21,14 @@ in
     home.packages = [ pkgs.hyprsunset ];
     systemd.user.services.hyprsunset = {
       Unit = {
+        After = [ "graphical-session.target" ];
         Description = "Application to enable a blue-light filter on Hyprland";
         PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
       };
       Service = {
         ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset --temperature 4500";
-        Restart = "on-failure";
+        Restart = "always";
+        RestartSec = "10";
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
