@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs branches
-    stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    stable.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs.follows = "stable";
