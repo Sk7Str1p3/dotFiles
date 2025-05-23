@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   config = lib.mkMerge [
     {
@@ -7,7 +12,7 @@
       ];
     }
     {
-      sops.age.keyFile = "/etc/sops/keys.txt";
+      sops.age.keyFile = "/var/lib/sops/keys.txt";
     }
 
     (lib.mkIf config.module.user.impermanence.enable {
