@@ -50,10 +50,7 @@ in
             "/var/lib/NetworkManager"
           ] ++ cfg.extraDirs;
           files = [
-            {
-              file = "/etc/sops/keys.txt";
-              mode = "0500";
-            }
+            "/var/lib/sops/keys.txt"
           ] ++ cfg.extraFiles;
         };
       };
