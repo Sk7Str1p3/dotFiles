@@ -67,6 +67,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     elyprism.url = "github:ElyPrismLauncher/ElyPrismLauncher";
+    spicetify.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =

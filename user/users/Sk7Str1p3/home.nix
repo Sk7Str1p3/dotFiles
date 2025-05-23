@@ -43,6 +43,7 @@
 
   nixpkgs.overlays = [ ];
   module.user = {
+    spotify.enable = true;
     kitty.enable = !headless;
     vscode.enable = !headless;
     neovim = {
