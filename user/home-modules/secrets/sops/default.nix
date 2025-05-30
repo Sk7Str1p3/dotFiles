@@ -13,6 +13,7 @@
     }
     {
       sops.age.keyFile = "/var/lib/sops/keys.txt";
+      sops.defaultSopsFormat = "binary";
     }
 
     (lib.mkIf config.module.user.impermanence.enable {

@@ -30,7 +30,7 @@
     in
     map (key: {
       "${key}" = {
-        sopsFile = "${self}/secrets/hosts/pcnix/luksKeys/${key}.key.enc";
+        sopsFile = "${self}/secrets/hosts/pcnix/luksKeys/${key}.age";
         format = "binary";
       };
     }) keyNames

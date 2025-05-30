@@ -8,8 +8,7 @@
   sops.secrets = lib.mkMerge (
     map (user: {
       "${user}-face" = {
-        sopsFile = "${self}/secrets/users/${user}/face.png.enc";
-        format = "binary";
+        sopsFile = "${self}/secrets/users/${user}/face.age";
         mode = "0644";
       };
     }) users

@@ -49,16 +49,14 @@ in
       sops.secrets = mkMerge (
         map (algo: {
           "sshKeys/${algo}/pub" = {
-            sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
+            sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}/public.age";
             mode = "0444";
+            path = "/etc/ssh/ssh_host_${algo}_key.pub";
           };
-          "sshKeys/${algo}/key".sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}.yaml";
-        }) cfg.keyAlgorithm
-      );
-      environment.etc = mkMerge (
-        map (algo: {
-          "ssh/ssh_host_${algo}_key".source = config.sops.secrets."sshKeys/${algo}/key".path;
-          "ssh/ssh_host_${algo}_key.pub".source = config.sops.secrets."sshKeys/${algo}/pub".path;
+          "sshKeys/${algo}/key" = {
+            sopsFile = "${self}/secrets/hosts/${hostName}/sshKeys/${algo}/private.age";
+            path = "/etc/ssh/ssh_host_${algo}_key";
+          };
         }) cfg.keyAlgorithm
       );
     })

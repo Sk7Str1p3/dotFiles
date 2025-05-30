@@ -47,20 +47,14 @@ in
     (mkIf (cfg.keyAlgorithm != null) {
       sops.secrets = mkMerge (
         map (algo: {
-          "${config.home.username}/sshKeys/${algo}/pub".sopsFile =
-            "${self}/secrets/users/${config.home.username}/sshKeys/${algo}.yaml";
-          "${config.home.username}/sshKeys/${algo}/key".sopsFile =
-            "${self}/secrets/users/${config.home.username}/sshKeys/${algo}.yaml";
-        }) cfg.keyAlgorithm
-      );
-      home.file = mkMerge (
-        map (algo: {
-          ".ssh/id_${algo}".source =
-            config.lib.file.mkOutOfStoreSymlink
-              config.sops.secrets."${config.home.username}/sshKeys/${algo}/key".path;
-          ".ssh/id_${algo}.pub".source =
-            config.lib.file.mkOutOfStoreSymlink
-              config.sops.secrets."${config.home.username}/sshKeys/${algo}/pub".path;
+          "ssh/${algo}/pub" = {
+            sopsFile = "${self}/secrets/users/${config.home.username}/sshKeys/${algo}/public.age";
+            path = ".ssh/id_${algo}.pub";
+          };
+          "sshKeys/${algo}/key" = {
+            sopsFile = "${self}/secrets/users/${config.home.username}/sshKeys/${algo}/private.age";
+            path = ".ssh/id_${algo}";
+          };
         }) cfg.keyAlgorithm
       );
     })

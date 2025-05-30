@@ -82,14 +82,14 @@ in
           key:
           map (type: {
             sops.secrets = {
-              "secureBoot/${key}/${type}".sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/${key}.yaml";
-              "secureBoot/guid".sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/guid.yaml";
-            };
-            systemd.tmpfiles.settings."11-sbKeys" = {
-              "/var/lib/sbctl/keys/${key}/${key}.${type}" = {
-                "L+".argument = config.sops.secrets."secureBoot/${key}/${type}".path;
+              "secureBoot/${key}/${type}" = {
+                sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/${key}/${type}.age";
+                path = "/var/lib/sbctl/keys/${key}/${key}.${type}";
               };
-              "/var/lib/sbctl/GUID"."L+".argument = config.sops.secrets."secureBoot/guid".path;
+              "secureBoot/guid" = {
+                sopsFile = "${self}/secrets/hosts/pcnix/sbKeys/guid.age";
+                path = "/var/lib/sbctl/GUID";
+              };
             };
           }) types
         ) keys
