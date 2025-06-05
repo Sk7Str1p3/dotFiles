@@ -12,10 +12,21 @@ in
   options = {
     module.user.firefox = {
       enable = mkEnableOption "firefox";
+      type = mkOption {
+        type = types.enum [
+          "firefox"
+          "librewolf"
+          "floorp"
+        ];
+        # nix-community/home-manager#6852
+        # NixOS/nixpkgs#400250
+        #default = "librewolf";
+        default = "floorp";
+      };
     };
   };
   config = mkIf cfg.enable {
-    programs.firefox = {
+    programs.${cfg.type} = {
       enable = true;
 
       languagePacks = [
