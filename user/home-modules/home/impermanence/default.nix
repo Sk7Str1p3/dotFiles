@@ -54,7 +54,6 @@ in
 
           ".cargo"
 
-          ".mozilla" # TODO: set up firefox with nix
           ".local/share/Trash"
           ".local/share/bottles"
           ".local/share/keyrings"

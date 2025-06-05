@@ -25,10 +25,11 @@ in
       };
     };
   };
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enable (mkMerge [
+    {
     programs.${cfg.type} = {
       enable = true;
-
+        configPath = ".${cfg.type}";
       languagePacks = [
         "en-GB"
         "ru"
