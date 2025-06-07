@@ -17,9 +17,9 @@ in
     xwayland.enable = true;
     systemd.setPath.enable = true;
   };
-  services.xserver.desktopManager.gnome.enable =
+  services.desktopManager.gnome.enable =
     !headless && !isDarwin && builtins.elem "Nataly" userList;
-  services.xserver.displayManager.gdm = {
+  services.displayManager.gdm = {
     enable = !headless && !isDarwin;
     wayland = true;
     autoSuspend = true;
