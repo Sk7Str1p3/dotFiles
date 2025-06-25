@@ -50,7 +50,7 @@ in
               sops.homeManagerModules.sops
               nur.modules.homeManager.default
               nvf.homeManagerModules.default
-              nixcord.homeManagerModules.nixcord
+              nixcord.homeModules.nixcord
               ags.homeManagerModules.default
             ]
             ++ [
