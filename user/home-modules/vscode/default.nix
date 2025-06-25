@@ -21,7 +21,6 @@ in
     programs.vscode = {
       enable = true;
       package = pkgs.vscode;
-      mutableExtensionsDir = false;
       # Disable some annoying and not ''nix way'' stuff
       profiles.default = {
         enableExtensionUpdateCheck = false;
