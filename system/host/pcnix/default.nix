@@ -3,7 +3,6 @@
     system.boot.loader = {
       enable = true;
       type = "systemd-boot";
-      isSecured = true;
     };
 
     system.impermanence = {
@@ -19,7 +18,7 @@
       ];
     };
     boot = {
-      plymouth.enable = false;
+      plymouth.enable = true;
     };
 
     network = {

@@ -26,7 +26,7 @@ in
           nixos-bgrt-plymouth
           # TODO: custom plymouth theme
         ];
-        theme = "bgrt";
+        theme = mkForce "bgrt";
       };
       # Add kernel cmdline for proper Plymouth work
       kernelParams = [

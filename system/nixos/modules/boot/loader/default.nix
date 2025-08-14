@@ -49,7 +49,7 @@ in
         consoleMode = "max";
         editor = false;
       };
-      boot.loader.timeout = 3;
+      boot.loader.timeout = 0;
       boot.lanzaboote = {
         enable = cfg.isSecured;
         pkiBundle = "/var/lib/sbctl";
