@@ -1,10 +1,4 @@
 {
-  lib,
-  self,
-  config,
-  ...
-}:
-{
   fileSystems."/nix".neededForBoot = true;
 
   services.btrfs.autoScrub = {
@@ -18,23 +12,6 @@
     ];
     interval = "daily";
   };
-
-  sops.secrets = lib.mkMerge (
-    let
-      keyNames = [
-        "HardDrive"
-        "RaidSATA"
-        "RaidNVME"
-        "NixOS"
-      ];
-    in
-    map (key: {
-      "${key}" = {
-        sopsFile = "${self}/secrets/hosts/pcnix/luksKeys/${key}.age";
-        format = "binary";
-      };
-    }) keyNames
-  );
 
   disko.devices.disk = {
     main = {
@@ -59,38 +36,31 @@
           nixos = {
             size = "153600M";
             content = {
-              type = "luks";
-              name = "NixOS";
-              settings = {
-                keyFile = config.sops.secrets."NixOS".path;
-              };
-              content = {
-                type = "btrfs";
-                extraArgs = [ "f" ];
-                subvolumes = {
-                  "root" = {
-                    mountpoint = "/";
-                    mountOptions = [
-                      "compress-force=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "store" = {
-                    mountpoint = "/nix";
-                    mountOptions = [
-                      "compress-force=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "swap" = {
-                    mountpoint = "/.swapvol";
-                    mountOptions = [
-                      "compress-force=zstd"
-                      "noatime"
-                    ];
-                    swap = {
-                      NixSwap.size = "8192M";
-                    };
+              type = "btrfs";
+              extraArgs = [ "f" ];
+              subvolumes = {
+                "root" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress-force=zstd"
+                    "noatime"
+                  ];
+                };
+                "store" = {
+                  mountpoint = "/nix";
+                  mountOptions = [
+                    "compress-force=zstd"
+                    "noatime"
+                  ];
+                };
+                "swap" = {
+                  mountpoint = "/.swapvol";
+                  mountOptions = [
+                    "compress-force=zstd"
+                    "noatime"
+                  ];
+                  swap = {
+                    NixSwap.size = "8192M";
                   };
                 };
               };
@@ -99,26 +69,19 @@
           raid-volume = {
             size = "100%";
             content = {
-              type = "luks";
-              name = "RaidNVME";
-              settings = {
-                keyFile = config.sops.secrets."RaidNVME".path;
-              };
-              content = {
-                type = "btrfs";
-                extraArgs = [
-                  "-f"
-                  "-m raid1 -d raid1"
-                  "/dev/mapper/RaidSATA"
-                ];
-                subvolumes = {
-                  "main" = {
-                    mountpoint = "/media/LinuxWare";
-                    mountOptions = [
-                      "compress-force=zstd"
-                      "noatime"
-                    ];
-                  };
+              type = "btrfs";
+              extraArgs = [
+                "-f"
+                "-m raid1 -d raid1"
+                "/dev/disk/by-partlabel/disk-ssd-raid-volume"
+              ];
+              subvolumes = {
+                "main" = {
+                  mountpoint = "/media/LinuxWare";
+                  mountOptions = [
+                    "compress-force=zstd"
+                    "noatime"
+                  ];
                 };
               };
             };
@@ -134,13 +97,6 @@
         partitions = {
           raid-volume = {
             size = "100%";
-            content = {
-              type = "luks";
-              name = "RaidSATA";
-              settings = {
-                keyFile = config.sops.secrets."RaidSATA".path;
-              };
-            };
           };
         };
       };
@@ -154,23 +110,16 @@
           HDD = {
             size = "100%";
             content = {
-              type = "luks";
-              name = "HDD";
-              settings = {
-                keyFile = config.sops.secrets."HardDrive".path;
-              };
-              content = {
-                type = "btrfs";
-                extraArgs = [ "f" ];
-                subvolumes = {
-                  "main" = {
-                    mountpoint = "/media/HardDrive";
-                    mountOptions = [
-                      "compress-force=zstd"
-                      "noatime"
-                      "nofail"
-                    ];
-                  };
+              type = "btrfs";
+              extraArgs = [ "f" ];
+              subvolumes = {
+                "main" = {
+                  mountpoint = "/media/HardDrive";
+                  mountOptions = [
+                    "compress-force=zstd"
+                    "noatime"
+                    "nofail"
+                  ];
                 };
               };
             };
