@@ -1,3 +1,5 @@
+# Repository [moved](https://github.com/Sk7Str1p3/nixos)
+
 <div align="center"><img src=./assets/logo.png width=300></div>
 <h1 align="center">Sk7Str1p3's Flake</h1>
 
